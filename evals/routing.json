@@ -1,0 +1,258 @@
+{
+  "skill_name": "routing",
+  "description": "Which skill does the agent load for a given request? The descriptions in the skill frontmatter are the routing signal; these cases are the regression spec for them. The first entry in expected_skills is the primary skill.",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Rewrite this paragraph so it reads like a standards deliverable and drop the vague claims.",
+      "expected_skills": ["sdo-writing"],
+      "note": "Prose quality of standards text, not document mechanics."
+    },
+    {
+      "id": 2,
+      "prompt": "In an ETSI contribution, do we write 'organisation' or 'organization', and how do we write dates and ranges?",
+      "expected_skills": ["sdo-writing"],
+      "note": "Mechanical conventions belong to the writing skill, not to the drafting skill."
+    },
+    {
+      "id": 3,
+      "prompt": "Check this draft for generic filler like 'state of the art' and for claims we cannot support.",
+      "expected_skills": ["sdo-writing"],
+      "note": "The self-check list of the writing skill."
+    },
+    {
+      "id": 4,
+      "prompt": "Set the caption numbering on these figures and make the text refer to Table 3 automatically.",
+      "expected_skills": ["sdo-docx"],
+      "note": "SEQ and REF field codes are a DOCX operation."
+    },
+    {
+      "id": 5,
+      "prompt": "The equation numbering in clause 5 is wrong. Fix it without breaking the rest of the document.",
+      "expected_skills": ["sdo-docx"],
+      "note": "Equation and table counters, applied through named styles."
+    },
+    {
+      "id": 6,
+      "prompt": "Apply the proper note style to the three notes under clause 4.2 and make them a numbered list.",
+      "expected_skills": ["sdo-docx"],
+      "note": "Note styles and enumerations, with the SDO style-name map."
+    },
+    {
+      "id": 7,
+      "prompt": "How do I insert a bookmark and a cross-reference so the reference updates when the numbering changes?",
+      "expected_skills": ["sdo-docx"],
+      "note": "Bookmarks and field codes."
+    },
+    {
+      "id": 8,
+      "prompt": "I need to start an ETSI TS. Which skeleton do I take and what are the clauses?",
+      "expected_skills": ["sdo-drafting"],
+      "note": "Skeleton selection and deliverable structure."
+    },
+    {
+      "id": 9,
+      "prompt": "What does a 3GPP contribution (TDoc) look like - which sections and which header fields?",
+      "expected_skills": ["sdo-drafting"],
+      "note": "TDoc frontmatter and structure live in the drafting skill."
+    },
+    {
+      "id": 10,
+      "prompt": "How are the clauses of an ITU-T Recommendation with an appendix structured?",
+      "expected_skills": ["sdo-drafting"],
+      "note": "ITU-T clause order and annex conventions, in the ITU-T reference tree."
+    },
+    {
+      "id": 11,
+      "prompt": "What patent obligations do I have when I submit a contribution to an ITU-T study group?",
+      "expected_skills": ["sdo-ipr"],
+      "note": "The Common Patent Policy and the declaration forms."
+    },
+    {
+      "id": 12,
+      "prompt": "Our ETSI deliverable carries an IPR clause. May I rewrite it to be more precise?",
+      "expected_skills": ["sdo-ipr", "etsi-directives"],
+      "note": "The IPR clause of a deliverable is protected: the agent answers from the policy skill and does not rewrite the clause."
+    },
+    {
+      "id": 13,
+      "prompt": "Set up a new project for the contribution I am starting next week.",
+      "expected_skills": ["sdo-project-setup"],
+      "note": "Project bootstrap: PLAN.md, AGENTS.md, directory layout."
+    },
+    {
+      "id": 14,
+      "prompt": "Keep the document properties of the deliverable in sync with PLAN.md.",
+      "expected_skills": ["sdo-project-setup"],
+      "note": "Metadata synchronisation, not formatting."
+    },
+    {
+      "id": 15,
+      "prompt": "What is the difference between an ETSI TS and a TR, and who approves each?",
+      "expected_skills": ["etsi-governance"],
+      "note": "Deliverable types and the lifecycle; the binding voting rules are in etsi-directives."
+    },
+    {
+      "id": 16,
+      "prompt": "Who is the Technical Officer, what does a working group do, and what is a rapporteur?",
+      "expected_skills": ["etsi-governance"],
+      "note": "Roles and terminology."
+    },
+    {
+      "id": 17,
+      "prompt": "How is a decision taken in ETSI - who may vote and what majority is needed?",
+      "expected_skills": ["etsi-directives"],
+      "note": "The Rules of Procedure decide this, not the overview skill."
+    },
+    {
+      "id": 18,
+      "prompt": "What does the ETSI IPR policy require of a chairman when a patent is declared in a meeting?",
+      "expected_skills": ["etsi-directives"],
+      "note": "Chairs' Annex C duties; the general IPR frame is in sdo-ipr."
+    },
+    {
+      "id": 19,
+      "prompt": "I want to submit a contribution to the next TC meeting. What do I have to do?",
+      "expected_skills": ["etsi-procedures"],
+      "note": "The meeting and submission procedure."
+    },
+    {
+      "id": 20,
+      "prompt": "We need a new Work Item for the next release - who has to support it and what does the description look like?",
+      "expected_skills": ["etsi-procedures"],
+      "note": "Work Item rules and the support threshold."
+    },
+    {
+      "id": 21,
+      "prompt": "How long does the ENAP route take, and what are the deadlines for the national public comment step?",
+      "expected_skills": ["etsi-procedures"],
+      "note": "The approval routes and their clocks."
+    },
+    {
+      "id": 22,
+      "prompt": "What is the latest version of ETSI TS 103 224, and where do I download it?",
+      "expected_skills": ["etsi-tools"],
+      "note": "Specification metadata and download URLs."
+    },
+    {
+      "id": 23,
+      "prompt": "List the documents that are registered for the next ETSI TC meeting.",
+      "expected_skills": ["etsi-tools", "etsi-procedures"],
+      "note": "The portal tooling answers the how; the procedures skill says what a meeting document is."
+    },
+    {
+      "id": 24,
+      "prompt": "Explain how 3GPP is organized and what the three TSGs cover.",
+      "expected_skills": ["3gpp-basics"],
+      "note": "The organization overview."
+    },
+    {
+      "id": 25,
+      "prompt": "When is the next 3GPP SA plenary, and how are plenaries named?",
+      "expected_skills": ["3gpp-meetings"],
+      "note": "Meeting schedule and naming; TDoc numbers belong to 3gpp-tdocs."
+    },
+    {
+      "id": 26,
+      "prompt": "Give me the meeting schedule for the RAN working group meetings of this year.",
+      "expected_skills": ["3gpp-meetings"],
+      "note": "The meeting calendar."
+    },
+    {
+      "id": 27,
+      "prompt": "Which 3GPP working group owns this feature, and what is its tbid?",
+      "expected_skills": ["3gpp-working-groups"],
+      "note": "Working group identifiers and the tbid mapping."
+    },
+    {
+      "id": 28,
+      "prompt": "Explain the RAN1 to RAN6 and SA1 to SA6 structure and how the SubTB numbers relate to it.",
+      "expected_skills": ["3gpp-working-groups"],
+      "note": "Subgroup hierarchy and identifiers."
+    },
+    {
+      "id": 29,
+      "prompt": "What is Rel-19, when does it freeze, and which specifications are in it?",
+      "expected_skills": ["3gpp-releases"],
+      "note": "Release structure, versioning and freeze."
+    },
+    {
+      "id": 30,
+      "prompt": "Where do I find the specification files for 3GPP TS 21.456 on the 3GPP file server?",
+      "expected_skills": ["3gpp-specifications"],
+      "note": "FTP directory structure for specifications; the TDoc folders are a different skill."
+    },
+    {
+      "id": 31,
+      "prompt": "What is the difference between 21.456.0 and 21.456.1, and how are spec versions numbered?",
+      "expected_skills": ["3gpp-specifications"],
+      "note": "Specification numbering and version format."
+    },
+    {
+      "id": 32,
+      "prompt": "What is the TDoc number for the RAN1 working group meeting in April 2026?",
+      "expected_skills": ["3gpp-tdocs"],
+      "note": "TDoc number format and the meeting-code mapping."
+    },
+    {
+      "id": 33,
+      "prompt": "Crawl the meeting folder on the file server and tell me which TDocs are there; skip the inbox and the draft folders.",
+      "expected_skills": ["3gpp-tdocs"],
+      "note": "TDoc discovery, subdirectory detection and the excluded directories."
+    },
+    {
+      "id": 34,
+      "prompt": "I have to submit a change request against TS 23.501. What is the CR number format and what goes on the cover sheet?",
+      "expected_skills": ["3gpp-change-request"],
+      "note": "CR format and the submission checklist."
+    },
+    {
+      "id": 35,
+      "prompt": "Our change request came back with a status code. What does it mean and what happens next in the CR lifecycle?",
+      "expected_skills": ["3gpp-change-request"],
+      "note": "CR status codes and the lifecycle."
+    },
+    {
+      "id": 36,
+      "prompt": "The 3GPP portal asks me to log in. How does that login work and how do I keep the session?",
+      "expected_skills": ["3gpp-portal-authentication"],
+      "note": "EOL login and session handling."
+    },
+    {
+      "id": 37,
+      "prompt": "How is an ITU-T Recommendation structured and how does it get approved?",
+      "expected_skills": ["itut-reference"],
+      "note": "Recommendation structure, annex conventions and the approval path."
+    },
+    {
+      "id": 38,
+      "prompt": "What is the difference between WTSA approval and TAP or AAP approval?",
+      "expected_skills": ["itut-reference"],
+      "note": "Study group, TSAG and TSB; the approval methods."
+    },
+    {
+      "id": 39,
+      "prompt": "What does 'ITU-T | ISO/IEC common text' mean, and how do I write a requirement in a Recommendation?",
+      "expected_skills": ["itut-reference"],
+      "note": "Common text and the modal verbs."
+    },
+    {
+      "id": 40,
+      "prompt": "How do I submit a contribution to the next ITU-T study group meeting, and when is the deadline?",
+      "expected_skills": ["itut-contributions"],
+      "note": "The submission procedure and the deadlines, from Rec. A.1 clause 3."
+    },
+    {
+      "id": 41,
+      "prompt": "Write a liaison statement to another ITU-T study group. What does the format require?",
+      "expected_skills": ["itut-contributions"],
+      "note": "The liaison statement format is part of the contribution rules."
+    },
+    {
+      "id": 42,
+      "prompt": "I have to build a document with a TDoc header, revision history and numbered clauses, and it has to pass the review - what is the order of work?",
+      "expected_skills": ["sdo-project-setup", "sdo-drafting", "sdo-docx"],
+      "note": "A compound request: setup first, then the skeleton, then the mechanics."
+    }
+  ]
+}

@@ -2,10 +2,10 @@
 
 !!! note "Status"
     The consolidation pass is largely done. The tree went from 23 inherited
-    skills to **19** (`4 common`, `4 etsi`, `8 3gpp`, `3 itut`), every body is
+    skills to **19** (`5 common`, `4 etsi`, `8 3gpp`, `2 itut`), every body is
     under the 8 KiB budget, and the linter reports **0 errors, 0 warnings**.
-    What is left is the writer repository, the install path and the routing
-    evals - see [Remaining work](#remaining-work).
+    The writer repository, the install path and the routing evals are done as
+    well; what is left is in [Remaining work](#remaining-work).
 
     The analysis below was written on 2026-05-21 for 21 skills in a single flat
     directory. It is kept as the record of *what was found*, not as a task list.
@@ -154,17 +154,24 @@ Three rules that kept the merge safe:
 
 | # | Item | Where | Notes |
 |---|------|-------|-------|
-| 1 | Writer repository `opencode-sdo-writer` | new repo | agent, three profiles, install CLI, `vendor.lock` |
-| 2 | Install path | new repo | one-line install, skill copy into `~/.config/opencode/skills/`, manifest for update/uninstall |
-| 3 | Routing evals | `evals/routing.json` in this repo | ~30 prompts -> expected skill ID; the only real defence against over-broad descriptions after merging |
-| 4 | ETSI docx property mapping | `common/sdo-project-setup` | the `--props` hole from section E |
-| 5 | `itut-meetings` | `skills/itut/` | meeting procedures from ITU-T A.1 |
-| 6 | Spec retrieval for 3GPP and ITU-T | `skills/3gpp/`, `skills/itut/` | parallel to `etsi-tools/scripts/get_etsi_spec.py` |
-| 7 | Generated skill catalog | `docs/` | catalog page from frontmatter instead of hand-written tables |
-| 8 | Drop the per-project skill copies | consumer projects | `.agents/skills/` copies are now stale |
+| 1 | ETSI docx property mapping | `common/sdo-project-setup` | the `--props` hole from section E |
+| 2 | `itut-meetings` | `skills/itut/` | meeting procedures from ITU-T A.1 |
+| 3 | Spec retrieval for 3GPP and ITU-T | `skills/3gpp/`, `skills/itut/` | parallel to `etsi-tools/scripts/get_etsi_spec.py` |
+| 4 | Generated skill catalog | `docs/` | catalog page from frontmatter instead of hand-written tables |
+| 5 | Drop the per-project skill copies | consumer projects | `.agents/skills/` copies are now stale |
 
 ## Completed
 
+- **Writer repository** - [jr2804/opencode-sdo-writer](https://github.com/jr2804/opencode-sdo-writer):
+  one agent, three profiles (`etsi`, `3gpp`, `itut`), an install CLI and a
+  `vendor.lock` that pins this repository at a tag.
+- **Install path** - `opencode-sdo-writer init --profile etsi` copies the skill
+  directories into `~/.config/opencode/skills/`, writes the agent into
+  `~/.config/opencode/agents/` and records a manifest, so `update` and
+  `uninstall` know what belongs to the package.
+- **Routing evals** - `evals/routing.json`: 42 requests with the expected
+  skill. The linter fails when a case names a skill that does not exist and
+  warns when a skill of the tree is not expected by any case.
 - **`itut-patents`** (2025-05-22) - from the Common Patent Policy Guidelines
   (2022) and the ITU patents book Ch.15: patent policy, IPR disclosure,
   3 licensing options, declaration forms, database, neutrality principles.

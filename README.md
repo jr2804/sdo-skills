@@ -2,12 +2,10 @@
 
 > Portable agent skills for writing standards contributions and deliverables (ETSI, 3GPP, ITU-T)
 
-<!-- markdownlint-disable MD033 -->
 <p align="center">
   <a href="#"><img alt="Python 3.13+" src="https://img.shields.io/badge/python-3.13%2B-3776ab?logo=python"></a>
   <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/license-MIT-green.svg"></a>
 </p>
-<!-- markdownlint-enable MD033 -->
 
 ---
 
@@ -68,7 +66,19 @@ the convention.
 
 ## Using the skills
 
-Point a consumer project at the layers it needs:
+The packaged route is the writer repository, which vendors a pinned snapshot of
+this tree and writes the skills into an OpenCode configuration directory:
+
+```bash
+uvx --from "opencode-sdo-writer" opencode-sdo-writer init --profile etsi
+```
+
+That installs the `sdo-writer` agent and the common plus ETSI layers into
+`~/.config/opencode/`, and records a manifest so that `update` and `uninstall`
+know what belongs to the package.
+
+Point a consumer project at the layers it needs instead, when the checkout is
+already there:
 
 ```jsonc
 {
@@ -82,8 +92,14 @@ Point a consumer project at the layers it needs:
 ```
 
 Paths are listed, not submoduled, so the same checkout serves an ETSI, a 3GPP and
-an ITU-T project without duplication. A packaged installer, profiles and the
-writer agent belong to the `opencode-sdo-writer` repository.
+an ITU-T project without duplication.
+
+## Routing evals
+
+`evals/routing.json` holds 42 requests with the skill that should answer them.
+After a merge, when a description has become broader than the skill behind it,
+the evals are what shows it. The linter fails when a case names a skill that
+does not exist and warns when a skill of the tree is expected by no case.
 
 ## Repository layout
 
@@ -91,6 +107,7 @@ writer agent belong to the `opencode-sdo-writer` repository.
 sdo-skills/
   skills/                 # the product: layered skill tree
     common/  etsi/  3gpp/  itut/
+  evals/                  # routing cases (prompt -> expected skill)
   src/sdo_skills/         # package: install, validate, vendor skills
   scripts/                # lint_skills.py and friends
   docs/                   # Zensical site, design notes, backlog

@@ -49,6 +49,13 @@ flavor = "gfm"
 
 # Rule-specific configurations (uncomment and modify as needed)
 
+# The skill tree is prompt material, not prose for a web page. A long line
+# there is a deliberate choice: the text is read by a model and diffed line by
+# line. The gate for the skills is scripts/lint_skills.py, which checks the
+# frontmatter, the references, the cross-references and the size budget.
+[per-file-ignores]
+"skills/**/*.md" = ["MD013"]
+
 # [MD003]
 # style = "atx"  # Heading style (atx, atx_closed, setext)
 

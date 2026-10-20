@@ -14,9 +14,11 @@ Checks (errors fail the run, warnings only report):
 - the ``SKILL.md`` body stays within the size budget
 - external tools are invoked pull-on-demand (``mise x <spec> -- <tool>``)
   instead of assuming a local installation
+- the routing evals name skills that exist, and every skill of the tree is
+  reached by at least one eval case
 
 Usage:
-    python scripts/lint_skills.py [--root skills] [--strict] [--json]
+    python scripts/lint_skills.py [--root skills] [--evals evals/routing.json] [--strict] [--json]
 """
 
 from __future__ import annotations
@@ -121,6 +123,12 @@ def main(argv: list[str] | None = None) -> int:
     """Run the linter."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path("skills"))
+    parser.add_argument(
+        "--evals",
+        type=Path,
+        default=Path("evals/routing.json"),
+        help="routing eval file (empty string disables the check)",
+    )
     parser.add_argument("--strict", action="store_true", help="treat warnings as errors")
     parser.add_argument("--json", action="store_true", help="emit JSON")
     args = parser.parse_args(argv)
@@ -138,6 +146,12 @@ def main(argv: list[str] | None = None) -> int:
     )
     for skill in skills:
         check_skill(skill, ctx)
+
+    eval_path = args.evals
+    if str(eval_path) and eval_path.is_file():
+        check_evals(eval_path, ctx)
+    elif str(eval_path):
+        report.add("warning", eval_path, 0, "no routing eval file")
 
     if args.json:
         print(json.dumps({"skills": len(skills), "items": report.items}, indent=2))
@@ -289,10 +303,48 @@ def check_refs(markdown_file: Path, body: str, first_line: int, skill_dir: Path,
             ctx.report.add("warning", markdown_file, lineno, f"@{name} is not machine-discoverable; use the skill tool or an ID in backticks")
 
 
+def check_evals(eval_path: Path, ctx: Context) -> None:
+    """Validate the routing evals against the skill tree.
+
+    Every skill named in an eval must exist, and every skill of the tree
+    must be the expected answer for at least one case. An unreachable
+    skill never gets loaded, so a silent gap here is a routing bug.
+    """
+    try:
+        data = json.loads(eval_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        ctx.report.add("error", eval_path, 0, f"cannot read routing evals: {exc}")
+        return
+
+    evals = data.get("evals")
+    if not isinstance(evals, list) or not evals:
+        ctx.report.add("error", eval_path, 0, "routing evals have no cases")
+        return
+
+    covered: set[str] = set()
+    for index, case in enumerate(evals, start=1):
+        if not isinstance(case, dict):
+            ctx.report.add("error", eval_path, index, "eval case is not an object")
+            continue
+        expected = case.get("expected_skills")
+        if not isinstance(expected, list) or not expected:
+            ctx.report.add("error", eval_path, index, "eval case has no expected_skills")
+            continue
+        if not case.get("prompt"):
+            ctx.report.add("error", eval_path, index, "eval case has no prompt")
+        for skill_id in expected:
+            if skill_id not in ctx.skill_ids:
+                ctx.report.add("error", eval_path, index, f"eval names unknown skill {skill_id!r}")
+            else:
+                covered.add(skill_id)
+
+    for skill_id in sorted(ctx.skill_ids - covered):
+        ctx.report.add("warning", eval_path, 0, f"no routing eval expects {skill_id!r}")
+
+
 def discover(root: Path) -> list[Path]:
     """Return all directories that contain a SKILL.md, sorted by path."""
     return sorted({path.parent for path in root.rglob("SKILL.md")})
-
 
 def build_file_index(skills: list[Path]) -> dict[str, list[str]]:
     """Map a path relative to a skill directory to the skills that provide it."""
