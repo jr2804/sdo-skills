@@ -40,6 +40,15 @@ Member organization creates CR document containing:
 
 - New spec version becomes available on FTP server
 
+## CR Development and Approval
+
+### Submission Process
+
+1. **WG Level**: Any 3GPP member organization can propose a CR to the Working Group responsible for the spec
+2. **WG Agreement**: WG discusses and agrees CR is valid and required
+3. **TSG Approval**: WG presents CR to parent TSG plenary for final approval
+4. **MCC Incorporation**: After TSG approval, 3GPP Support Team (MCC) incorporates CR into new spec version
+
 ## Why CRs Are Needed
 
 | Reason | When |
@@ -56,6 +65,9 @@ Member organization creates CR document containing:
 | A | Mirror - same CR to different Release version |
 | TEI | Technical Enhancement or Improvement |
 
+Full category definitions, including the per-Release F and A wording:
+`references/cr-format.md`.
+
 ## CR Number Format
 
 ```text
@@ -67,6 +79,9 @@ Member organization creates CR document containing:
 - `31102_CR0095` - CR 0095 to spec 31.102
 - `31102_CR0095r1` - Revision 1 of that CR
 - `31103_CR0095` - Mirror CR to spec 31.103
+
+Full component breakdown, revision suffix rules and additional examples:
+`references/cr-format.md`.
 
 ## Quick Checklist
 
@@ -91,5 +106,7 @@ Essential fields for CR submission:
 ## See Also
 
 - [SKILL.md](SKILL.md) - Full CR reference with status codes and detailed fields
-- **@3gpp-specifications** - Spec numbering and structure
-- **@3gpp-releases** - Release freeze concepts
+- `references/cr-format.md` - CR number format, status table, categories, document sections, WI codes, databases
+- `references/cr-checklist.md` - Submission checklist, common pitfalls, best practices, mirror CR concepts
+- `3gpp-specifications` - Spec numbering and structure
+- `3gpp-releases` - Release freeze concepts
