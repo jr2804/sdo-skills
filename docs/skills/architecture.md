@@ -58,31 +58,47 @@ is already separable and moves to `references/`.
 
 ## Layer contract
 
-Rules point **up**: `etsi-drafting` may name `sdo-docx-formatting`,
-`sdo-docx-formatting` may not name `etsi-drafting`. A rule is placed in the highest
-layer where it holds without qualification. That keeps `common` reusable for a
-fourth SDO or a national body, and keeps SDO layers thin.
+Rules point **up**: `sdo-drafting` may name `sdo-docx`, `sdo-docx` may not name
+`sdo-drafting`. A rule is placed in the highest layer where it holds without
+qualification. That keeps `common` reusable for a fourth SDO or a national body,
+and keeps SDO layers thin.
 
-## Audit of the inherited tree (2026-10-20)
+## The tree as it stands (2026-10-20)
 
-The 22 skills migrated from `jr2804/prompts/skills/standards`, plus
-`etsi-directives`:
+**19 skills**: 4 `common`, 4 `etsi`, 8 `3gpp`, 3 `itut`. The linter reports zero
+errors and zero warnings.
 
-- **23 skills**: 5 `common`, 4 `etsi`, 9 `3gpp`, 5 `itut`.
-- **Cross-references are consistent.** Zero unknown skill IDs and zero broken path
-  references inside `SKILL.md` and `references/`. The stale IDs quoted in earlier
-  planning notes (`etsi-meetings`, `itut-meetings`, `3gpp-spec-retrieval`, ...)
-  appear only in those planning notes, not in the skills themselves.
-- **Seven skills exceed the 8 KiB budget** - the merge worklist is real, not
-  cosmetic: `itut-drafting` (24.5 KiB), `etsi-directives` (13 KiB),
-  `sdo-writing-style` (10.7 KiB), `3gpp-change-request` (9 KiB),
-  `3gpp-tdocs` (8.9 KiB), `3gpp-specifications` (8.3 KiB),
-  `3gpp-portal-authentication` (8.2 KiB).
-- **One layout variance**: `3gpp/3gpp-change-request/workflow.md` sits at the skill
-  root instead of `references/workflow.md`; the rest of the tree uses
-  `references/`.
-- `itut-drafting` still uses `@para` / `@w14` style references in prose. Harmless,
-  but they are ambiguous with skill mentions.
+| Layer    | Skills                                                                                                                        |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `common` | `sdo-writing`, `sdo-docx`, `sdo-drafting`, `sdo-ipr`, `sdo-project-setup`                                                     |
+| `etsi`   | `etsi-governance`, `etsi-directives`, `etsi-procedures`, `etsi-tools`                                                         |
+| `3gpp`   | `3gpp-basics`, `3gpp-working-groups`, `3gpp-meetings`, `3gpp-tdocs`, `3gpp-change-request`, `3gpp-releases`, `3gpp-specifications`, `3gpp-portal-authentication` |
+| `itut`   | `itut-reference`, `itut-contributions`                                                                                        |
+
+### What the consolidation changed
+
+- The 23 inherited skills became 19. Merges: `sdo-writing-style` +
+  `sdo-writing-conventions` → `sdo-writing`; `sdo-docx-formatting` +
+  `sdo-docx-operations` → `sdo-docx`; the three `*-drafting` skills →
+  `sdo-drafting` with a per-SDO reference subtree; `etsi-basics` →
+  `etsi-governance`; `itut-basics` + `itut-recommendations` → `itut-reference`;
+  `itut-patents` → `sdo-ipr`; `etsi-spec` → `etsi-tools`.
+- New: `etsi-procedures` (meetings, contributions, work items, approval).
+- Every skill body is now under the 8 KiB budget, and the detail sits in
+  `references/`, `assets/` or `scripts/`.
+- The 3GPP skills also absorbed the second-generation split from
+  `forge.3gpp.org/rep/reimes/awesome-3gpp-skills`: runnable
+  `scripts/portal_session.py` and `scripts/tdoc_pattern.py`, the specification
+  and TDoc number-format references, and the working-group FTP structure. The
+  forge variant is superseded by this tree.
+
+### Known gaps
+
+- `3gpp-basics`, `3gpp-meetings` and `3gpp-releases` are still single-file
+  skills with a few kilobytes of inline detail. They are under budget, so
+  they are left alone until something pushes them over.
+- `etsi-directives` keeps its 13 chapters as a generated reference tree; only
+  the index and the core frameworks are in `SKILL.md`.
 
 ## Not decided yet
 

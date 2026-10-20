@@ -29,10 +29,10 @@ dependency.
 
 | Layer    | Directory | Holds                                                                     |
 | -------- | --------- | ------------------------------------------------------------------------- |
-| Common   | `skills/common/` | rules valid for every SDO: writing conventions, DOCX editing, project setup |
-| ETSI     | `skills/etsi/`   | ETSI governance, drafting rules, deliverable shapes, spec retrieval |
+| Common   | `skills/common/` | rules valid for every SDO: writing, DOCX editing, drafting, IPR, setup |
+| ETSI     | `skills/etsi/`   | ETSI governance, directives, procedures, portal and spec tooling |
 | 3GPP     | `skills/3gpp/`   | working groups, releases, TDocs, change requests, portal authentication |
-| ITU-T    | `skills/itut/`   | study groups, recommendations, contributions, patent policy |
+| ITU-T    | `skills/itut/`   | working methods, recommendations, contributions |
 
 Dependencies point up: an `etsi-*` skill may name `sdo-*`, never the other way
 round. A consumer selects layers by listing directories, so an ETSI-only project
@@ -47,8 +47,8 @@ never loads 3GPP or ITU-T skills.
 | 3GPP     | `3gpp-basics`, `3gpp-meetings`, `3gpp-working-groups`, `3gpp-releases`, `3gpp-specifications`, `3gpp-tdocs`, `3gpp-change-request`, `3gpp-portal-authentication` |
 | ITU-T    | `itut-reference`, `itut-contributions` |
 
-Nineteen skills today, eleven after the last consolidation pass. The target
-shape and the order of work are in
+Nineteen skills today, down from twenty-three before the consolidation pass.
+The target shape and the order of work are in
 [the consolidation backlog](docs/skills/backlog.md).
 
 ## Tools pull on demand
