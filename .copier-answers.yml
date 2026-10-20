@@ -1,0 +1,24 @@
+# Changes here will be overwritten by Copier
+_commit: 2026.10.3
+_src_path: https://codeberg.org/jr2804/copier-uv-plus.git
+project_title: SDO Skills
+project_slug: sdo-skills
+package_slug: sdo_skills
+author: Jan.Reimes
+author_email: jan.reimes@head-acoustics.com
+description: Portable agent skills for writing standards contributions and deliverables (ETSI, 3GPP, ITU-T)
+repo_url: 
+license: MIT
+python_version: 3.13
+layout: src
+enable_cli: False
+enable_docs: True
+include_github_actions: True
+release_versioning: tag
+auto_setup_mise: False
+auto_sync_uv: skip
+include_format_tasks: True
+include_lint_tasks: True
+include_quality_tasks: True
+include_mcp_tasks: False
+feature_groups: slop,codebase,dev,tracking,general,rust,coding,docs

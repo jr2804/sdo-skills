@@ -45,8 +45,8 @@ uv.lock
 /tmp
 /temp
 
-# Copier answers (regenerated on update)
-.copier-answers.yml
+# Copier answers are tracked: `copier update` needs the recorded template
+# version and answers to apply template changes.
 
 # MCP / coding assistant directories
 .vscode
