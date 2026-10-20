@@ -70,7 +70,7 @@ The packaged route is the writer repository, which vendors a pinned snapshot of
 this tree and writes the skills into an OpenCode configuration directory:
 
 ```bash
-uvx --from "opencode-sdo-writer" opencode-sdo-writer init --profile etsi
+uvx --from "git+https://github.com/jr2804/opencode-sdo-writer" opencode-sdo-writer init --profile etsi
 ```
 
 That installs the `sdo-writer` agent and the common plus ETSI layers into
