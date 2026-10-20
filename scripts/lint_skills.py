@@ -6,11 +6,14 @@ Checks (errors fail the run, warnings only report):
   carrying ``name`` and ``description``
 - the directory name is a valid skill ID (kebab-case, no length overflow)
 - path references (``references/``, ``assets/``, ``scripts/``, ``examples/``,
-  ``tools/``) point at files that exist inside the skill directory
+  ``tools/``) point at files that exist inside the skill directory, or in
+  exactly one other skill of the repository (cross-skill reference)
 - every skill-ID looking token names a skill in this repository, an external
   skill from the allowlist, or an adjective such as ``ETSI-specific``
 - ``@skill-name`` mentions (not machine-discoverable) are flagged
 - the ``SKILL.md`` body stays within the size budget
+- external tools are invoked pull-on-demand (``mise x <spec> -- <tool>``)
+  instead of assuming a local installation
 
 Usage:
     python scripts/lint_skills.py [--root skills] [--strict] [--json]
@@ -22,7 +25,7 @@ import argparse
 import json
 import re
 import sys
-from dataclasses import dataclass
+from dataclasses import dataclass, field as dataclasses_field
 from pathlib import Path
 
 ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -30,6 +33,18 @@ SKILL_REF_RE = re.compile(r"(?<![\w/-])((?:sdo|etsi|3gpp|itut|officecli)(?:-[a-z
 PATH_REF_RE = re.compile(r"(?<![\w/])((?:references|assets|scripts|examples|tools)/[\w./-]+)")
 AT_REF_RE = re.compile(r"(?<![\w`/])@((?:sdo|etsi|3gpp|itut|officecli)(?:-[a-z0-9]+)+)(?![\w-])")
 FRONTMATTER_RE = re.compile(r"^---\r?\n(.*?)\r?\n---\r?\n", re.DOTALL)
+INLINE_CODE_RE = re.compile(r"`([^`\n]+)`")
+TOOL_CMD_RE = re.compile(
+    r"^(?P<tool>etsi-portal-tool|officecli|uvx|uv|npx|bunx|pandoc|python3|python|py|node)"
+    r"\s+(?P<args>\S.*)$"
+)
+#: An argument that makes an inline code span look like a real invocation
+#: (placeholder, file name, path or quoted argument) rather than a mention.
+ARG_HINT_RE = re.compile(
+    r"<[^>]+>|\b[\w./\\-]+\.(?:docx|doc|json|md|py|xml|txt|csv|pptx|xlsx|pdf|svg)\b|[\"']"
+)
+SHELL_BLOCK_LANGS = {"", "bash", "sh", "shell", "console", "zsh", "fish"}
+ALLOW_TOOLING_MARKER = "lint:allow-tooling"
 
 # Skills that live outside this repository (tools repo / other packages).
 EXTERNAL_SKILLS = {
@@ -89,12 +104,17 @@ class Context:
 
     skill_ids: set[str]
     report: Report
+    file_index: dict[str, list[str]] = dataclasses_field(default_factory=dict)
 
     def unknown(self, ref: str) -> bool:
         """Return True when a skill-ID token does not resolve."""
         if ref in self.skill_ids or ref in EXTERNAL_SKILLS:
             return False
         return ref.rsplit("-", 1)[-1] not in GENERIC_SUFFIXES
+
+    def resolves_elsewhere(self, rel: str) -> list[str]:
+        """Return the skills that provide ``rel`` when it is not local."""
+        return self.file_index.get(rel, [])
 
 
 def parse_frontmatter(text: str) -> dict[str, str]:
@@ -116,6 +136,63 @@ def split_frontmatter(text: str) -> str:
     return text[match.end() :] if match else text
 
 
+def body_start_line(text: str) -> int:
+    """Return the 1-based line number where the frontmatter body starts."""
+    match = FRONTMATTER_RE.match(text)
+    if not match:
+        return 1
+    return match.group(0).count("\n") + 1
+
+
+def iter_tool_invocations(body: str, first_line: int) -> list[tuple[int, str]]:
+    """Return ``(lineno, tool)`` for every bare external tool invocation.
+
+    Only command positions count: the first word of a line inside a shell
+    code block, or an inline code span that carries a concrete target
+    (placeholder, file name, path or quoted argument). Prose mentions such
+    as ``officecli batch`` are ignored. A file or line may opt out with an
+    ``<!-- lint:allow-tooling -->`` marker.
+    """
+    found: list[tuple[int, str]] = []
+    if ALLOW_TOOLING_MARKER in body:
+        return found
+    in_block = False
+    block_lang = ""
+    for offset, line in enumerate(body.splitlines()):
+        lineno = first_line + offset
+        stripped = line.strip()
+        if ALLOW_TOOLING_MARKER in line:
+            continue
+        if stripped.startswith("```"):
+            in_block = not in_block
+            block_lang = ""
+            continue
+        candidates: list[str] = []
+        if in_block and block_lang in SHELL_BLOCK_LANGS:
+            if stripped and not stripped.startswith("#"):
+                candidates.append(stripped)
+        candidates.extend(INLINE_CODE_RE.findall(line))
+        for candidate in candidates:
+            match = TOOL_CMD_RE.match(candidate.strip())
+            if not match:
+                continue
+            if not ARG_HINT_RE.search(match.group("args")):
+                continue
+            found.append((lineno, match.group("tool")))
+    return found
+
+
+def check_tooling(markdown_file: Path, body: str, first_line: int, ctx: Context) -> None:
+    """Require pull-on-demand (mise) invocations for external tools."""
+    for lineno, tool in iter_tool_invocations(body, first_line):
+        ctx.report.add(
+            "warning",
+            markdown_file,
+            lineno,
+            f"bare {tool!r} invocation: use 'mise x <spec> -- {tool} ...' so the tool is pulled on demand",
+        )
+
+
 def check_refs(markdown_file: Path, body: str, first_line: int, skill_dir: Path, ctx: Context) -> None:
     """Validate path references and skill cross-references in a Markdown file."""
     for lineno, line in enumerate(body.splitlines(), start=first_line):
@@ -123,7 +200,19 @@ def check_refs(markdown_file: Path, body: str, first_line: int, skill_dir: Path,
             rel = raw.rstrip(TRAILING_PUNCT)
             if PLACEHOLDER_CHARS & set(rel):
                 continue
-            if not (skill_dir / rel).exists():
+            if (skill_dir / rel).exists():
+                continue
+            owners = ctx.resolves_elsewhere(rel)
+            if len(owners) == 1:
+                continue
+            if len(owners) > 1:
+                ctx.report.add(
+                    "error",
+                    markdown_file,
+                    lineno,
+                    f"path reference {rel!r} is ambiguous: provided by {', '.join(sorted(owners))}",
+                )
+            else:
                 ctx.report.add("error", markdown_file, lineno, f"path reference {rel!r} does not exist")
 
         for ref in SKILL_REF_RE.findall(line):
@@ -158,15 +247,29 @@ def check_skill(skill_dir: Path, ctx: Context) -> None:
     if size > MAX_BODY_BYTES:
         ctx.report.add("warning", skill_file, 1, f"body is {size} bytes, budget is {MAX_BODY_BYTES} (move detail to references/)")
 
-    check_refs(skill_file, body, 3, skill_dir, ctx)
+    check_refs(skill_file, body, body_start_line(text), skill_dir, ctx)
+    check_tooling(skill_file, body, body_start_line(text), ctx)
     for markdown_file in sorted(skill_dir.rglob("*.md")):
         if markdown_file != skill_file:
-            check_refs(markdown_file, markdown_file.read_text(encoding="utf-8"), 1, skill_dir, ctx)
+            other = markdown_file.read_text(encoding="utf-8")
+            check_refs(markdown_file, other, 1, skill_dir, ctx)
+            check_tooling(markdown_file, other, 1, ctx)
 
 
 def discover(root: Path) -> list[Path]:
     """Return all directories that contain a SKILL.md, sorted by path."""
     return sorted({path.parent for path in root.rglob("SKILL.md")})
+
+
+def build_file_index(skills: list[Path]) -> dict[str, list[str]]:
+    """Map a path relative to a skill directory to the skills that provide it."""
+    index: dict[str, list[str]] = {}
+    for skill in skills:
+        for path in skill.rglob("*"):
+            rel = path.relative_to(skill).as_posix()
+            index.setdefault(rel, []).append(skill.name)
+            index.setdefault(f"{rel}/", []).append(skill.name)
+    return index
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -183,7 +286,11 @@ def main(argv: list[str] | None = None) -> int:
 
     skills = discover(args.root)
     report = Report()
-    ctx = Context(skill_ids={skill.name for skill in skills}, report=report)
+    ctx = Context(
+        skill_ids={skill.name for skill in skills},
+        report=report,
+        file_index=build_file_index(skills),
+    )
     for skill in skills:
         check_skill(skill, ctx)
 

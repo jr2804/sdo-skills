@@ -10,7 +10,7 @@ formatting rules from `sdo-docx`.
 
 | Abstract name (`sdo-docx`) | ITU-T concrete style ID | Notes |
 |---|---|---|
-| `body-text` | `Body Text` | If absent, fall back to `Normal`; verify with `officecli get <doc> /styles` |
+| `body-text` | `Body Text` | If absent, fall back to `Normal`; verify with `mise x github:iOfficeAI/OfficeCLI -- officecli get <doc> /styles` |
 | `heading-1` | `Heading 1` | Section headings (numbered) |
 | `heading-2` | `Heading 2` | Subsection headings |
 | `heading-3` | `Heading 3` | Sub-subsection headings |

@@ -162,13 +162,13 @@ When asked to "fix table/figure numbers in clause N", follow this workflow:
    - SEQ field (begin/instrText/separate/result/end)
    - Caption text after the field
 
-7. **Refresh fields**: Run `officecli refresh <doc>` to re-evaluate all
+7. **Refresh fields**: Run `mise x github:iOfficeAI/OfficeCLI -- officecli refresh <doc>` to re-evaluate all
    SEQ and REF fields.
 
 8. **Verify**: Check field results in the raw XML:
 
    ```bash
-   officecli raw <doc> /document | grep -A1 'fldCharType="separate"'
+   mise x github:iOfficeAI/OfficeCLI -- officecli raw <doc> /document | grep -A1 'fldCharType="separate"'
    ```
 
 ### Common pitfalls

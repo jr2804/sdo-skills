@@ -7,7 +7,7 @@
 """Sync DOCX core, extended, and custom properties from PLAN.md frontmatter.
 
 Usage:
-    uv run set_docx_props.py <docx_path> [--plan <plan_path>]
+    mise x uv -- uv run set_docx_props.py <docx_path> [--plan <plan_path>]
         [--title <title>] [--author <author>] [--company <company>]
         [--props key1=fm_key1,key2=fm_key2,...]
 
@@ -30,14 +30,14 @@ is used.
 
 Examples:
     # 3GPP TDoc (default mapping)
-    uv run set_docx_props.py "S4-260717 - Idle noise test method.docx"
+    mise x uv -- uv run set_docx_props.py "S4-260717 - Idle noise test method.docx"
 
     # ITU-T contribution (different custom property names)
-    uv run set_docx_props.py "C-1234 - New metric for P.1401.docx" \
+    mise x uv -- uv run set_docx_props.py "C-1234 - New metric for P.1401.docx" \
       --props contribution=contribution,question=question,place=place,date=date,source=source
 
     # Override title and author from command line
-    uv run set_docx_props.py "doc.docx" --title "Revised proposal" --author "Jane Smith"
+    mise x uv -- uv run set_docx_props.py "doc.docx" --title "Revised proposal" --author "Jane Smith"
 """
 
 import argparse

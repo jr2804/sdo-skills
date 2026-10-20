@@ -15,7 +15,7 @@ officecli batch patterns for ITU-T documents.
   contribution template (SG12 example) for reproducible offline use.
 - `assets/itut/itu-t-sg12-liaison-statement-template.docx` -- downloaded official ITU-T
   Liaison Statement template (SG12 example) for drafting outgoing LS documents.
-- `itut-recommendations/assets/itu-t-recommendation-skeleton.docx` --
+- `itut-reference/assets/itu-t-recommendation-skeleton.docx` --
   downloaded official ITU-T Recommendation skeleton for style-baseline checks.
 
 ## Canonical ITU-T template sources (online)
@@ -36,7 +36,7 @@ These are the upstream sources for the downloaded assets above:
 - For **outgoing Liaison Statements**: start from
   `assets/itut/itu-t-sg12-liaison-statement-template.docx`.
 - For **Recommendation drafting or style refresh checks**: use
-  `itut-recommendations/assets/itu-t-recommendation-skeleton.docx`
+  `itut-reference/assets/itu-t-recommendation-skeleton.docx`
   to confirm style definitions (including appendix and bibliography headings).
 - Use the online URLs only to refresh these local files when needed.
 
@@ -88,7 +88,7 @@ content goes after this.
 
 > **Key finding:** The ITU-T template may NOT contain a `Body Text` style.
 > If absent, use `Normal` for body paragraphs. Always verify with
-> `officecli get <doc> /styles --depth 1` on any new template.
+> `mise x github:iOfficeAI/OfficeCLI -- officecli get <doc> /styles --depth 1` on any new template.
 
 ______________________________________________________________________
 
@@ -160,11 +160,11 @@ ______________________________________________________________________
 ### General workflow
 
 1. **Start from template**: `Copy-Item "docs\template.docx" -Destination "<output>.docx" -Force`
-2. **Resident mode**: `officecli open <doc>` before editing; `officecli close <doc>` at end.
-3. **Batch mode**: pipe JSON arrays to `officecli batch <doc>`. Each JSON
+2. **Resident mode**: `mise x github:iOfficeAI/OfficeCLI -- officecli open <doc>` before editing; `mise x github:iOfficeAI/OfficeCLI -- officecli close <doc>` at end.
+3. **Batch mode**: pipe JSON arrays to `mise x github:iOfficeAI/OfficeCLI -- officecli batch <doc>`. Each JSON
    array must contain at most 12 JSON command objects. If more are needed,
    split into sequential batch calls.
-4. **Validate frequently**: `officecli validate <doc>` after every major
+4. **Validate frequently**: `mise x github:iOfficeAI/OfficeCLI -- officecli validate <doc>` after every major
    batch update.
 
 ### Common errors

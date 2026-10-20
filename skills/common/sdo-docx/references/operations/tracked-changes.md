@@ -177,7 +177,7 @@ ______________________________________________________________________
 | Attribute | Value | Notes |
 |-----------|-------|-------|
 | `w:id` | Positive integer | Must be unique across ALL tracked changes in the document. Start from a high number (e.g. 100) to avoid collisions with existing revisions. |
-| `w:author` | Author name string | Must match the document's current author or the name shown in the revision. Use `officecli get <doc> "//w:ins/@w:author"` to find existing author names. |
+| `w:author` | Author name string | Must match the document's current author or the name shown in the revision. Use `mise x github:iOfficeAI/OfficeCLI -- officecli get <doc> "//w:ins/@w:author"` to find existing author names. |
 | `w:date` | ISO 8601 timestamp | `2026-05-22T10:00:00Z` format. Use current date/time. |
 
 ______________________________________________________________________
@@ -185,7 +185,7 @@ ______________________________________________________________________
 ## Finding the next available `w:id`
 
 ```bash
-officecli query doc.docx "inserts" --json
+mise x github:iOfficeAI/OfficeCLI -- officecli query doc.docx "inserts" --json
 # Parse the max `w:id` across all <w:ins> and <w:del> elements.
 # Use max_id + 1 for the new change marker.
 ```

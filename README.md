@@ -42,14 +42,29 @@ never loads 3GPP or ITU-T skills.
 
 | Layer    | Skills |
 | -------- | ------ |
-| Common   | `sdo-docx`, `sdo-docx`, `sdo-project-setup`, `sdo-writing`, `sdo-writing` |
-| ETSI     | `etsi-basics`, `etsi-directives`, `sdo-drafting`, `etsi-spec` |
-| 3GPP     | `3gpp-basics`, `3gpp-change-request`, `sdo-drafting`, `3gpp-meetings`, `3gpp-portal-authentication`, `3gpp-releases`, `3gpp-specifications`, `3gpp-tdocs`, `3gpp-working-groups` |
-| ITU-T    | `itut-basics`, `itut-contributions`, `sdo-drafting`, `itut-patents`, `itut-recommendations` |
+| Common   | `sdo-writing`, `sdo-docx`, `sdo-drafting`, `sdo-ipr`, `sdo-project-setup` |
+| ETSI     | `etsi-governance`, `etsi-directives`, `etsi-procedures`, `etsi-tools` |
+| 3GPP     | `3gpp-basics`, `3gpp-meetings`, `3gpp-working-groups`, `3gpp-releases`, `3gpp-specifications`, `3gpp-tdocs`, `3gpp-change-request`, `3gpp-portal-authentication` |
+| ITU-T    | `itut-reference`, `itut-contributions` |
 
-The tree is mid-consolidation: 23 skills today, 12 after the merge pass. The
-target shape and the order of work are in
+Nineteen skills today, eleven after the last consolidation pass. The target
+shape and the order of work are in
 [the consolidation backlog](docs/skills/backlog.md).
+
+## Tools pull on demand
+
+The skills never assume a tool is installed. Every external tool is fetched
+through [mise](https://mise.jdx.dev) on first use, so a fresh checkout needs
+nothing but mise (or a package manager) on PATH:
+
+```bash
+mise x github:iOfficeAI/OfficeCLI -- officecli view report.docx text
+mise x uv -- uv run scripts/add_bookmarks.py --doc report.docx --spec spec.json
+```
+
+Helper scripts carry their dependencies as PEP 723 inline metadata, so
+`mise x uv -- uv run <script>` installs what it needs. The linter enforces
+the convention.
 
 ## Using the skills
 
@@ -97,8 +112,9 @@ mise docs             # build the documentation site
 ```
 
 `mise lint:skills` is the gate for content changes: missing `SKILL.md`, missing
-`name`/`description`, invalid directory names, broken `references/` paths and
-unknown skill IDs fail; oversized bodies and `@skill` mentions warn.
+`name`/`description`, invalid directory names, broken `references/` paths,
+unknown skill IDs and bare tool invocations fail; oversized bodies and
+`@skill` mentions warn.
 
 ## Contributing
 

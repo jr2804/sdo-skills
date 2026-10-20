@@ -30,7 +30,9 @@ Two halves of one job:
 5. Never use `raw-set --action replace` with an empty XML payload; keep
    bookmark names and IDs unique; preserve non-breaking spaces and explicit
    tab runs.
-6. Run helper scripts with `uv run`, never bare `python`.
+6. Run helper scripts with `mise x uv -- uv run`, never bare `python`.
+   Never assume a tool is installed: every external tool is pulled on
+   demand through mise (see `references/operations/tool-usage.md`).
 
 ## Style-name abstraction
 
@@ -70,8 +72,12 @@ If uncertain, ask whether the document is a meeting document or a standard.
 
 ## Editing workflow
 
+All commands below are written the pull-on-demand way: `mise x <spec> --
+<command>`. Drop the `mise x <spec> --` prefix when the tool is already on
+PATH.
+
 1. Open the document in resident mode before multi-step edits:
-   `officecli open <doc>`
+   `mise x github:iOfficeAI/OfficeCLI -- officecli open <doc>`
 2. Run one mutation command at a time and check exit codes.
 3. Use style/ordinal or explicit XPath targeting, not paraId targeting.
 4. **Prefer `officecli batch`** for template population, text updates and
@@ -79,7 +85,8 @@ If uncertain, ask whether the document is a meeting document or a standard.
    declarations from the root element. Reserve Python for edits officecli
    cannot express.
 5. Validate with `officecli view`/`get`/`query` before and after mutation.
-6. Close the document at the end: `officecli close <doc>`
+6. Close the document at the end:
+   `mise x github:iOfficeAI/OfficeCLI -- officecli close <doc>`
 
 ### Script entry points
 
@@ -91,13 +98,14 @@ If uncertain, ask whether the document is a meeting document or a standard.
 | `scripts/fix_note_tabs.py` | NOTE number-tab-text run repair and sequence validation |
 | `scripts/officecli_xml_common.py` | shared helpers (run_officecli, raw_set, validate_doc, load_json_spec) |
 
-All scripts declare PEP 723 inline metadata and run via `uv run`:
+All scripts declare PEP 723 inline metadata and run via mise, which
+installs uv on demand:
 
 ```bash
-uv run scripts/add_bookmarks.py --doc <doc> --spec assets/specs/add_bookmarks.example.json
-uv run scripts/fix_heading_tabs.py --doc <doc> --mapping assets/specs/fix_heading_tabs.example.json
-uv run scripts/fix_enum_tabs.py --doc <doc> --items assets/specs/fix_enum_tabs.example.json
-uv run scripts/fix_note_tabs.py --doc <doc> --notes assets/specs/fix_note_tabs.example.json
+mise x uv -- uv run scripts/add_bookmarks.py --doc <doc> --spec assets/specs/add_bookmarks.example.json
+mise x uv -- uv run scripts/fix_heading_tabs.py --doc <doc> --mapping assets/specs/fix_heading_tabs.example.json
+mise x uv -- uv run scripts/fix_enum_tabs.py --doc <doc> --items assets/specs/fix_enum_tabs.example.json
+mise x uv -- uv run scripts/fix_note_tabs.py --doc <doc> --notes assets/specs/fix_note_tabs.example.json
 ```
 
 - `assets/schemas/` -- JSON Schema contracts for each script input.
@@ -105,12 +113,11 @@ uv run scripts/fix_note_tabs.py --doc <doc> --notes assets/specs/fix_note_tabs.e
 
 ### Two failure modes to check first
 
-- **Hanging paragraphs** on re-runs: remove all `style=Figure` paragraphs
-  (exact match) before re-inserting; rebuild table sections in a
-  `while True / except RuntimeError: break` loop; wrap paraId removal in
-  try/except. Details: `references/operations/idempotent-updates.md`.
-- **Namespace stripping** with Python zipfile/ElementTree: register every
-  namespace prefix, or the document fails OpenXML validation. Details:
+- **Hanging paragraphs** on re-runs -- remove `style=Figure` paragraphs
+  before re-inserting; rebuild table sections in a retry loop. Details:
+  `references/operations/idempotent-updates.md`.
+- **Namespace stripping** with Python zipfile/ElementTree -- register every
+  namespace prefix or the document fails OpenXML validation. Details:
   `references/operations/python-ooxml-namespace.md`.
 
 ## References

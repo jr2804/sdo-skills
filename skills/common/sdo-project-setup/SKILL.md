@@ -43,7 +43,9 @@ cp .agents/skills/sdo-project-setup/references/AGENTS-template.md ./AGENTS.md
 cp .agents/skills/sdo-drafting/assets/3gpp/Tdoc_Template.docx ./ref/
 
 # 4. Initialize document and sync properties
-uv run .agents/skills/sdo-project-setup/scripts/set_docx_props.py \
+# (<skills-root> = the installed skills directory, e.g. .agents/skills in the
+#  project or ~/.config/opencode/skills for a global install)
+mise x uv -- uv run <skills-root>/sdo-project-setup/scripts/set_docx_props.py \
   "S4-260717 - Idle noise test method.docx" \
   --props tdoc=tdoc,revision_of=revision_of,meeting=meeting,date=date,agenda_item=agenda_item,target=target
 ```

@@ -61,6 +61,32 @@ skills/
 - Reference, don't restate: name the generic skill you specialise instead of
   copying its rules.
 
+### Tool invocation (pull on demand)
+
+Skills must work on a machine where only a package manager is installed.
+Never write a bare tool invocation; always pull the tool through **mise**:
+
+```bash
+mise x github:iOfficeAI/OfficeCLI -- officecli view <doc> text
+mise x uv -- uv run scripts/add_bookmarks.py --doc <doc> --spec <spec>
+```
+
+| Tool               | mise spec                  | Fallback           |
+| ------------------ | -------------------------- | ------------------ |
+| `officecli`        | `github:iOfficeAI/OfficeCLI` | `npm i -g @officecli/officecli` |
+| `uv` / `uvx`       | `uv`                       | `uv` / `uvx` on PATH |
+| `node` / `npx`     | `node`                     | `npx` on PATH      |
+| `bun` / `bunx`     | `bun`                      | `bunx` on PATH     |
+| `pandoc`           | `pandoc`                   | `pandoc` on PATH   |
+| `etsi-portal-tool` | `uv` + `uvx --from <git>` | CLI on PATH        |
+
+- `mise x` is the short form of `mise exec`; the first call downloads the tool.
+- Helper scripts declare their dependencies as PEP 723 inline metadata, so
+  `mise x uv -- uv run <script>` needs no install step.
+- A file that must show the plain package-manager form (a comparison table)
+  opts out with `<!-- lint:allow-tooling -->`.
+- The linter flags bare invocations; keep the warning count at zero.
+
 ### Layer placement
 
 | Layer   | Holds                                           | May depend on                  |
@@ -98,7 +124,7 @@ mise run lint:skills -- --strict  # warnings fail too (use before merging)
 
 Errors block CI: missing `SKILL.md`, missing `name`/`description`, invalid ID,
 broken path reference, unknown skill ID. Warnings are advisory: oversized body,
-`@skill` mention.
+`@skill` mention, bare tool invocation.
 
 ## Child DOX Index
 

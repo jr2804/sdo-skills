@@ -2,8 +2,8 @@
 
 ## 1. Resident mode required
 
-Open the document once with `officecli open <doc>` before editing, close
-with `officecli close <doc>` afterwards. All intermediate commands run
+Open the document once with `mise x github:iOfficeAI/OfficeCLI -- officecli open <doc>` before editing, close
+with `mise x github:iOfficeAI/OfficeCLI -- officecli close <doc>` afterwards. All intermediate commands run
 in-memory. Skipping this causes repeated file I/O and risks partial writes.
 
 ## 2. One command at a time
@@ -66,7 +66,7 @@ XPath like `//w:p[@w:paraId='101C5D24']` matches zero elements because
 `paraId` is in the `w14:` namespace, not `w:`. Use `@w14:paraId` instead:
 
 ```bash
-officecli raw-set doc.docx /document \
+mise x github:iOfficeAI/OfficeCLI -- officecli raw-set doc.docx /document \
   --xpath '//w:p[@w14:paraId="101C5D24"]' \
   --action replace --xml '<w:p ...>...</w:p>'
 ```
@@ -83,7 +83,7 @@ auto-registered by officecli's XPath engine.
 
 ## 8. `officecli batch` stdin redirect and command-line length limits
 
-**Problem 1 — stdin conflict:** `officecli batch <doc> --input -` fails when
+**Problem 1 — stdin conflict:** `mise x github:iOfficeAI/OfficeCLI -- officecli batch <doc> --input -` fails when
 stdin is already redirected (e.g., from `subprocess.run(input=...)`). The
 CLI detects the conflict and ignores the input:
 
@@ -97,16 +97,18 @@ temp file and use `--input <file>` for large payloads:
 ```python
 import subprocess, json, tempfile, pathlib
 
+from officecli_xml_common import officecli_command
+
 
 def run_batch(doc, commands, env):
     cmd_json = json.dumps(commands)
     if len(cmd_json) > 20000:  # Windows ~32 KB command-line limit
         tmp = pathlib.Path(tempfile.mktemp(suffix=".json"))
         tmp.write_text(cmd_json, encoding="utf-8")
-        args = ["officecli", "batch", doc, "--input", str(tmp), "--json"]
+        args = officecli_command(["batch", doc, "--input", str(tmp), "--json"])
     else:
         tmp = None
-        args = ["officecli", "batch", doc, "--commands", cmd_json, "--json"]
+        args = officecli_command(["batch", doc, "--commands", cmd_json, "--json"])
     try:
         r = subprocess.run(args, capture_output=True, text=True, env=env)
         return json.loads(r.stdout)
@@ -154,8 +156,8 @@ deleting it -- with no undo. This mistake occurred during document
 production and required manual restoration of a deleted figure caption
 paragraph.
 
-**Safe inspection alternative:** use `officecli get <doc> "/body/p[N]" --depth 5`
-or `officecli view <doc> annotated`. Never use `raw-set --action replace`
+**Safe inspection alternative:** use `mise x github:iOfficeAI/OfficeCLI -- officecli get <doc> "/body/p[N]" --depth 5`
+or `mise x github:iOfficeAI/OfficeCLI -- officecli view <doc> annotated`. Never use `raw-set --action replace`
 for inspection.
 
 ## 6. Heading separator patterns (tab between number and title)

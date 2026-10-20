@@ -8,10 +8,31 @@
 from __future__ import annotations
 
 import json
+import shutil
 import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+
+#: mise spec used to pull OfficeCLI on demand when it is not on PATH.
+OFFICECLI_MISE_SPEC = "github:iOfficeAI/OfficeCLI"
+
+
+def officecli_command(args: list[str]) -> list[str]:
+    """Build the officecli argv, pulling it on demand via mise if needed.
+
+    A locally installed ``officecli`` wins; otherwise the binary is fetched
+    through mise (``mise x github:iOfficeAI/OfficeCLI -- officecli ...``), so
+    the scripts work on a machine where only mise is available.
+    """
+    if shutil.which("officecli"):
+        return ["officecli", *args]
+    if shutil.which("mise"):
+        return ["mise", "x", OFFICECLI_MISE_SPEC, "--", "officecli", *args]
+    raise RuntimeError(
+        "officecli not found. Install it (npm i -g @officecli/officecli) or "
+        "install mise so it can be pulled on demand."
+    )
 
 
 @dataclass
@@ -58,7 +79,7 @@ def validate_doc(doc_path: str, *, verbose: bool = False) -> CliResult:
 def run_officecli(
     args: list[str], *, check: bool = True, verbose: bool = False
 ) -> CliResult:
-    command = ["officecli", *args]
+    command = officecli_command(args)
     proc = subprocess.run(command, capture_output=True, text=True, check=False)
     result = CliResult(command, proc.returncode, proc.stdout, proc.stderr)
     if verbose:

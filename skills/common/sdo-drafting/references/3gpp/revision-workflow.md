@@ -32,7 +32,7 @@ remain intact for SVN diff and review.
 
 ### Step 3 -- Read the DOCX custom property `tdoc`
 
-Use `officecli get <doc> --prop tdoc` (or read `docProps/custom.xml`). This
+Use `mise x github:iOfficeAI/OfficeCLI -- officecli get <doc> --prop tdoc` (or read `docProps/custom.xml`). This
 is the TDoc number from the *previous* editing session.
 
 ### Step 4 -- Determine the required action
@@ -64,7 +64,7 @@ for the safe raw-set patterns.
 After patching, write properties using `set_docx_props.py`:
 
 ```bash
-uv run set_docx_props.py "S4-260717 - ...docx"
+mise x uv -- uv run set_docx_props.py "S4-260717 - ...docx"
 ```
 
 The script reads `PLAN.md` automatically and sets all built-in and custom

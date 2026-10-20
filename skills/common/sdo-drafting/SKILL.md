@@ -33,7 +33,7 @@ rule lives in `references/<sdo>/`.
 |---|---|---|
 | ETSI | ETSI deliverable skeletons in `assets/etsi/` -- one `.docx` per deliverable type (TS, ES, EN, TR, EG, SR, GS, GR, hEN Directive, hEN Regulation), file names of the form `ETSI_<TYPE>_skeleton.docx` | Always start from the skeleton matching the deliverable type; the skeleton carries all required styles |
 | 3GPP | `assets/3gpp/Tdoc_Template.docx` | User-crafted TDoc template carrying the 3GPP styles (`B1`, `B2`, `NO`, `NW`, `TH`, `TAH`, `TF`, `EX`, `PL`); not tied to an official release cycle |
-| ITU-T | `assets/itut/template.docx`, `assets/itut/itu-t-sg12-contribution-template.docx`, `assets/itut/itu-t-sg12-liaison-statement-template.docx` | Contribution and Liaison Statement templates; the Recommendation skeleton stays with `itut-recommendations/assets/itu-t-recommendation-skeleton.docx` |
+| ITU-T | `assets/itut/template.docx`, `assets/itut/itu-t-sg12-contribution-template.docx`, `assets/itut/itu-t-sg12-liaison-statement-template.docx` | Contribution and Liaison Statement templates; the Recommendation skeleton stays with `itut-reference/assets/itu-t-recommendation-skeleton.docx` |
 
 Upstream refresh for the ETSI skeletons:
 <https://portal.etsi.org/Services/editHelp/Standards-development/Drafting/Skeletons>
@@ -68,7 +68,7 @@ Upstream refresh for the ETSI skeletons:
 - `sdo-docx` -- formatting conventions and safe editing operations
 - `sdo-writing` -- mechanical conventions and prose quality
 - `sdo-project-setup` -- project layout, metadata, document properties
-- `etsi-basics`, `etsi-directives` -- ETSI organisation and rules
+- `etsi-governance`, `etsi-directives` -- ETSI organisation and rules
 - `3gpp-tdocs`, `3gpp-change-request` -- 3GPP submission and CR workflow
-- `itut-contributions`, `itut-recommendations` -- ITU-T contribution and
+- `itut-contributions`, `itut-reference` -- ITU-T contribution and
   Recommendation rules
