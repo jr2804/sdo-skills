@@ -92,7 +92,26 @@ change. Summary:
 
 _Always-injected_ — keep minimal. Everything else → `.agents/` files.
 
-[Fill with 5–10 essential, frequently-broken rules specific to this project.]
+- **This is a skills repository first, a Python package second.** Prose in
+  `skills/` is the product; code in `src/sdo_skills/` exists to install, validate
+  and vendor skills. Never move skill content into Python.
+- **`skills/` is the only source of truth for skill text.** Never edit a
+  vendored copy inside a consumer project (`<consumer>/.agents/skills/`,
+  `<consumer>/.opencode/skills/`) — fix the upstream tree and re-sync.
+- **One rule has exactly one canonical home.** SDO-agnostic rules live in
+  `skills/common/sdo-*`; SDO-specific rules in `skills/<sdo>/<sdo>-*`. A concrete
+  skill may name the generic skill it specialises; it must not restate it.
+- **Skill IDs are kebab-case directory names** (`etsi-drafting`,
+  `sdo-docx-formatting`) and are globally unique across layers. Renaming an ID is
+  a breaking change — update every consumer profile in the same commit.
+- **Progressive disclosure, not bigger skills.** Keep `SKILL.md` under 8 KiB;
+  push detail into `references/`, payload files into `assets/`, generators into
+  `scripts/`. `mise run lint:skills` enforces the budget.
+- **Vendored layers are filtered, never hand-trimmed.** Consumers select layers
+  through their config `skills.sources` path list; the same skill directory works
+  regardless of where it is checked out.
+- **Run `mise run lint:skills` after touching `skills/`** and `mise run all`
+  before pushing.
 
 ## Child DOX Index
 
@@ -100,6 +119,7 @@ Start lean. Add child AGENTS.md entries incrementally when boundaries become dur
 
 Top-level boundaries in this project:
 
+- `skills/` (the skill tree: `common/`, `etsi/`, `3gpp/`, `itut/` — see `skills/AGENTS.md`)
 - `src/sdo_skills/` (primary package code)
 - `tests/` (test suite)
 - `docs/` (documentation)

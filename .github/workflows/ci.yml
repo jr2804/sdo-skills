@@ -60,6 +60,9 @@ jobs:
     - name: Check spelling
       run: mise spell
 
+    - name: Validate skills
+      run: mise lint:skills
+
   tests:
     needs:
     - quality

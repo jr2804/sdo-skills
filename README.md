@@ -11,92 +11,104 @@
 
 ---
 
-## Quick Start
+## What this is
 
-```bash
-# Install dependencies
-mise dev
+Agent skills that carry the domain knowledge for standards work: which committee
+decides what, how a contribution is numbered and submitted, what a deliverable
+clause must look like, and how a Word file is edited without destroying its
+numbering. The skills follow the Agent Skills convention (`SKILL.md` plus
+`references/`, `assets/`, `scripts/`), so they work in OpenCode and in any other
+host that reads that layout.
+
+This repository is the **source of truth for skill text**. Tooling that talks to
+portals (`etsi-portal-tool`), generates documents (`officecli`) or wires skills
+into a project (`opencode-sdo-writer`) lives elsewhere and is consumed as a
+dependency.
+
+## Layers
+
+| Layer    | Directory | Holds                                                                     |
+| -------- | --------- | ------------------------------------------------------------------------- |
+| Common   | `skills/common/` | rules valid for every SDO: writing conventions, DOCX editing, project setup |
+| ETSI     | `skills/etsi/`   | ETSI governance, drafting rules, deliverable shapes, spec retrieval |
+| 3GPP     | `skills/3gpp/`   | working groups, releases, TDocs, change requests, portal authentication |
+| ITU-T    | `skills/itut/`   | study groups, recommendations, contributions, patent policy |
+
+Dependencies point up: an `etsi-*` skill may name `sdo-*`, never the other way
+round. A consumer selects layers by listing directories, so an ETSI-only project
+never loads 3GPP or ITU-T skills.
+
+## Skills
+
+| Layer    | Skills |
+| -------- | ------ |
+| Common   | `sdo-docx-formatting`, `sdo-docx-operations`, `sdo-project-setup`, `sdo-writing-conventions`, `sdo-writing-style` |
+| ETSI     | `etsi-basics`, `etsi-directives`, `etsi-drafting`, `etsi-spec` |
+| 3GPP     | `3gpp-basics`, `3gpp-change-request`, `3gpp-drafting`, `3gpp-meetings`, `3gpp-portal-authentication`, `3gpp-releases`, `3gpp-specifications`, `3gpp-tdocs`, `3gpp-working-groups` |
+| ITU-T    | `itut-basics`, `itut-contributions`, `itut-drafting`, `itut-patents`, `itut-recommendations` |
+
+The tree is mid-consolidation: 23 skills today, 12 after the merge pass. The
+target shape and the order of work are in
+[the consolidation backlog](docs/skills/backlog.md).
+
+## Using the skills
+
+Point a consumer project at the layers it needs:
+
+```jsonc
+{
+  "skills": {
+    "sources": [
+      "path/to/sdo-skills/skills/common",
+      "path/to/sdo-skills/skills/etsi"
+    ]
+  }
+}
 ```
 
-## Usage
+Paths are listed, not submoduled, so the same checkout serves an ETSI, a 3GPP and
+an ITU-T project without duplication. A packaged installer, profiles and the
+writer agent belong to the `opencode-sdo-writer` repository.
 
-### Running Tests
+## Repository layout
 
-```bash
-mise test
-# or
-uv run pytest
-```
-
-### Code Quality
-
-```bash
-mise lint       # ruff + ty + codespell
-mise format     # ruff format + isort
-mise all        # test + lint + format in one pass
+```text
+sdo-skills/
+  skills/                 # the product: layered skill tree
+    common/  etsi/  3gpp/  itut/
+  src/sdo_skills/         # package: install, validate, vendor skills
+  scripts/                # lint_skills.py and friends
+  docs/                   # Zensical site, design notes, backlog
+  tests/                  # test suite
+  .config/mise/           # task definitions
 ```
 
 ## Development
 
-### Pre-commit Hooks
-
 ```bash
-pre-commit install
-pre-commit run --all-files
+mise dev              # install dependencies (uv sync)
+mise lint:skills      # validate skill structure, frontmatter, references, budget
+mise test             # pytest with the 100% coverage gate
+mise lint             # ruff
+mise format           # ruff format, import order, pyreorder
+mise format-md        # rumdl
+mise all              # everything above
+mise docs             # build the documentation site
 ```
 
-### Documentation
+`mise lint:skills` is the gate for content changes: missing `SKILL.md`, missing
+`name`/`description`, invalid directory names, broken `references/` paths and
+unknown skill IDs fail; oversized bodies and `@skill` mentions warn.
 
-```bash
-mise docs-serve          # live preview at http://localhost:8000
-mise docs-build          # build static site to site/
-```
+## Contributing
 
-## CI/CD
-
-GitHub Actions runs on every push and PR:
-
-| Workflow | Triggers | Jobs |
-|----------|----------|------|
-| **CI** (`ci.yml`) | push, PR to main | test matrix (3.13, 3.14) + lint + type-check |
-| **Release** (`release.yml`) | tag `v*` | build + publish to PyPI |
-
-## Project Structure
-
-```text
-sdo-skills/
-├── .config/mise/               # mise task definitions
-├── .github/workflows/          # CI + release workflows
-├── docs/                       # MkDocs documentation
-├── src/sdo_skills/     # Source package
-│   ├── __init__.py
-│   ├── __about__.py
-├── tests/                      # Test suite
-├── .copier-answers.yml         # Template version tracking
-├── pyproject.toml              # uv + hatch + pytest config
-├── ruff.toml                   # Linter + formatter config
-├── ty.toml                     # Type checker config
-└── README.md
-```
-
-## Tech Stack
-
-| Layer | Tool | Purpose |
-|-------|------|---------|
-| Package manager | [uv](https://docs.astral.sh/uv/) | Fast installs, deterministic lockfile |
-| Task runner | [mise](https://mise.jdx.dev/) | DAG-based tasks, tool version management |
-| Linter + formatter | [ruff](https://docs.astral.sh/ruff/) | Single-binary code quality |
-| Type checker | [ty](https://github.com/google/ty) | Strict type checking |
-| Testing | [pytest](https://pytest.org/) | Test framework with 100% coverage gate |
-| Spell check | [codespell](https://github.com/codespell-project/codespell) | Code and doc spell checking |
-| Documentation | [Zensical](https://github.com/zensical/zensical) | MkDocs Material with executable examples |
-| Versioning | [uv-dynamic-versioning](https://github.com/ninoseki/uv-dynamic-versioning) | Git tag-based versioning |
-| Hooks | [pre-commit](https://pre-commit.com/) | Automated quality gate |
-| CI/CD | GitHub Actions | Test matrix + PyPI release |
+Read `skills/AGENTS.md` before editing the tree - it holds the skill anatomy, the
+layer contract and the size budget. Changes to the package follow the usual
+`mise all` cycle; see [CONTRIBUTING](docs/contributing.md).
 
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+MIT - see [LICENSE](LICENSE) for details.
 
 ---
 

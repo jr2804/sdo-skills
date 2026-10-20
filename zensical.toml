@@ -13,6 +13,10 @@ nav = [
     { "License" = "license.md" },
   ] },
   { "API reference" = "reference/api.md" },
+  { "Skills" = [
+    { "Architecture" = "skills/architecture.md" },
+    { "Consolidation backlog" = "skills/backlog.md" },
+  ] },
   { "Development" = [
     { "Contributing" = "contributing.md" },
     { "Code of Conduct" = "code_of_conduct.md" },

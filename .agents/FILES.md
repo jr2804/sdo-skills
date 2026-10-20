@@ -13,6 +13,10 @@ Kept compact — agents hallucinate less when they know where definitions live.
 
 | What                   | Where                                                           | Key names                                       |
 | ---------------------- | --------------------------------------------------------------- | ----------------------------------------------- |
+| Skill tree             | `skills/{common,etsi,3gpp,itut}/<skill-id>/`                    | `SKILL.md`, `references/`, `assets/`, `scripts/` |
+| Skill rules            | `skills/AGENTS.md`                                              | anatomy, layer contract, 8 KiB budget            |
+| Skill validator        | `scripts/lint_skills.py`                                        | `mise run lint:skills`                          |
+| Skill backlog          | `docs/skills/backlog.md`                                        | merge map, target IDs                           |
 | Package source root    | `src/sdo_skills/`  | `__init__.py`, `__about__.py` (version)         |
 | Test suite             | `tests/`                                                        | `test_*.py`, `conftest.py`                      |
 | Project metadata       | `pyproject.toml`                                                | `[project]`, `[tool.pytest.ini_options]`        |
