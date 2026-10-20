@@ -39,7 +39,7 @@
   caption text). Name it `tbl_<short_name>`.
 - Cross-reference in body text with `{REF tbl_<short_name>}`. Never insert
   hard-coded plain-text references.
-- See `sdo-docx-operations` for officecli field-code and bookmark injection.
+- See `sdo-docx` for officecli field-code and bookmark injection.
 
 ## Figures
 
@@ -68,7 +68,7 @@
 
 ### ETSI-specific figure paragraph override
 
-When the active per-SDO drafting skill is ETSI (`etsi-drafting`), enforce all
+When the active per-SDO drafting skill is ETSI (`sdo-drafting`), enforce all
 of the following:
 
 - Figure image layout must be **In line with text**. Other Word wrapping
@@ -91,7 +91,7 @@ of the following:
   caption text). Name it `fig_<short_name>`.
 - Cross-reference in body text with `{REF fig_<short_name>}`. Never insert
   hard-coded plain-text references.
-- See `sdo-docx-operations` for officecli field-code and bookmark injection.
+- See `sdo-docx` for officecli field-code and bookmark injection.
 
 ## Style mapping
 

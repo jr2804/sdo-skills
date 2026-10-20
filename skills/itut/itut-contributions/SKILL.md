@@ -21,7 +21,7 @@ separate document types with different handling rules.
 
 Local artifacts (preferred for reproducible/offline use):
 
-- `../itut-drafting/assets/itu-t-sg12-contribution-template.docx`
+- `../sdo-drafting/assets/itut/itu-t-sg12-contribution-template.docx`
 
 Upstream source URLs (for refresh):
 
@@ -163,6 +163,6 @@ ______________________________________________________________________
 
 - `itut-basics` -- ITU-T organization, roles, terminology
 - `itut-recommendations` -- Recommendation structure and approval
-- `itut-drafting` -- ITU-T contribution .docx template and formatting
+- `sdo-drafting` -- ITU-T contribution .docx template and formatting
 - `itut-patents` -- patent policy, IPR disclosure, licensing declarations
 - `sdo-project-setup` -- project bootstrap workflow

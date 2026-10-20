@@ -98,7 +98,7 @@ ______________________________________________________________________
 
 ## Cross-references
 
-- `etsi-drafting` -- ETSI deliverable structure, formatting rules, style names
+- `sdo-drafting` -- ETSI deliverable structure, formatting rules, style names
 - `etsi-spec` -- ETSI specification metadata retrieval
-- `sdo-docx-formatting` -- formatting rules (delegated)
+- `sdo-docx` -- formatting rules (delegated)
 - `sdo-project-setup` -- project bootstrap workflow

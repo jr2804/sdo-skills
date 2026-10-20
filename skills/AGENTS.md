@@ -54,7 +54,7 @@ skills/
 
 ### Cross-references
 
-- Refer to another skill by its ID in backticks: `` `sdo-docx-formatting` ``.
+- Refer to another skill by its ID in backticks: `` `sdo-docx` ``.
 - Do **not** use `@skill-name` mentions - they are not machine-discoverable.
 - Path references (`references/...`, `assets/...`, `scripts/...`) are relative to
   the skill directory and must resolve; the linter checks both rules.

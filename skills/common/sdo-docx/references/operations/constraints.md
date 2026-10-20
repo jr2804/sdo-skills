@@ -51,13 +51,13 @@ on whether you are modifying a paragraph or individual runs.
 
 **The most common mistake:** wrapping entire paragraph content in `<w:ins>`
 as a direct child of `<w:p>`. This produces zero visible tracked changes.
-See `references/tracked-changes.md` for complete OOXML patterns.
+See `references/operations/tracked-changes.md` for complete OOXML patterns.
 
 ## 4. High-level commands cannot insert REF/SEQ field codes
 
 Using `set --prop text=` for cross-references produces hardcoded plain text
 that breaks when the document is revised. Always inject field codes via
-`officecli raw-set`. See `references/field-code-patterns.md` for OOXML
+`officecli raw-set`. See `references/operations/field-code-patterns.md` for OOXML
 snippets.
 
 ## 5. `paraId` targeting requires the `w14:` namespace prefix

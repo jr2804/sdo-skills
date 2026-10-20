@@ -18,7 +18,7 @@
   notes in the block use `note-continuation` (prevents visual separation
   between grouped notes).
 - Insert a real `<w:tab/>` run element after the colon; do not use spaces
-  (see `sdo-docx-operations` for officecli tab-run injection).
+  (see `sdo-docx` for officecli tab-run injection).
 - Do not use manual formatting (bold, italic, font size) for note text --
   rely on the style definition.
 
@@ -30,7 +30,7 @@
   removal.
 - If an existing note is truly superseded or incorrect, replace it and
   mark the change with tracked changes (see
-  `sdo-docx-operations/references/tracked-changes.md`).
+  `sdo-docx/references/operations/tracked-changes.md`).
 - Keep each note focused on a single point. Split unrelated observations
   into separate notes.
 

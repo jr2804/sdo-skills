@@ -18,8 +18,8 @@ ______________________________________________________________________
 | Skill | Purpose | When to invoke |
 |---|---|---|
 | `sdo-project-setup` | Project layout, metadata sync, new-vs-ongoing detection | Every session start |
-| `sdo-docx-formatting` | Formal-document styles, headings, enumerations, notes, tables, citations | Formatting clauses, captions, reference sections |
-| `sdo-docx-operations` | officecli safety patterns, tab/bookmark/field-code helpers | DOCX header, metadata, cross-references, XML-level mutations |
+| `sdo-docx` | Formal-document styles, headings, enumerations, notes, tables, citations | Formatting clauses, captions, reference sections |
+| `sdo-docx` | officecli safety patterns, tab/bookmark/field-code helpers | DOCX header, metadata, cross-references, XML-level mutations |
 | `<sdo>-drafting` | SDO-specific template rules, metadata schema, revision workflow, style-name mapping | Document naming, PLAN.md setup, revision-of handling |
 
 Replace `<sdo>` with the actual prefix: `3gpp`, `etsi`, or `itut`.
@@ -41,8 +41,8 @@ Replace `<sdo>` with the actual prefix: `3gpp`, `etsi`, or `itut`.
 
 ### Do not duplicate
 
-- officecli guardrails -> delegate to `sdo-docx-operations`
-- Editorial conventions -> delegate to `sdo-docx-formatting`
+- officecli guardrails -> delegate to `sdo-docx`
+- Editorial conventions -> delegate to `sdo-docx`
 - SDO template mechanics -> delegate to `<sdo>-drafting`
 - Project setup workflows -> delegate to `sdo-project-setup`
 

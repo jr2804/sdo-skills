@@ -25,7 +25,7 @@
 
 - Insert a real `<w:tab/>` run element between the heading number and the
   heading title; never use spaces for indentation (see
-  `sdo-docx-operations` for officecli tab-run injection patterns).
+  `sdo-docx` for officecli tab-run injection patterns).
 - Use heading styles by level:
   `heading-1` (→ concrete style), `heading-2`, `heading-3`, etc.
 - Do not apply manual font-size or bold overrides to heading paragraphs --

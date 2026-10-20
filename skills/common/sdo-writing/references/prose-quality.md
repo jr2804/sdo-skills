@@ -1,50 +1,7 @@
----
-name: sdo-writing-style
-description: General writing principles for formal standardization documents across SDOs (3GPP, ETSI, ITU-T). Use when drafting or revising prose content for standards contributions, technical reports, or meeting documents. Covers specificity, fact discipline, anti-genericity, register, structure, and revision checks. Does NOT cover .docx formatting -- see sdo-docx-formatting for style rules.
----
+# Prose quality rules
 
-# SDO Writing Style
-
-Apply these prose-quality rules to the **textual content** of standards
-documents. For .docx formatting (styles, headings, tables, figures), see
-`sdo-docx-formatting`.
-
-## Purpose
-
-Write for the actual context. The goal is prose that fits the medium, the
-task, and the reader. Standards documents must be precise, verifiable, and
-concrete -- vague generalities undermine technical credibility.
-
-## Precedence
-
-When rules conflict:
-
-1. Truth, safety, accessibility, and platform/legal requirements
-2. Explicit user instructions
-3. Genre and medium norms (standards documents are formal technical writing)
-4. Core rules below
-5. Optional heuristics
-
-## Core workflow
-
-1. Identify the medium, audience, reader need, and job of the text.
-2. If task-oriented, identify the answer or next action that belongs first.
-3. If long-form, decide the through-line and one concrete example, moment,
-   or case that can carry real weight.
-4. Draft to fit that context, not an abstract idea of "good writing."
-5. Cut what sounds generic, ceremonial, over-engineered, or too cleanly
-   modular.
-
-## Safety rails
-
-- Do not invent typos. Do not break grammar on purpose. Do not inject
-  slang, profanity, fake uncertainty, or staged messiness.
-- Do not make text less usable or accessible in the name of style.
-- The recurring problem is **regularity and mismatch**, not any one feature.
-- In standards documents, prefer straight ASCII quotes and apostrophes.
-  Avoid curly quotes, smart apostrophes, and single-character ellipses.
-
-______________________________________________________________________
+Full text of the 14 core rules and the review checks that go with them.
+SKILL.md lists the rules in short form; this file carries the detail.
 
 ## Core rules
 
@@ -231,10 +188,3 @@ ______________________________________________________________________
 | Causal overreach | `The codec drove the noise floor higher.` -> `After encoding, the noise floor increased by 3 dB relative to the PCM input.` |
 
 ______________________________________________________________________
-
-## Cross-references
-
-- `sdo-writing-conventions` -- mechanical writing rules (spelling, hyphens, numbers, capitalization, abbreviations, non-discriminatory language)
-- `sdo-docx-formatting` -- .docx style rules, table/figure formatting
-- `sdo-docx-operations` -- officecli guardrails for implementing edits
-- Per-SDO drafting skills (`3gpp-drafting`, `etsi-drafting`, `itut-drafting`)

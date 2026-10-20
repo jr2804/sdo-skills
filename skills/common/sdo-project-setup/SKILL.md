@@ -7,7 +7,7 @@ description: Bootstrap and maintain an agent-based document drafting project for
 
 Common project infrastructure for agent-based standards document drafting --
 independent of any specific SDO. Load this skill alongside the per-SDO
-drafting skill (`3gpp-drafting`, `etsi-drafting`, `itut-drafting`) when
+drafting skill (`sdo-drafting`, `sdo-drafting`, `sdo-drafting`) when
 setting up or maintaining a contribution project.
 
 ## What this skill provides
@@ -37,10 +37,10 @@ cp .agents/skills/sdo-project-setup/references/AGENTS-template.md ./AGENTS.md
 # Edit the "Project Scope" section
 
 # 2. Create PLAN.md with frontmatter
-# (keys defined in 3gpp-drafting/references/frontmatter.md)
+# (keys defined in sdo-drafting/references/3gpp/frontmatter.md)
 
-# 3. Copy template (from 3gpp-drafting)
-cp .agents/skills/3gpp-drafting/assets/Tdoc_Template.docx ./ref/
+# 3. Copy template (from sdo-drafting)
+cp .agents/skills/sdo-drafting/assets/3gpp/Tdoc_Template.docx ./ref/
 
 # 4. Initialize document and sync properties
 uv run .agents/skills/sdo-project-setup/scripts/set_docx_props.py \
@@ -50,10 +50,10 @@ uv run .agents/skills/sdo-project-setup/scripts/set_docx_props.py \
 
 ## Cross-references
 
-- `sdo-docx-formatting` -- formatting rules (loaded for all SDOs)
-- `sdo-docx-operations` -- officecli guardrails (loaded for all SDOs)
-- `sdo-writing-style` -- prose quality (loaded when drafting content)
-- `sdo-writing-conventions` -- mechanical writing rules (loaded when drafting content)
-- `3gpp-drafting` -- 3GPP-specific template, metadata, header structure
-- `etsi-drafting` -- ETSI-specific template, metadata, header structure
-- `itut-drafting` -- ITU-T-specific template, header table structure
+- `sdo-docx` -- formatting rules (loaded for all SDOs)
+- `sdo-docx` -- officecli guardrails (loaded for all SDOs)
+- `sdo-writing` -- prose quality (loaded when drafting content)
+- `sdo-writing` -- mechanical writing rules (loaded when drafting content)
+- `sdo-drafting` -- 3GPP-specific template, metadata, header structure
+- `sdo-drafting` -- ETSI-specific template, metadata, header structure
+- `sdo-drafting` -- ITU-T-specific template, header table structure

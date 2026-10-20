@@ -25,7 +25,7 @@ Example: `S4-260717 - Idle noise test method for immersive UEs.docx`
 |---|---|
 | Target file exists in project root | Open it; proceed to step 4 |
 | Target file absent, `revision_of` is set | Derive source filename as `<revision_of> - <title>.docx`; **copy** it to the target filename |
-| Target file absent, `revision_of` is `~` | Copy `assets/Tdoc_Template.docx` to `ref/Tdoc_Template.docx` (if absent), then initialize a new document from the template |
+| Target file absent, `revision_of` is `~` | Copy `assets/3gpp/Tdoc_Template.docx` to `ref/Tdoc_Template.docx` (if absent), then initialize a new document from the template |
 
 **Always copy, never move.** The original file under its old TDoc number must
 remain intact for SVN diff and review.
@@ -56,7 +56,7 @@ is the TDoc number from the *previous* editing session.
 | 5 | `Normal` (bold Arial) | `Agenda item:` · `<w:tab/>` · `<agenda_item>` |
 | 6 | `Normal` (bold Arial) | `Document for:` · `<w:tab/>` · `<target>` |
 
-Use officecli `raw-set` with XPath to patch runs. See `sdo-docx-operations`
+Use officecli `raw-set` with XPath to patch runs. See `sdo-docx`
 for the safe raw-set patterns.
 
 ### Step 6 -- Sync DOCX properties

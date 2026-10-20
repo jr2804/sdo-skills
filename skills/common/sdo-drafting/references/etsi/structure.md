@@ -1,15 +1,7 @@
----
-name: etsi-drafting
-description: 'ETSI-specific deliverable drafting conventions: document structure, clause ordering, requirements writing (shall/should/may), figures/tables/equations, annexes, and ETSI style-name mapping. Use when preparing or editing ETSI deliverable .docx files (TS, ES, EN, TR, EG, SR, GS). Delegates formatting rules to sdo-docx-formatting and officecli operations to sdo-docx-operations.'
----
+# ETSI deliverable structure and drafting rules
 
-# ETSI Deliverable Drafting
-
-Use this skill for ETSI-specific document structure, deliverable conventions,
-and concrete Word style names. For formatting rules (headings, enumerations,
-notes, tables, figures, citations), see `sdo-docx-formatting`. For officecli
-operations (tab-run injection, field codes, bookmarks), see
-`sdo-docx-operations`.
+Applies to ETSI deliverables (TS, ES, EN, TR, EG, SR, GS).
+Style names: `etsi/style-map.md`. Full EDR extract: `etsi/drafting-rules.md`.
 
 ## Assets
 
@@ -162,51 +154,3 @@ company over another. If only one product/technology is available and
 needed, follow the rules in EDR clause 4 (copyright provisions).
 
 ______________________________________________________________________
-
-## ETSI style-name mapping
-
-Concrete Word style IDs for ETSI deliverables. ETSI styles are provided
-by the deliverable skeleton (from editHelp!). These are largely the same
-as 3GPP styles.
-
-| Abstract name (`sdo-docx-formatting`) | ETSI concrete style ID | Purpose |
-|---|---|---|
-| `body-text` | `Normal` | Main body paragraphs |
-| `heading-1` | `Heading 1` | Top-level section heading |
-| `heading-2` | `Heading 2` | Second-level section heading |
-| `heading-3` | `Heading 3` | Third-level section heading |
-| `enum-1` | `B1` | First-level enumeration |
-| `enum-2` | `B2` | Second-level enumeration |
-| `table-caption` | `TH` | Table caption (above table) |
-| `table-header` | `TAH` | Table header row |
-| `table-data` | `TAC` | Table data rows |
-| `table-note` | `TAN` | Table note row |
-| `figure-para` | `FL` | Paragraph containing image |
-| `figure-caption` | `TF` | Figure caption (below figure) |
-| `figure-note` | `NF` | Note below figure |
-| `note-main` | `NO` | Last note in a consecutive block |
-| `note-continuation` | `NW` | Preceding notes in a block |
-| `reference-entry` | `EX` | References section entry |
-| `code-text` | `PL` | Inline code / filenames |
-
-> **Note:** These style names are based on the 3GPP/ETSI convention pool.
-> Always verify with the skeleton template from editHelp! for the specific
-> deliverable type. ETSI may define additional styles for specialised
-> elements (front cover, IPR clause, etc.) that are handled by the
-> Secretariat.
-
-______________________________________________________________________
-
-## References
-
-- [references/etsi-drafting-rules.md](references/etsi-drafting-rules.md) -- detailed extract from the ETSI Drafting Rules (EDR)
-
-## Cross-references
-
-- `sdo-project-setup` -- common project bootstrap
-- `sdo-docx-formatting` -- formatting rules (delegated; see mapping above)
-- `sdo-docx-operations` -- officecli guardrails
-- `sdo-writing-style` -- prose quality rules
-- `sdo-writing-conventions` -- mechanical writing rules
-- `etsi-basics` -- ETSI organisation, deliverable types, lifecycle
-- `etsi-spec` -- ETSI specification metadata retrieval

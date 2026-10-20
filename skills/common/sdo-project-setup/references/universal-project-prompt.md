@@ -20,8 +20,8 @@ Mandatory skills to load:
 
 1. `<sdo>-drafting` (provides metadata schema, template, header structure)
 2. `sdo-project-setup` (provides layout, sync, autodetection)
-3. `sdo-docx-operations` (officecli guardrails)
-4. `sdo-docx-formatting` (formatting rules)
+3. `sdo-docx` (officecli guardrails)
+4. `sdo-docx` (formatting rules)
 
 Replace `<sdo>` with the actual prefix: `3gpp`, `etsi`, or `itut`.
 

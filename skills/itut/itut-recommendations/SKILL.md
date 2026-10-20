@@ -96,7 +96,7 @@ informative references (sources not cited normatively in the body).
   normative reference entries in clause 2. Format: `[N]\t<citation text>`
   with a `{SEQ Ref \* ARABIC}` field and bookmark.
 
-See `itut-drafting` for the concrete style-name mapping and officecli
+See `sdo-drafting` for the concrete style-name mapping and officecli
 commands.
 
 ______________________________________________________________________
@@ -174,6 +174,6 @@ ______________________________________________________________________
 
 - `itut-basics` -- ITU-T organization, roles, meeting procedures
 - `itut-contributions` -- contribution submission and TDocs
-- `itut-drafting` -- ITU-T contribution .docx template and formatting
+- `sdo-drafting` -- ITU-T contribution .docx template and formatting
 - `itut-patents` -- patent policy, IPR disclosure, licensing declarations
-- `sdo-docx-formatting` -- formatting rules (delegated)
+- `sdo-docx` -- formatting rules (delegated)

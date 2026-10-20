@@ -22,7 +22,7 @@
   -- not around the square brackets.
 - Cross-reference in body text with `{REF ref_<short_name>}`. Never use
   hard-coded plain-text reference numbers.
-- See `sdo-docx-operations` for officecli field-code and bookmark injection.
+- See `sdo-docx` for officecli field-code and bookmark injection.
 
 ## Ordering and completeness
 

@@ -70,7 +70,7 @@ to standardize telecommunications worldwide.
 
 - `itut-contributions` -- contribution submission, TDocs, liaison statements
 - `itut-recommendations` -- Recommendation structure, approval, amendments
-- `itut-drafting` -- ITU-T contribution .docx template and formatting
+- `sdo-drafting` -- ITU-T contribution .docx template and formatting
 - `itut-patents` -- patent policy, IPR disclosure, licensing declarations
-- `sdo-docx-formatting` -- formatting rules (delegated)
+- `sdo-docx` -- formatting rules (delegated)
 - `sdo-project-setup` -- project bootstrap workflow

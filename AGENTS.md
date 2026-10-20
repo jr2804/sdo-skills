@@ -101,8 +101,8 @@ _Always-injected_ — keep minimal. Everything else → `.agents/` files.
 - **One rule has exactly one canonical home.** SDO-agnostic rules live in
   `skills/common/sdo-*`; SDO-specific rules in `skills/<sdo>/<sdo>-*`. A concrete
   skill may name the generic skill it specialises; it must not restate it.
-- **Skill IDs are kebab-case directory names** (`etsi-drafting`,
-  `sdo-docx-formatting`) and are globally unique across layers. Renaming an ID is
+- **Skill IDs are kebab-case directory names** (`sdo-drafting`,
+  `sdo-docx`) and are globally unique across layers. Renaming an ID is
   a breaking change — update every consumer profile in the same commit.
 - **Progressive disclosure, not bigger skills.** Keep `SKILL.md` under 8 KiB;
   push detail into `references/`, payload files into `assets/`, generators into

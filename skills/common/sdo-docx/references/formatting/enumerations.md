@@ -24,7 +24,7 @@ bullets:
 - Format: `<bullet>\t<text>` -- bullet, real tab run, then text (never spaces
   for indentation).
 - Insert a real `<w:tab/>` run element after the bullet character; do not
-  use space characters (see `sdo-docx-operations` for officecli patterns).
+  use space characters (see `sdo-docx` for officecli patterns).
 - Do not apply manual bold, font-size, or indentation overrides.
 - Manual formatting overrides can cause inconsistencies when regenerating
   or bulk-updating enumerations.

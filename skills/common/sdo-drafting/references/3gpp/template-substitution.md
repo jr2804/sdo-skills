@@ -5,7 +5,7 @@
 - Start from `ref/Tdoc_Template.docx` only when no document exists yet. If a
   document already exists, continue editing it -- do not re-apply the
   template, as doing so risks breaking existing references and formatting.
-- The canonical template is bundled at `assets/Tdoc_Template.docx` in this
+- The canonical template is bundled at `assets/3gpp/Tdoc_Template.docx` in this
   skill. Copy it to `ref/Tdoc_Template.docx` in the project root when
   initializing a new project.
 - Output filename: `<tdoc> - <title>.docx` (values from PLAN.md front matter).
@@ -35,4 +35,4 @@ Replace each with the corresponding front matter value:
   matter; delete the `{{ revision_of }}` placeholder **and** the surrounding
   "Revision of:" label text from the document header entirely.
 - For detecting and applying revision changes in an existing document, see
-  `references/revision-workflow.md`.
+  `references/3gpp/revision-workflow.md`.

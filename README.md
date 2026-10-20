@@ -42,10 +42,10 @@ never loads 3GPP or ITU-T skills.
 
 | Layer    | Skills |
 | -------- | ------ |
-| Common   | `sdo-docx-formatting`, `sdo-docx-operations`, `sdo-project-setup`, `sdo-writing-conventions`, `sdo-writing-style` |
-| ETSI     | `etsi-basics`, `etsi-directives`, `etsi-drafting`, `etsi-spec` |
-| 3GPP     | `3gpp-basics`, `3gpp-change-request`, `3gpp-drafting`, `3gpp-meetings`, `3gpp-portal-authentication`, `3gpp-releases`, `3gpp-specifications`, `3gpp-tdocs`, `3gpp-working-groups` |
-| ITU-T    | `itut-basics`, `itut-contributions`, `itut-drafting`, `itut-patents`, `itut-recommendations` |
+| Common   | `sdo-docx`, `sdo-docx`, `sdo-project-setup`, `sdo-writing`, `sdo-writing` |
+| ETSI     | `etsi-basics`, `etsi-directives`, `sdo-drafting`, `etsi-spec` |
+| 3GPP     | `3gpp-basics`, `3gpp-change-request`, `sdo-drafting`, `3gpp-meetings`, `3gpp-portal-authentication`, `3gpp-releases`, `3gpp-specifications`, `3gpp-tdocs`, `3gpp-working-groups` |
+| ITU-T    | `itut-basics`, `itut-contributions`, `sdo-drafting`, `itut-patents`, `itut-recommendations` |
 
 The tree is mid-consolidation: 23 skills today, 12 after the merge pass. The
 target shape and the order of work are in
