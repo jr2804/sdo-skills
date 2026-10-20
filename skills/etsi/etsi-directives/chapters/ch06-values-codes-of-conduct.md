@@ -3,9 +3,11 @@
 Three General-Assembly instruments: **ETSI Values** (GA #81a, 4 May 2023), the **Code of Conduct for ETSI Members** (GA #87a, 27 August 2026), and the **Code of Conduct for Board Members** (GA #87a, 27 August 2026). Together they set the behavioural layer that the procedural instruments assume.
 
 ## Core Idea
+
 The Values state *what ETSI stands for* (European and global democratic principles, human rights, and the seven international-standardization principles); the two Codes say *how individuals must behave* to live up to them — with the Members' Code supplying the operational hook that Chairs must **remind delegates of the Code, the antitrust rules and the IPR rules at the start of every meeting**, and the Board's Code binding Board members to loyalty, care, confidentiality and conflict-of-interest discipline, with **annual written certification**.
 
 ## Frameworks Introduced
+
 - **ETSI Values — the legal-value baseline**: ETSI, located in France and the EU, follows French and EU law and values:
   - the **Treaty on European Union** (as amended by the Lisbon Treaty);
   - the **Charter of Fundamental Rights of the European Union**;
@@ -62,6 +64,7 @@ The Values state *what ETSI stands for* (European and global democratic principl
   - the Code is **reviewed periodically** by the Legal and Governance department, which recommends changes or rescission to the full Board.
 
 ## Key Concepts
+
 - **The seven standardization principles**: coherence, transparency, openness, consensus, voluntary application, independence from special interests, efficiency.
 - **Contribution driven**: ETSI's deliverables derive from member contributions — hence the duty to upload timely contributions to the portal.
 - **Counsellors**: EC/EFTA representatives whose advice delegates must take into account.
@@ -73,6 +76,7 @@ The Values state *what ETSI stands for* (European and global democratic principl
 - **Vision, Mission, Values**: the reference frame for Board conduct.
 
 ## Mental Models
+
 - "**Values are the constitution, Codes are the conduct rules**" — one states identity, the others regulate behaviour.
 - "**The Chair sets the tone in the first five minutes**" — the Code/Antitrust/IPR reminder trio is a required ritual, and impartiality is the Chair's defining duty.
 - "**Appearance is standard for Board conduct**" — conduct that *might lead to* a misleading interpretation cannot be accepted.
@@ -81,6 +85,7 @@ The Values state *what ETSI stands for* (European and global democratic principl
 - "**One voice for ETSI: the Director-General**" — media and public statements are allocated, not open.
 
 ## Anti-patterns
+
 - **Treating the Code as overriding the Directives**: the Members' Code expressly augments but does not override them; where a specific rule exists, it governs.
 - **Skipping the opening reminders**: Chairs "shall" remind delegates of the Code highlights together with the Antitrust and IPR reminders at the start of each meeting.
 - **Chairing in the interest of one's supporting organization**: the Code requires strict impartiality and independence from the supporting organization's interests.
@@ -91,6 +96,7 @@ The Values state *what ETSI stands for* (European and global democratic principl
 - **Overlooking non-native English speakers**: the Code requires their views to be taken into consideration.
 
 ## Reference Tables
+
 | Instrument | Adopted by | Effective version |
 |---|---|---|
 | ETSI Values | Extraordinary GA #81a | 4 May 2023 |
@@ -112,16 +118,20 @@ The Values state *what ETSI stands for* (European and global democratic principl
 | Investigate and report misconduct | Director-General (per RoP Art. 22) | Both Codes |
 
 ## Worked Example
+
 **Opening a Technical Body meeting.** The Chair's first minutes are prescribed; walk the sequence:
+
 1. **Antitrust reminder** — per the Guidelines for Antitrust Compliance and the Members' Code, and specifically the topic prohibitions (Ch 5, C.4.1).
 2. **IPR call** — the mandatory "Call for IPRs" per the IPR Guide §2.3.2/Annex C, with the note that declarations go through ipr.etsi.org (Ch 4).
 3. **Code of Conduct highlights** — the Members' Code requires the Chair to remind delegates of the CoC highlights **at the same time** as the antitrust and IPR reminders.
 4. **Meeting conduct** — speakers are recognized by the Chair and not interrupted; interventions are short; views of non-native English speakers are explicitly to be taken into account; the Chair keeps discussions moderate, respectful and free of prejudice.
 5. **Escalation** — any delegate with an issue requiring escalation informs the Chair or the Secretariat so it can be resolved in time; the member uses the appropriate mechanisms and respects their outcomes.
 6. **Impartiality** — throughout, the Chair acts on professional and neutral judgement, independent of the interests of the supporting organization, and protects minority rights in consensus-building.
+
 - Takeaway: the opening ritual bundles three separate normative duties into one moment — and failure to perform it is itself a breach, because C.3/C.4 of the antitrust Guidelines and the Members' Code each make it mandatory.
 
 ## Key Takeaways
+
 1. The Values anchor ETSI in a listed set of EU/global human-rights and standardization instruments, and in the seven standardization principles — with deliverables free of charge and without personal data.
 2. The Members' Code augments the Directives but does not override them; it sets meeting conduct, contribution duties, escalation, conflict disclosure and the EU-interest consideration.
 3. Chairs carry extra duties: impartiality independent of their supporting organization, inclusive chairing, antitrust compliance, the opening Code/Antitrust/IPR reminder, and reporting misconduct.
@@ -130,6 +140,7 @@ The Values state *what ETSI stands for* (European and global democratic principl
 6. Breaches are routed to the Director-General under RoP Article 22 and can ground dismissal proceedings.
 
 ## Connects To
+
 - **Ch 5**: the Chairs' duty to ensure antitrust compliance and to issue the joint reminder links the Codes to the Antitrust Guidelines.
 - **Ch 4**: the IPR reminder is the third element of the opening ritual; the IPR regime supplies the call-for-IPRs text.
 - **Ch 3**: RoP Article 22 is the enforcement and escalation channel referenced by the Board's Code.

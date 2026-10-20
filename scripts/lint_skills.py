@@ -78,6 +78,25 @@ PLACEHOLDER_CHARS = set("<>{}[]*")
 TRAILING_PUNCT = ".,;:)'\""
 
 
+@dataclass(frozen=True)
+class Context:
+    """Shared lookup state for one repository scan."""
+
+    skill_ids: set[str]
+    report: Report
+    file_index: dict[str, list[str]] = dataclasses_field(default_factory=dict)
+
+    def unknown(self, ref: str) -> bool:
+        """Return True when a skill-ID token does not resolve."""
+        if ref in self.skill_ids or ref in EXTERNAL_SKILLS:
+            return False
+        return ref.rsplit("-", 1)[-1] not in GENERIC_SUFFIXES
+
+    def resolves_elsewhere(self, rel: str) -> list[str]:
+        """Return the skills that provide ``rel`` when it is not local."""
+        return self.file_index.get(rel, [])
+
+
 class Report:
     """Collect findings."""
 
@@ -98,23 +117,70 @@ class Report:
         return len(self.items) - self.errors
 
 
-@dataclass(frozen=True)
-class Context:
-    """Shared lookup state for one repository scan."""
+def main(argv: list[str] | None = None) -> int:
+    """Run the linter."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", type=Path, default=Path("skills"))
+    parser.add_argument("--strict", action="store_true", help="treat warnings as errors")
+    parser.add_argument("--json", action="store_true", help="emit JSON")
+    args = parser.parse_args(argv)
 
-    skill_ids: set[str]
-    report: Report
-    file_index: dict[str, list[str]] = dataclasses_field(default_factory=dict)
+    if not args.root.is_dir():
+        print(f"error: {args.root} is not a directory", file=sys.stderr)
+        return 2
 
-    def unknown(self, ref: str) -> bool:
-        """Return True when a skill-ID token does not resolve."""
-        if ref in self.skill_ids or ref in EXTERNAL_SKILLS:
-            return False
-        return ref.rsplit("-", 1)[-1] not in GENERIC_SUFFIXES
+    skills = discover(args.root)
+    report = Report()
+    ctx = Context(
+        skill_ids={skill.name for skill in skills},
+        report=report,
+        file_index=build_file_index(skills),
+    )
+    for skill in skills:
+        check_skill(skill, ctx)
 
-    def resolves_elsewhere(self, rel: str) -> list[str]:
-        """Return the skills that provide ``rel`` when it is not local."""
-        return self.file_index.get(rel, [])
+    if args.json:
+        print(json.dumps({"skills": len(skills), "items": report.items}, indent=2))
+    else:
+        for item in report.items:
+            print(f"{str(item['severity']).upper():5} {item['path']}:{item['line']}  {item['message']}")
+        print(f"\n{len(skills)} skills, {report.errors} errors, {report.warnings} warnings")
+
+    failed = report.errors > 0 or (args.strict and report.warnings > 0)
+    return 1 if failed else 0
+
+
+def check_skill(skill_dir: Path, ctx: Context) -> None:
+    """Validate one skill directory."""
+    skill_file = skill_dir / "SKILL.md"
+    if not skill_file.is_file():
+        ctx.report.add("error", skill_dir, 0, "missing SKILL.md")
+        return
+
+    skill_id = skill_dir.name
+    if not ID_RE.match(skill_id) or len(skill_id) > MAX_ID_LENGTH:
+        ctx.report.add("error", skill_file, 1, f"directory name {skill_id!r} is not a valid skill ID")
+
+    text = skill_file.read_text(encoding="utf-8")
+    fields = parse_frontmatter(text)
+    if not fields:
+        ctx.report.add("error", skill_file, 1, "missing YAML frontmatter")
+    for key in ("name", "description"):
+        if not fields.get(key):
+            ctx.report.add("error", skill_file, 1, f"frontmatter has no {key!r}")
+
+    body = split_frontmatter(text)
+    size = len(body.encode("utf-8"))
+    if size > MAX_BODY_BYTES:
+        ctx.report.add("warning", skill_file, 1, f"body is {size} bytes, budget is {MAX_BODY_BYTES} (move detail to references/)")
+
+    check_refs(skill_file, body, body_start_line(text), skill_dir, ctx)
+    check_tooling(skill_file, body, body_start_line(text), ctx)
+    for markdown_file in sorted(skill_dir.rglob("*.md")):
+        if markdown_file != skill_file:
+            other = markdown_file.read_text(encoding="utf-8")
+            check_refs(markdown_file, other, 1, skill_dir, ctx)
+            check_tooling(markdown_file, other, 1, ctx)
 
 
 def parse_frontmatter(text: str) -> dict[str, str]:
@@ -142,6 +208,17 @@ def body_start_line(text: str) -> int:
     if not match:
         return 1
     return match.group(0).count("\n") + 1
+
+
+def check_tooling(markdown_file: Path, body: str, first_line: int, ctx: Context) -> None:
+    """Require pull-on-demand (mise) invocations for external tools."""
+    for lineno, tool in iter_tool_invocations(body, first_line):
+        ctx.report.add(
+            "warning",
+            markdown_file,
+            lineno,
+            f"bare {tool!r} invocation: use 'mise x <spec> -- {tool} ...' so the tool is pulled on demand",
+        )
 
 
 def iter_tool_invocations(body: str, first_line: int) -> list[tuple[int, str]]:
@@ -182,17 +259,6 @@ def iter_tool_invocations(body: str, first_line: int) -> list[tuple[int, str]]:
     return found
 
 
-def check_tooling(markdown_file: Path, body: str, first_line: int, ctx: Context) -> None:
-    """Require pull-on-demand (mise) invocations for external tools."""
-    for lineno, tool in iter_tool_invocations(body, first_line):
-        ctx.report.add(
-            "warning",
-            markdown_file,
-            lineno,
-            f"bare {tool!r} invocation: use 'mise x <spec> -- {tool} ...' so the tool is pulled on demand",
-        )
-
-
 def check_refs(markdown_file: Path, body: str, first_line: int, skill_dir: Path, ctx: Context) -> None:
     """Validate path references and skill cross-references in a Markdown file."""
     for lineno, line in enumerate(body.splitlines(), start=first_line):
@@ -223,39 +289,6 @@ def check_refs(markdown_file: Path, body: str, first_line: int, skill_dir: Path,
             ctx.report.add("warning", markdown_file, lineno, f"@{name} is not machine-discoverable; use the skill tool or an ID in backticks")
 
 
-def check_skill(skill_dir: Path, ctx: Context) -> None:
-    """Validate one skill directory."""
-    skill_file = skill_dir / "SKILL.md"
-    if not skill_file.is_file():
-        ctx.report.add("error", skill_dir, 0, "missing SKILL.md")
-        return
-
-    skill_id = skill_dir.name
-    if not ID_RE.match(skill_id) or len(skill_id) > MAX_ID_LENGTH:
-        ctx.report.add("error", skill_file, 1, f"directory name {skill_id!r} is not a valid skill ID")
-
-    text = skill_file.read_text(encoding="utf-8")
-    fields = parse_frontmatter(text)
-    if not fields:
-        ctx.report.add("error", skill_file, 1, "missing YAML frontmatter")
-    for key in ("name", "description"):
-        if not fields.get(key):
-            ctx.report.add("error", skill_file, 1, f"frontmatter has no {key!r}")
-
-    body = split_frontmatter(text)
-    size = len(body.encode("utf-8"))
-    if size > MAX_BODY_BYTES:
-        ctx.report.add("warning", skill_file, 1, f"body is {size} bytes, budget is {MAX_BODY_BYTES} (move detail to references/)")
-
-    check_refs(skill_file, body, body_start_line(text), skill_dir, ctx)
-    check_tooling(skill_file, body, body_start_line(text), ctx)
-    for markdown_file in sorted(skill_dir.rglob("*.md")):
-        if markdown_file != skill_file:
-            other = markdown_file.read_text(encoding="utf-8")
-            check_refs(markdown_file, other, 1, skill_dir, ctx)
-            check_tooling(markdown_file, other, 1, ctx)
-
-
 def discover(root: Path) -> list[Path]:
     """Return all directories that contain a SKILL.md, sorted by path."""
     return sorted({path.parent for path in root.rglob("SKILL.md")})
@@ -270,39 +303,6 @@ def build_file_index(skills: list[Path]) -> dict[str, list[str]]:
             index.setdefault(rel, []).append(skill.name)
             index.setdefault(f"{rel}/", []).append(skill.name)
     return index
-
-
-def main(argv: list[str] | None = None) -> int:
-    """Run the linter."""
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, default=Path("skills"))
-    parser.add_argument("--strict", action="store_true", help="treat warnings as errors")
-    parser.add_argument("--json", action="store_true", help="emit JSON")
-    args = parser.parse_args(argv)
-
-    if not args.root.is_dir():
-        print(f"error: {args.root} is not a directory", file=sys.stderr)
-        return 2
-
-    skills = discover(args.root)
-    report = Report()
-    ctx = Context(
-        skill_ids={skill.name for skill in skills},
-        report=report,
-        file_index=build_file_index(skills),
-    )
-    for skill in skills:
-        check_skill(skill, ctx)
-
-    if args.json:
-        print(json.dumps({"skills": len(skills), "items": report.items}, indent=2))
-    else:
-        for item in report.items:
-            print(f"{str(item['severity']).upper():5} {item['path']}:{item['line']}  {item['message']}")
-        print(f"\n{len(skills)} skills, {report.errors} errors, {report.warnings} warnings")
-
-    failed = report.errors > 0 or (args.strict and report.warnings > 0)
-    return 1 if failed else 0
 
 
 if __name__ == "__main__":

@@ -3,9 +3,11 @@
 **Version adopted by the Specially Convened Meeting of the General Assembly #82 (28–29 November 2023)** — 19 Articles. The constitutive instrument: it creates the Institute, defines its purpose and organs, and sets the amendment threshold.
 
 ## Core Idea
+
 The Statutes are ETSI's constitution: they found the association under French law, enumerate its organs and their competences, and — critically — reserve amendments of themselves and the Rules of Procedure to a Specially Convened General Assembly by qualified majority.
 
 ## Frameworks Introduced
+
 - **The Institute's legal foundation (Art. 1)**: an association founded under the French law of 1 July 1901, non-profit, titled **"EUROPEAN TELECOMMUNICATIONS STANDARDS INSTITUTE"** (ETSI).
 - **Purpose (Art. 2)**: to produce and maintain the technical standards and other deliverables required by its members; as a **recognized European Standards Organization**, to produce standards necessary for a large unified European market; to contribute to worldwide standardization; may act by any lawful means.
   - When to use: testing whether an activity is *intra vires*.
@@ -41,6 +43,7 @@ The Statutes are ETSI's constitution: they found the association under French la
 - **Dissolution, winding up (Art. 19)**: the dissolving GA simultaneously fixes liquidation terms, appoints one or more liquidators, determines their powers, and assigns remaining assets after liabilities; any balance of liabilities is borne by the members.
 
 ## Key Concepts
+
 - **Recognized European Standards Organization**: the status anchoring ETSI's European mandate (Art. 2).
 - **CEPT geographical area**: the eligibility area for Full membership.
 - **Consensus (admission)**: agreement sought via online poll four times a year before escalation to the GA.
@@ -50,6 +53,7 @@ The Statutes are ETSI's constitution: they found the association under French la
 - **Ex-officio non-voting**: the Director-General's status on GA and Board.
 
 ## Reference Tables
+
 | Threshold | Value | Source |
 |---|---|---|
 | Statutes/RoP amendment notice | not less than 6 weeks | Art. 18 |
@@ -61,12 +65,16 @@ The Statutes are ETSI's constitution: they found the association under French la
 | Admission poll frequency | 4 × per year | Art. 7 |
 
 ## Worked Example
+
 **Who may expel a member, and how does the route differ?** Two scenarios:
+
 1. **Non-payment of contribution or fee** → expulsion decided by the **Director-General** (Statutes Art. 8). No GA involvement; the DG's chief executive authority (Art. 15.2) covers it.
 2. **Substantial breach of member obligations (other than non-payment)** → decision by the **General Assembly**, and the member must first have been invited **by registered letter** to appear before the meeting (Art. 8).
+
 - Takeaway: the identity of the decision-maker follows the *character* of the breach, and the procedural safeguard (registered-letter invitation) attaches only to the GA route — a member-facing process point that is easy to miss.
 
 ## Key Takeaways
+
 1. The Statutes found ETSI under French 1901 law and enumerate its organs; every other instrument derives its authority from here.
 2. The GA is the highest authority and its resolutions bind all members; only Full and Associate members vote.
 3. Amendment of the Statutes and Rules of Procedure is tightly gated: Specially Convened GA, ≥ 6 weeks' notice, qualified majority.
@@ -74,6 +82,7 @@ The Statutes are ETSI's constitution: they found the association under French la
 5. Appeal rights are general: members may appeal Board decisions to the GA and Technical Organization decisions to both the Board and the GA.
 
 ## Connects To
+
 - **Ch 1**: Art. 18 is the amendment ladder's upper tier.
 - **Ch 3**: the Rules of Procedure supply the quorum, voting, and qualified-majority figures the Statutes leave open.
 - **Ch 7**: Art. 13's delegation to the Board is operationalized by the Board Working Procedures and the Powers and Functions instrument.

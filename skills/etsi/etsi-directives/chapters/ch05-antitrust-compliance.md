@@ -3,9 +3,11 @@
 **Version adopted by Board #133 (10 June 2021).** Three parts: **B** background on EU competition law, **C** the compliance Guidelines proper, **D** a "do's and don'ts" mnemonic for TC/WG participants.
 
 ## Core Idea
+
 ETSI's status as a recognized European standards body **does not exempt it, its members or its activities from competition law** — because ETSI is simultaneously an *association of undertakings* under Article 101 TFEU. Standardization is a legitimate, EU-endorsed pooling of resources, but the meetings where it happens are also where competitors sit in one room, so the Guidelines forbid a specific list of topics and avoid even the *appearance* of restraint.
 
 ## Frameworks Introduced
+
 - **The dual character of ETSI (B.2.2)**: ETSI encourages members to pool resources to produce standards — an objective endorsed by the EU — while being at the same time an **association of undertakings** within Article 101(1) TFEU. Members must not abuse their attendance at ETSI meetings to establish or further restrictive agreements (e.g. price fixing).
   - When to use: explaining why standardization activity is lawful but meeting conduct is tightly constrained.
 - **Article 101 TFEU — anti-competitive agreements (B.2)**: prohibits agreements between undertakings, decisions of associations of undertakings, and concerted practices having the object or effect of restricting competition within the EU. Applies to both **horizontal** (actual/potential competitors at the same level) and **vertical** agreements.
@@ -48,6 +50,7 @@ ETSI's status as a recognized European standards body **does not exempt it, its 
   - **Do not**: engage in activities intended to restrain competition or harm consumers; attempt to set or control price or terms of product, service or licence fees; discuss licensing price/terms, product or service price/terms, pricing methods, profits, margins, cost data, production plans, market share or territories; **attend meetings where procedural rules are not followed**.
 
 ## Key Concepts
+
 - **Association of undertakings**: ETSI's competition-law character alongside its standards-body role — the reason the Guidelines exist.
 - **Horizontal / vertical agreements**: competitor-to-competitor / different-level agreements; Article 101 covers both.
 - **Automatic voidness**: the sanction for a prohibited agreement.
@@ -57,6 +60,7 @@ ETSI's status as a recognized European standards body **does not exempt it, its 
 - **Antitrust Laws control**: the Guidelines yield to the law on inconsistency.
 
 ## Mental Models
+
 - "**A standards meeting is also a competitors' meeting**" — lawful collaboration on technology, unlawful collaboration on markets.
 - "**Topic discipline, not intent**" — the prohibition is on topics; whether the exchange was aimed at a restraint is beside the point.
 - "**Even the appearance is a violation**" — the corridor and the coffee break are inside the perimeter.
@@ -64,6 +68,7 @@ ETSI's status as a recognized European standards body **does not exempt it, its 
 - "**The Guidelines are a floor, the law is the ceiling**" — where they diverge, the law controls.
 
 ## Anti-patterns
+
 - **Assuming the ESO privilege confers antitrust immunity**: expressly denied in the Introduction and B.2.2.
 - **Discussing licensing terms or prices in a Technical Body**: on the forbidden list — with the narrow C.4.2 ex ante carve-out as the only permitted route, and that outside the TB's technical discussion.
 - **Treating informal settings as out of scope**: social gatherings and corridor talks are named explicitly.
@@ -73,6 +78,7 @@ ETSI's status as a recognized European standards body **does not exempt it, its 
 - **Believing ETSI is responsible for judging FRAND terms it receives ex ante**: ETSI expressly takes no position.
 
 ## Reference Tables
+
 | Provision | Prohibits / requires |
 |---|---|
 | Art. 101(1) TFEU | agreements/concerted practices/association decisions restricting competition (horizontal and vertical) |
@@ -101,15 +107,19 @@ ETSI's status as a recognized European standards body **does not exempt it, its 
 | ongoing or threatened litigation |
 
 ## Worked Example
+
 **A WG dinner after a plenary.** Three delegates from competing manufacturers discuss "how expensive it has become to implement the new profile, and where we'd each price our chips."
+
 1. **Setting**: a social gathering on the edge of an ETSI meeting — expressly within C.4.1's scope.
 2. **Topics**: "where we'd each price our chips" is *product pricing*; comparing implementation costs edges toward *cost data*. Both are on the forbidden list.
 3. **Appearance**: even if nothing is agreed, the exchange *appears* to be leading to a restraint — C.4.1 requires that appearance to be avoided, not merely a final agreement.
 4. **Escalation**: any participant who becomes aware of such an exchange **must** report it (C.4.3).
 5. **The lawful alternative**: if a participant wants to make licensing terms known, the permitted route is a **voluntary, unilateral, public, ex ante disclosure** (C.4.2 / IPR Guide §4.1) — a published statement, not a bilateral dinner negotiation.
+
 - Takeaway: the perimeter is drawn around *topics*, not venues or intentions — and the lawful channel for licensing information is publication, not conversation.
 
 ## Key Takeaways
+
 1. ETSI is a standards body *and* an association of undertakings — competition law applies to it and its members without exemption.
 2. Article 101 targets horizontal and vertical restraints; price fixing, market allocation, IPR-licence restrictions and boycotts are the ETSI-context risks.
 3. Article 102 adds abuse of dominance, including refusal to license where the licence is indispensable, all competition is eliminated, new products are prevented, and there is no objective justification.
@@ -118,6 +128,7 @@ ETSI's status as a recognized European standards body **does not exempt it, its 
 6. The only permitted licensing-terms channel is voluntary, unilateral, public ex ante disclosure — and ETSI takes no position on its FRAND-ness.
 
 ## Connects To
+
 - **Ch 4**: the IPR regime needs members to disclose *essentiality* early but keeps *commercial terms* out of ETSI — the antitrust Guidelines supply the competition-law reason, and C.5.1 links directly to IPR Policy Clause 4.1.
 - **Ch 11**: C.3's minute and meeting requirements point at TWP §1.5 and §1.9.3.
 - **Ch 6**: the Chairs' duty to remind delegates of the antitrust rules at the start of each meeting sits in the Members' Code of Conduct.

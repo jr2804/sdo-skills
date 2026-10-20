@@ -3,9 +3,11 @@
 **Adopted by the Director-General; version dated 30 June 2025.** Nine clauses plus Glossary, Acronyms and History. It specifies the **structure and drafting** of documents intended to become ETSI deliverables, complementing the Technical Working Procedures.
 
 ## Core Idea
+
 Standards fail when they are ambiguous — they get implemented, translated and litigated. So the EDR's governing purpose is **clear and unambiguous provisions**, enforced through two mechanisms: **mandatory skeletons** from the editHelp! website (structure is not a matter of taste) and the **modal-verb regime** (`shall` / `should` / `may` / `can` / `will` / `is`), which tells every reader exactly which sentences are binding.
 
 ## Frameworks Introduced
+
 - **Purpose and its place (preamble)**: the EDR specifies rules for the structure and drafting of documents intended to become ETSI deliverables, **complementing the TWP**. Examples in the text are illustrative only. ETSI maintains guides on templates and tools such as deliverable skeletons and *"Principles for drafting ETSI deliverables with the use of skeletons"*.
 - **The mandatory skeleton rule (1.1)**: choose a deliverable type from the types defined in **TWP Annex A.3**, and use the **pre-structured deliverable skeleton** available from the **editHelp! website** as the basis for drafting.
   - Consequence: the EDR's structural clauses describe a skeleton you are obliged to use — not a style you may approximate.
@@ -54,6 +56,7 @@ Standards fail when they are ambiguous — they get implemented, translated and 
 - **Endorsement of documents from other standards organizations (9)**: general information; the **endorsement notice**; **endorsement without modifications**; **endorsement with modifications**; the **annex in an endorsement document**; and **reproduction of text from other standards organizations** — general and copyright, inclusion without change, and inclusion with change.
 
 ## Key Concepts
+
 - **Mandatory skeleton**: the pre-structured template that shall be used as the basis for any deliverable.
 - **Unnumbered clauses**: the IPR clause, Foreword, Modal verbs terminology and Executive summary — the front matter that must not be renumbered.
 - **Normative vs informative annexes**: carried through the EDR from the TWP's taxonomy.
@@ -65,6 +68,7 @@ Standards fail when they are ambiguous — they get implemented, translated and 
 - **Generic term rule**: use the correct generic term instead of a trade name or trademark.
 
 ## Mental Models
+
 - "**If it isn't `shall`, it isn't binding**" — the modal verb, not the tone, determines obligation.
 - "**`may` is the standard talking; `can` is the world talking**" — permission versus possibility.
 - "**Structure is prescribed, not negotiated**" — the skeleton from editHelp! is the starting point by rule.
@@ -73,6 +77,7 @@ Standards fail when they are ambiguous — they get implemented, translated and 
 - "**Unnumbered means fixed**" — the front-matter clauses carry Secretariat-supplied, unmodifiable text.
 
 ## Anti-patterns
+
 - **Writing "must" in a normative sentence**: only `shall` expresses a requirement; "must" is reserved for direct citation.
 - **Using "may" for possibility or "can" for permission**: the two are deliberately distinguished and commonly confused.
 - **Expressing a requirement with the present indicative**: "the terminal sends…" is a statement of fact (`is`), not a requirement (`shall`).
@@ -85,6 +90,7 @@ Standards fail when they are ambiguous — they get implemented, translated and 
 - **Treating an informative annex as binding (or vice versa)**: the EDR and TWP separate normative from informative annexes for good reason.
 
 ## Reference Tables
+
 | Modal verb | Provision type | Meaning |
 |---|---|---|
 | `shall` / `shall not` | Requirement | strictly to be followed; no deviation permitted |
@@ -104,7 +110,9 @@ Standards fail when they are ambiguous — they get implemented, translated and 
 | Introduction | no | optional | RB |
 
 ## Worked Example
+
 **Writing one requirement correctly.** Suppose a terminal must send a TIMEOUT message on expiry of timer T3, and the network independently releases after a fixed period.
+
 1. **The binding obligation** → `shall`: *"On expiry of timer T3, the terminal **shall** send a TIMEOUT message to the network and shall start timer T4."* Not "must send", not "sends".
 2. **A merely suggested option** → `should`: if the deliverable prefers but does not compel an action, it says **should**, with "it is recommended that" only in an exceptional case.
 3. **Something the deliverable permits** → `may`: *"The terminal **may** include an optional identifier field."* Never "can" here.
@@ -112,9 +120,11 @@ Standards fail when they are ambiguous — they get implemented, translated and 
 5. **Behaviour of equipment outside the deliverable's scope** → `will`: *"The network **will** release the connection after 30 s."* Distinguish from `shall`.
 6. **A plain statement of fact** → `is`: *"Timer T3 **is** 5 s."* Never use the present indicative to impose a requirement.
 7. **The legal overlay**: if the requirement quotes or embeds third-party material, reference it rather than reproduce it; if reproduction is unavoidable, seek the owner's authorisation and tell the Secretariat early (§4).
+
 - Takeaway: each sentence's modal verb is a legal determination — the EDR turns drafting into a disciplined act, not a writing style.
 
 ## Key Takeaways
+
 1. The EDR's purpose is clear, unambiguous provisions, achieved via mandatory editHelp! skeletons and the modal-verb regime.
 2. **`shall` is the only requirement verb**; `should` recommends, `may` permits, `can` states possibility, `will` describes out-of-scope behaviour, `is` states fact.
 3. The IPR clause, Foreword, modal verbs clause and Executive summary are **unnumbered**; the IPR and modal-verbs text is Secretariat-supplied and unmodifiable, and ENs must carry a **transposition table**.
@@ -123,6 +133,7 @@ Standards fail when they are ambiguous — they get implemented, translated and 
 6. Normative versus informative annexes is a distinction the EDR enforces, matching the TWP's taxonomy.
 
 ## Connects To
+
 - **Ch 11**: the EDR complements the TWP; deliverable types come from **TWP Annex A.3**, and the MAP gate requires EDR compliance before the Secretariat prepares a draft for member vote.
 - **Ch 4**: §4.1 requires the IPR Policy and IPR Guide to be respected — the EDR is the drafting-level implementation of the IPR regime's notice and copyright obligations.
 - **Ch 3**: RoP Art. 17 (languages and publication in English) is operationalized by EDR 1.5.

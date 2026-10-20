@@ -59,4 +59,3 @@
 - **Version history of the Directives** → ch01
 - **Voting procedures and thresholds** → ch03
 - **Work Items (WI / WISR)** → ch11
-

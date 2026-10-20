@@ -3,9 +3,11 @@
 Three documents govern the Board: **RoP Annex 7 — Rules of operation for the Board** (normative, carried by the RoP), the **Board Working Procedures** (Board #148, 5–6 June 2024), and the **Powers and Functions delegated to the Board** (GA #87a, 27 August 2026). Read together: Annex 7 says *who the Board is*, the Powers and Functions say *what it may decide*, and the Working Procedures say *how it meets*.
 
 ## Core Idea
+
 The Board is a **delegated body acting for the General Assembly between meetings** — so its competence is enumerated (*only* the 35 delegated functions), its members act **in an individual capacity rather than as representatives of their employers**, and its decisions default to **50 % of votes cast** with a **21-day correspondence window**, both far lighter than the GA's weighted 71 % machinery.
 
 ## Frameworks Introduced
+
 - **Composition (Annex 7 §1)**: the Board comprises **elected** and **ex-officio non-voting** members.
   - **Ex-officio non-voting**: the Chair of the General Assembly, the Chair of the Finance Committee, the Chair of the NSB Group, the Chair of the NSO Group, the **3SI Advocate**, and the **Director-General**.
   - **Elected members may not send replacements.**
@@ -59,6 +61,7 @@ The Board is a **delegated body acting for the General Assembly between meetings
   - **Partners, coordination and testing**: approve new EPP Partners where a GA-approved Co-operation Agreement exists; decide creation/termination of Coordination Groups and ETSI's participation in externally initiated ones; propose withdrawal of published deliverables whose Technical Body has terminated; review and advise the DG on the technical testing roadmap and **TTF priorities**; promote inclusiveness through specific programmes, advising the GA and DG on participation of **SMEs and societal stakeholders**; advise the DG on SDG creation, extension and cessation (29–35).
 
 ## Key Concepts
+
 - **Delegated competence**: the Board acts only within the enumerated Powers and Functions — there is no general residual power.
 - **Ex-officio non-voting members**: GA Chair, FC Chair, NSB Group Chair, NSO Group Chair, 3SI Advocate, Director-General.
 - **Individual capacity**: Board members act for the Institute, not as instructed delegates of their employers.
@@ -70,6 +73,7 @@ The Board is a **delegated body acting for the General Assembly between meetings
 - **Confidence threshold for Board Chair support change**: ≥ 71 % of weighted individual votes cast.
 
 ## Mental Models
+
 - "**Three documents, three questions**" — Annex 7 (who), Powers and Functions (what), Working Procedures (how).
 - "**The Board is a committee with a closed remit**" — if a function is not in the 35-item list, it is not the Board's to decide.
 - "**Individual capacity, collective interest**" — a Board member is not a national or corporate delegate.
@@ -78,6 +82,7 @@ The Board is a **delegated body acting for the General Assembly between meetings
 - "**Money decisions have the strictest rules**" — STF funding carries disclosure, exclusion and leaving-the-room obligations found nowhere else in the Board instruments.
 
 ## Anti-patterns
+
 - **Treating the Board as having general authority between GA meetings**: its mandate is the enumerated list; the GA retains everything else.
 - **Sending a replacement to a Board meeting**: elected members may not send replacements — attendance is personal.
 - **Voting as an instructed representative**: Board members act in an individual capacity; the supporting member supplies support, not instructions.
@@ -88,6 +93,7 @@ The Board is a **delegated body acting for the General Assembly between meetings
 - **Allowing an STF proposal to be discussed without an authorized presenter**: it must not be discussed at all.
 
 ## Reference Tables
+
 | Feature | Board | (GA, for contrast) |
 |---|---|---|
 | Quorum | > half of elected members | ≥ 40 % Full-member weighted votes |
@@ -105,15 +111,19 @@ The Board is a **delegated body acting for the General Assembly between meetings
 | Guests (normally ≤ 5) | no vote; right to speak and seek deferment if significantly interested |
 
 ## Worked Example
+
 **An STF funding proposal with a conflicted Board member.** Company A's representative sits on the Board; Company A intends to bid for the funded work.
+
 1. **Presentation**: the proposal must be presented by the Chair or a Vice-Chair of the proposing Reference Body — if no authorized presenter attends, the item is simply **not discussed** (§12.1–12.2).
 2. **Disclosure**: the Board member must disclose the potential financial interest — and being **supported by a Full member that intends to seek benefit** from the funding is one of the three named conflict situations (§12.3–12.4).
 3. **Participation limits**: the member may listen, read the email exchange and attend calls, but has **no right to intervene** unless invited, and **must be asked to leave during the decision-making** (§12.5).
 4. **Decision**: the Board decides within the GA's financial framework (Powers and Functions 14); for STF creation outside that framework, the Board can only **propose** to the GA (22).
 5. **Non-compliance**: failure to follow the above **is itself a conflict of interest**, excluding the member from further participation in that proposal (§12.6).
+
 - Takeaway: only the Board instruments impose a mandatory leave-the-room rule — the funding decisions are where delegated authority is treated as most at risk from self-interest.
 
 ## Key Takeaways
+
 1. The Board's competence is enumerated in 35 delegated powers; there is no residual authority between GA meetings.
 2. Board members act in an individual capacity, not as representatives of their employers, and cannot send replacements.
 3. Annex 7 sets composition (ex-officio non-voting members), 3-year mandates, reserved seats, and the notable **split-vote** election rule.
@@ -122,6 +132,7 @@ The Board is a **delegated body acting for the General Assembly between meetings
 6. Loss of a supporting Full member triggers a three-month transition and, for the Board Chair, a ≥ 71 % confirmation vote to resume.
 
 ## Connects To
+
 - **Ch 2/3**: the Board derives from Statutes Art. 13 and RoP Art. 5 and Annex 7.
 - **Ch 4**: the Board may refer ISG matters to the GA and is the addressee under RoP Art. 22 escalation.
 - **Ch 6**: Board conduct is governed by the Board Members' Code of Conduct.

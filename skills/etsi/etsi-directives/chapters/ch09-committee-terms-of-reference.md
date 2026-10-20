@@ -3,11 +3,13 @@
 Three ToRs creating the standing coordination and advisory bodies: the **Finance Committee (FC)** (GA #85a, 4 September 2025), the **Group on Standardisation Requests (GoSR)** (GA #85a, 4 September 2025), and the **Operational Coordination Group (OCG)** (Board #144a, 15 November 2023). All three share one structural trait: they **coordinate and advise; they do not decide the matters they handle**.
 
 ## Core Idea
+
 Each body is a forum with a narrow mandate — the FC advises on money, the GoSR shepherds EC Standardisation Requests through the pipeline, and the OCG deconflicts the technical bodies. The recurring pattern is **"facilitate, do not decide"**: the FC is expressly consultative, and the GoSR *"does not accept SReqs"* — that competence belongs to the NSBG — while the OCG *refers* unresolvable issues to the Board.
 
 ## Frameworks Introduced
 
 ### Finance Committee (FC)
+
 - **Scope (FC §1)**: assists and advises the GA, Board and DG on budgetary and financing management; **merely consultative** unless duly committed by the GA or Board; meets **at least twice per year in ordinary session, prior to each General Assembly**; determines its own methods of procedure.
 - **The GA-reporting calendar (FC §2)** — the FC's tasks are pinned to the twice-yearly GA:
   - **March/April GA**: analysis of the previous year's Financial Statements; advice on adopting **Budget Guidelines** for the following year.
@@ -19,6 +21,7 @@ Each body is a forum with a narrow mandate — the FC advises on money, the GoSR
 - **Chair limits (FC §5)**: appointed by the FC from among its members for the mandate period — up to **two consecutive terms**; beyond two only if **no other candidate indicated interest** at the GA that appointed the members; after the maximum, a new series only after a **gap of at least one term**; the limits bind **both the person and the member organization / Academic, Corporate or Public Group they represent**.
 
 ### Group on Standardisation Requests (GoSR)
+
 - **Mission (GoSR §1)**: established by the General Assembly **under the leadership of the Director-General** to ensure efficient, transparent and coordinated handling of SReqs. It is the **central forum** where the relevant Interested Parties are informed, consulted and guided through all phases of the SReq process. Two boundaries are stated explicitly: **responsibility for developing the deliverables remains with the responsible Technical Group**, and the **GoSR "does not accept SReqs"** — it facilitates discussion and follows up, while acceptance is an NSBG decision (Ch 3, Art. 20.3.3).
 - **Structure (GoSR §2)**:
   - **GoSR Secretariat** — provided by the ETSI Secretariat; handles operational, administrative and coordination tasks, including gathering inputs on draft SReqs and facilitating Interested Parties.
@@ -38,6 +41,7 @@ Each body is a forum with a narrow mandate — the FC advises on money, the GoSR
 - **Communication, transparency and review (GoSR §§5–6)**: external outreach during pre-consultation to inform industry stakeholders that ETSI may be the appropriate venue; timely updates, invitations and results to all Interested Parties; strive for consistency in terminology and approach with CEN/CENELEC; the ToR and processes are reviewed as needed, with **approval of the ToR falling under the General Assembly**.
 
 ### Operational Coordination Group (OCG)
+
 - **Scope (OCG §A)**: acts as **focal point and forum for coordination** of the Technical Bodies (Technical Committees, ETSI Projects), ISGs, SDGs and Coordination Groups; resolves **as far as possible any duplication of effort or conflict of technical views** between TBs to reinforce cooperation across the Technical Organization, ISGs, SDGs and CGs.
   - **Two identity limits**: the OCG **reports to the Board** and is **not itself a Coordination Group** as defined in RoP §5.2; it **refers to the Board issues it cannot resolve**.
 - **The OCG's tasks (§A.3)**:
@@ -52,6 +56,7 @@ Each body is a forum with a narrow mandate — the FC advises on money, the GoSR
 - **Sub-groups and ad-hoc groups (§C)**: ad-hoc groups for specific issues at the OCG's request; sub-groups to cover OCG matters targeting a particular set of topics involving all or a defined subset of TBs; **the OCG establishes their Terms of Reference and appoints their Chairs**.
 
 ## Key Concepts
+
 - **Consultative by default (FC)**: advisory unless the GA or Board commits the FC to more.
 - **25-day Weighted National Vote**: the SReq acceptance vote the GoSR launches for NSBG members.
 - **"Checklist for SReq"**: the structured instrument completed with Interested Parties in the draft-SReq phase.
@@ -63,6 +68,7 @@ Each body is a forum with a narrow mandate — the FC advises on money, the GoSR
 - **OCG ≠ Coordination Group**: the definitional clarification in RoP §5.2.
 
 ## Mental Models
+
 - "**Forums, not deciders**" — every one of these bodies facilitates or advises; none decides the substance it handles.
 - "**FC runs on the GA calendar**" — its reporting obligations are keyed to the March/April and November/December GA meetings.
 - "**The GoSR is the SReq air-traffic controller**" — it tracks, convenes, checks and reports, while the NSBG votes and the TG delivers.
@@ -70,6 +76,7 @@ Each body is a forum with a narrow mandate — the FC advises on money, the GoSR
 - "**The OCG is the technical body's common room, chaired by the Board**" — coordination across TBs, with a Board Vice-Chair in the chair and escalation upward.
 
 ## Anti-patterns
+
 - **Expecting the GoSR to accept a Standardisation Request**: expressly outside its role — the NSBG decides acceptance.
 - **Expecting the Finance Committee to decide financial matters**: merely consultative unless duly committed by the GA or Board.
 - **Letting GoSR sub-groups take over the Technical Group's work**: they must neither overlap with nor substitute the TG's responsibilities.
@@ -79,6 +86,7 @@ Each body is a forum with a narrow mandate — the FC advises on money, the GoSR
 - **Assuming a third of TB Chairs can only ask politely**: three or more TB Chairs *require* an additional OCG meeting.
 
 ## Reference Tables
+
 | Body | Created/adopted by | Adopting instrument | Decision power |
 |---|---|---|---|
 | Finance Committee (FC) | General Assembly | GA #85a, 4 Sep 2025 (ToR) | consultative (unless committed) |
@@ -92,7 +100,9 @@ Each body is a forum with a narrow mandate — the FC advises on money, the GoSR
 | OCG | a Vice-Chair of the Board | TB/ISG/SDG/CG Chairs, ETSI reps to external CGs, Board, DG, Secretariat, Counsellors, members as Guests |
 
 ## Worked Example
+
 **An EC Standardisation Request arrives.** Trace the division of labour:
+
 1. **Anticipation**: the GoSR Secretariat has already monitored the EC's Annual Union Work Programme and Rolling Plan, and notified Interested Parties of possible future work (GoSR §3.1.B).
 2. **Draft phase**: the Secretariat schedules and chairs consultation calls to complete the **"Checklist for SReq"**, mediating differing views (GoSR §3.1.C).
 3. **Final phase**: the Secretariat **launches a 25 calendar-day Weighted National Vote** for NSBG members and runs a parallel examination call — **assisting the NSBG Chair** in chairing it (GoSR §3.1.D). The examination runs in parallel with the NSB vote (RoP Art. 20.3.1).
@@ -100,9 +110,11 @@ Each body is a forum with a narrow mandate — the FC advises on money, the GoSR
 5. **Communication**: the GoSR coordinates the drafting of the EC/EFTA letter, but **only the Director-General sends it**; a Collective Letter informs all ETSI members.
 6. **Delivery**: responsibility for developing the deliverables stays with the **responsible Technical Group** (GoSR §1); the GoSR tracks delivery, compliance with SReq conditions, and periodic and final reports (GoSR §3.1.E).
 7. **Coordination**: if the work touches another TG or CEN/CENELEC, the OCG is the forum for deconflicting effort (OCG §A), referring anything unresolvable to the Board.
+
 - Takeaway: three bodies, three distinct roles — and the one thing none of them does is make the acceptance decision.
 
 ## Key Takeaways
+
 1. The FC advises on money on a GA-keyed calendar, is consultative by default, meets at least twice a year, and controls access to its own materials under a self-adopted confidentiality policy.
 2. The GoSR is the SReq coordination and tracking machinery across pre-consultation, draft, final, monitoring and case-specific phases — but it does not accept SReqs.
 3. The SReq acceptance vote is a **25 calendar-day Weighted National Vote** of NSBG members; the DG notifies the EC/EFTA within 30 calendar days.
@@ -111,6 +123,7 @@ Each body is a forum with a narrow mandate — the FC advises on money, the GoSR
 6. All three bodies facilitate rather than decide — unresolved matters go to the Board or the GA.
 
 ## Connects To
+
 - **Ch 3**: RoP Articles 20–21 establish the SReq/SRdAP processes that the GoSR ToR services; RoP §5.2 defines Coordination Groups the OCG is distinguished from.
 - **Ch 7**: the Board owns the OCG's mandate, receives its recommendations, and appoints the Vice-Chair who chairs it.
 - **Ch 8**: the FC's advisory role and its Financial Regulations grounding.

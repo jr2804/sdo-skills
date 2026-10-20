@@ -3,9 +3,11 @@
 **Version adopted by Board #153 (17–19 June 2025).** A short instrument recognising long service — and, more importantly for practice, defining precisely **what these honours do not permit**.
 
 ## Core Idea
+
 ETSI recognises three kinds of distinction, each with a different gatekeeper: **courtesy titles** granted by the General Assembly by consensus, **ETSI Fellowships** decided by an Award Committee on individual merit, and **Retired Friends of ETSI** status approved administratively by the Director-General. None of them confers any authority to speak for ETSI, and the instrument ends by restricting what honorees may do with ETSI documentation.
 
 ## Frameworks Introduced
+
 - **ETSI courtesy title (§1)**:
   - **Eligibility**: any former ETSI Chair or Vice-Chair; any former Board member; any former member of the Secretariat.
   - **Nomination**: the **General Assembly** nominates and grants courtesy titles, **based on consensus**, and decides on the title itself.
@@ -25,6 +27,7 @@ ETSI recognises three kinds of distinction, each with a different gatekeeper: **
   - **Documentation access (§4.2)**: at the **Director-General's discretion** and following a **prior written request**, honorees may obtain copies of documentation. Any authorisation **must be given in writing** and is conditioned on the documentation being **freely reproduced for private and/or scientific use only** — **distribution, display, communication to the public or adaptation (including translation) is not permitted**.
 
 ## Key Concepts
+
 - **Consensus grant**: the General Assembly's basis for courtesy titles.
 - **Four-nominator rule**: the Fellowship's anti-club threshold — four individuals outside the nominee's member and Group.
 - **One nomination per call**: the per-person cap on proposing Fellows.
@@ -35,6 +38,7 @@ ETSI recognises three kinds of distinction, each with a different gatekeeper: **
 - **Private/scientific use condition**: the limit attaching to any documentation supplied to honorees.
 
 ## Mental Models
+
 - "**Three honours, three gatekeepers**" — GA (courtesy title), Award Committee (Fellowship), DG (Retired Friends).
 - "**Recognition is not a platform**" — an honour confers no right to speak for ETSI, and any request to do so goes to the Director-General.
 - "**No automatic Fellowship**" — position and tenure alone earn nothing; the criteria are contribution, leadership or long unsung service.
@@ -42,6 +46,7 @@ ETSI recognises three kinds of distinction, each with a different gatekeeper: **
 - "**Documents are lent, not given**" — private and scientific use only; no distribution, adaptation or translation.
 
 ## Anti-patterns
+
 - **Expecting the Director-General to grant a courtesy title**: titles are the General Assembly's, by consensus.
 - **Assuming an ETSI Fellow can speak for ETSI**: expressly denied; the person must inform the Director-General if asked.
 - **Self-nominating or club-nominating for a Fellowship**: four nominators are required, from outside the nominee's member and Group — and Award Committee members cannot propose.
@@ -51,6 +56,7 @@ ETSI recognises three kinds of distinction, each with a different gatekeeper: **
 - **Letting an honoree debate technical substance uninvited**: they attend as Guests, with no vote and no participation in factual or technical debate unless invited.
 
 ## Reference Tables
+
 | Honour | Eligibility | Decided by | Basis |
 |---|---|---|---|
 | ETSI courtesy title | former Chair/Vice-Chair, former Board member, former Secretariat member | General Assembly | consensus |
@@ -66,15 +72,19 @@ ETSI recognises three kinds of distinction, each with a different gatekeeper: **
 | Documentation use | private and scientific use only; no distribution/adaptation/translation |
 
 ## Worked Example
+
 **A retired former Board member wants to attend a Technical Body meeting and receive working documents.** Walk §4:
+
 1. **Invitation**: attendance is at the **discretion of the respective Chair or the Director-General** (§4.1) — there is no automatic right of attendance.
 2. **Capacity**: if invited, the person attends as a **Guest**, with **no voting rights**, and must **refrain from participating in any factual and/or technical debate unless invited to do so**.
 3. **Documents**: copies require a **prior written request** and the Director-General's authorisation, which is given **in writing** (§4.2).
 4. **Use restriction**: the documentation may be freely reproduced **for private and/or scientific use only** — any distribution, display, communication to the public, adaptation or translation is **not permitted**.
 5. **Speaking for ETSI**: if anyone asks the person for an opinion or recommendation **in the name of ETSI**, they must inform the Director-General; misuse of a courtesy title can lead the GA to withdraw it (§4).
+
 - Takeaway: honours confer access by discretion and documentation by permission — every element is discretionary, conditional and revocable.
 
 ## Key Takeaways
+
 1. Three honours with three different gatekeepers: GA by consensus, an Award Committee on merit, and the DG by application.
 2. A Fellowship requires four external nominators, is capped at one nomination per person per call, may be posthumous, and has no automatic granting — the "unsung hero" route recognises technical contribution at personal cost.
 3. The Award Committee is the GA Chair and Vice-Chairs, the Board Chair and the DG — and its members cannot be awarded.
@@ -83,6 +93,7 @@ ETSI recognises three kinds of distinction, each with a different gatekeeper: **
 6. Documentation supplied to honorees is restricted to private and scientific use, with distribution, adaptation and translation prohibited.
 
 ## Connects To
+
 - **Ch 2/3**: the General Assembly's power to decide questions of membership and status is the source of its role in courtesy titles.
 - **Ch 7**: the Board adopted the instrument, and the Board Chair sits on the Award Committee.
 - **Ch 8/9**: the Secretariat and the Director-General provide the administrative machinery for Retired Friends and documentation authorisation.

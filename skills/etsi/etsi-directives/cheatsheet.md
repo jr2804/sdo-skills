@@ -1,6 +1,7 @@
 # Cheatsheet — Decision Guide
 
 ## 1. Which instrument governs?
+
 | Question is about… | Instrument | Adopted by |
 |---|---|---|
 | Founders, organs, membership, amendment of the constitution | **Statutes** | Heads of National Delegations |
@@ -20,6 +21,7 @@
 **Rule**: name the instrument and its clause. "The Directives" is not a citation.
 
 ## 2. Which voting procedure (RoP 11.2)?
+
 | If the decision is… | Procedure |
 |---|---|
 | Dissolution; RoP dispute; EN adoption/withdrawal; Statutes/RoP amendment; new National Delegation weighting | **11.2.1 Weighted National Voting** |
@@ -27,6 +29,7 @@
 | **Anything else** | **11.2.3 Weighted Individual — Full + Associate** (default) |
 
 ## 3. Thresholds
+
 | Decision | Requires |
 |---|---|
 | General GA decision | ≥ **71 % of votes cast** (abstentions excluded) |
@@ -39,6 +42,7 @@
 | Admission to membership | **Consensus** via 4×/year online poll |
 
 ## 4. Quorum & mechanics
+
 | Body | Quorum | Proxy |
 |---|---|---|
 | General Assembly | ≥ 40 % Full-member weighted votes; **+ ≥ 50 %** National-Delegation weight for WNV | allowed, notice ≥ **17 h**, max **3** per decision |
@@ -46,6 +50,7 @@
 | Technical Group | **none** | **not permitted**; no vote splitting |
 
 ## 5. Clocks worth memorising
+
 | Step | Time |
 |---|---|
 | Standstill start | **60 days** after WI adoption (or drafting start, later) |
@@ -62,6 +67,7 @@
 | Contribution paid after **30 April** | **5 % penalty** |
 
 ## 6. Deliverable → approval route
+
 | Deliverable | Route |
 |---|---|
 | EN (ETSI-originated) | **ENAP** — NSOG Weighted National Voting after Standstill + Public Enquiry |
@@ -72,6 +78,7 @@
 | SR | TB / ad-hoc group / DG on behalf of GA, Board or OCG |
 
 ## 7. Technical Body choice
+
 | Need | Use |
 |---|---|
 | Market sector, defined end, own resources | **EP** |
@@ -81,16 +88,20 @@
 | Software/open source, no ETSI Deliverables | **SDG** |
 
 ## 8. Modal verbs (EDR 3.2)
+
 `shall` = requirement · `should` = recommendation · `may` = permission · `can` = possibility · `will` = out-of-scope behaviour · `is` = fact.
 **Never** use "must", never "may" for possibility, never "can" for permission, never the present indicative for a requirement.
 
 ## 9. Meeting-opening checklist (mandatory)
+
 1. **Antitrust** reminder (with the forbidden-topic list) 2. **Call for IPRs** (declare via ipr.etsi.org) 3. **Code of Conduct** highlights. Then: recognized speakers, no interruption, short interventions, non-native speakers' views, conflicts disclosed.
 
 ## 10. Forbidden antitrust topics (in and around meetings)
+
 Pricing; terms of sale/discounts/credit; production levels or capacity; limiting technical development or investment; allocating territories/markets/customers; market shares; bids or intentions to bid; denying market access; refusals to deal; ongoing or threatened litigation. **Even the appearance is prohibited**, and apparent restraints **must be reported**.
 
 ## 11. Tells & smells
+
 - Asked to "change the Directives" on the spot → find the **instrument** first; the amendment route may be an SCM with 6 weeks' notice.
 - Proposal "passed with 60 %" → check whether abstentions were wrongly counted; the denominator is **votes cast**.
 - EN balloted without a Public Enquiry or Standstill → the ENAP preconditions were skipped.

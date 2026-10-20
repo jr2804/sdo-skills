@@ -3,9 +3,11 @@
 **Version adopted by the Special Meeting of the General Assembly #87a (27 August 2026)** — 22 Articles + Annexes 1, 2, 3, 6 (IPR Policy, see Ch 4), 7 (Board rules, see Ch 7). The operational constitution: it decides *who votes, how, and with what weight*, and it runs the standards-approval machinery.
 
 ## Core Idea
+
 Everything the Statutes leave open is fixed here: membership conditions, the General Assembly's 38 enumerated powers, the three distinct voting procedures and their trigger cases, quorum and proxy rules, and the two parallel standards-approval processes (ENAP for ETSI-originated standards, SRdAP for Standardisation-Request work). The **71 % approval threshold** and the **weighted-vote architecture** are the load-bearing mechanics.
 
 ## Frameworks Introduced
+
 - **The three voting procedures (Art. 11.2)** — the central decision framework. Which one applies is determined by the *subject matter*, not by choice:
   - **11.2.1 Weighted National Voting** (National Delegations, weights per Annex 3). Applies to: ETSI dissolution; disputes arising from applying the RoP; **adoption and withdrawal of European Standards** (except SReq-derived ones); **amendments to the Statutes and RoP including annexes**; allocation of weightings to new National Delegations.
     - A National Delegation's vote may be cast only if a Full member of that country in the **Administrations** category financially contributes to the ETSI budget. Cast by the **Head of National Delegation**, after taking the views of all members of the delegation into account.
@@ -55,6 +57,7 @@ Everything the Statutes leave open is fixed here: membership conditions, the Gen
 - **Disputes (Art. 18)**: member-to-member disputes first by internal conciliation with the help of other members, then **French law**. Member-vs-Institute claims must first exhaust all appeal procedures; the member bears the Institute's reasonable defence **Costs** unless it prevails; French law governs, excluding conflict-of-law provisions.
 
 ## Key Concepts
+
 - **Consensus**: absence of sustained opposition, not unanimity (Annex 1 Point 5).
 - **National Delegation**: Full-member representatives registered in the same country; its vote cast by the **Head of National Delegation**.
 - **Annex III Organisations**: European stakeholder organisations defined in Annex III of amended Regulation (EU) No 1025/2012 — represented by a **3SI Advocate**.
@@ -66,6 +69,7 @@ Everything the Statutes leave open is fixed here: membership conditions, the Gen
 - **Class of Contribution**: the GDP/ECRT/category-based class determining an annual contribution and its associated voting weight.
 
 ## Mental Models
+
 - "**Subject matter picks the voter**" — ask what is being decided, and Art. 11.2 names the procedure; there is no discretion.
 - "**Default is Full + Associate, weighted individually**" — if it is not dissolution, an EN, an RoP dispute, an amendment, a new weighting, a Full-member rights question, an EU-regulatory document, an EU standardization policy, or an EU-only Work Programme priority, it is 11.2.3.
 - "**71 % is the number**" — nearly every approval threshold in the RoP is 71 % of votes cast, with abstentions excluded; the Statutes amendment is the outlier at 75 %.
@@ -74,6 +78,7 @@ Everything the Statutes leave open is fixed here: membership conditions, the Gen
 - "**Groups vote through one voice**" — a Corporate/Public/Academic Group casts a single weighted vote, the last cast counting.
 
 ## Anti-patterns
+
 - **Counting abstentions as "no" votes**: abstentions and non-votes are excluded from the denominator ("votes cast") — a proposal can pass on a minority of the full membership subject to quorum.
 - **Splitting a weighted vote across proposals**: prohibited — a vote must be cast or withheld in its entirety (Annex 7 has the sole specific exception).
 - **Using an Ordinary GA to amend the RoP**: amendments need a Specially Convened Meeting with ≥ 6 weeks' notice and ≥ 71 % of total weighted votes (75 % for the Statutes).
@@ -83,6 +88,7 @@ Everything the Statutes leave open is fixed here: membership conditions, the Gen
 - **Letting a Group cast multiple votes**: only one member organization per Group is considered; the last vote cast prevails.
 
 ## Reference Tables
+
 | Approval threshold | Value | Source |
 |---|---|---|
 | General (all three procedures) | ≥ 71 % of votes cast | Art. 11.3 |
@@ -111,14 +117,18 @@ Everything the Statutes leave open is fixed here: membership conditions, the Gen
 | 11.2.3 Weighted Individual (Full + Associate) | **everything else** (default) |
 
 ## Worked Example
+
 **Choosing the right procedure for four decisions.** Apply Art. 11.2 by subject matter:
+
 1. *Adopt a European Standard proposed by six ETSI members* → an EN, not SReq-derived → **Weighted National Voting** (11.2.1), via ENAP, after a Public Enquiry and with Standstill having started 60 days after WI adoption. Needs ≥ 71 % of votes cast, ≥ 40 % Full-member quorum **plus** ≥ 50 % National-Delegation quorum.
 2. *Adopt an ETSI Standard (ES)* → not in the 11.2.1 or 11.2.2 lists → **Weighted Individual Voting by Full and Associate members** (11.2.3), per Art. 14.
 3. *Set a standardization policy intended to meet EU needs* → expressly in the 11.2.2 list → **Weighted Individual Voting by Full members only**; Associate members do not vote.
 4. *Amend the Rules of Procedure* → **Weighted National Voting** (11.2.1), but in a **Specially Convened Meeting** with ≥ 6 weeks' notice, and the threshold rises to **≥ 71 % of total weighted votes** (Art. 19) rather than 71 % of votes cast.
+
 - Takeaway: the same 71 % figure means different denominators — "votes cast" for Art. 11.3 decisions, "total weighted votes" for amendments — and the amendment case changes the meeting type as well as the majority.
 
 ## Key Takeaways
+
 1. The RoP fixes the decision architecture: three weighted procedures selected by subject matter, with 11.2.3 as the default.
 2. 71 % of *votes cast* is the standard threshold; abstentions are excluded; amendments instead need 71 % (RoP) or 75 % (Statutes) of *total weighted votes*.
 3. Two parallel standards lanes — ENAP (own proposal, NSOG-led) and SRdAP (EC SReq, NSBG-led, 25-day/30-day clocks).
@@ -126,6 +136,7 @@ Everything the Statutes leave open is fixed here: membership conditions, the Gen
 5. Quorum, proxy (17 hours, max 3) and Group single-voice rules constrain the arithmetic before any vote is counted.
 
 ## Connects To
+
 - **Ch 1**: Art. 19 supplies the exact amendment majorities the framework chapter refers to.
 - **Ch 2**: the RoP implements the Statutes' organs, appeal rights and meeting types.
 - **Ch 4**: RoP **Annex 6** is the ETSI IPR Policy itself — the normative instrument behind Chapter 4.

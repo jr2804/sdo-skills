@@ -6,6 +6,7 @@ description: "Knowledge base from the ETSI Directives v53 (1 September 2026). Us
 <!-- argument-hint: [topic, instrument name, or chapter number] -->
 
 # ETSI Directives — Version 53 (1 September 2026)
+
 **Author**: ETSI (Institut Européen des Normes de Télécommunication) | **Pages**: 286 | **Instruments**: 17 + version history | **Chapters**: 13 | **Generated**: 2026-10-05
 
 ## How to Use This Skill
@@ -23,6 +24,7 @@ the relevant chapter file before answering.
 ## Core Frameworks & Mental Models
 
 ### 1. The Directives are 17 instruments in one compilation (Ch 1)
+
 Never cite "the Directives" — **name the instrument and its clause**; numbering restarts per instrument. Ask **who adopts it** before asking what it says, because the adopting body sets the change threshold:
 
 | Adopted by | Instruments | Amendment route |
@@ -35,6 +37,7 @@ Never cite "the Directives" — **name the instrument and its clause**; numberin
 **Guides explain; Policies bind.** The Guide on IPR states the Policy "takes precedence in all cases"; the Information Policy is expressly non-normative.
 
 ### 2. Voting: subject matter picks the procedure (Ch 3, RoP Art. 11.2)
+
 - **11.2.1 Weighted National Voting** (National Delegations, Annex 3 weights): dissolution; RoP disputes; **EN adoption/withdrawal**; Statutes/RoP amendments; new National Delegation weightings.
 - **11.2.2 Weighted Individual — Full members**: Full-member rights/admonition/termination; **EU-regulatory documents**; EU standardization policies; EU-only Work Programme priorities.
 - **11.2.3 Weighted Individual — Full + Associate**: **everything else (the default)**.
@@ -43,17 +46,20 @@ Never cite "the Directives" — **name the instrument and its clause**; numberin
 - **Consensus first** in all bodies; minority rights protected; secret ballot is the norm and never waivable for expulsions and officer elections.
 
 ### 3. Organs and membership (Ch 2–3)
+
 - **Statutes**: ETSI is a French 1901-law non-profit association; **CEPT-area** establishment is required for **Full** membership; **Associate** and **Observer** cover other cases; admission runs on a **four-times-yearly Consensus poll** with dues at 100/75/50/25 %.
 - **General Assembly** is the highest authority (38 enumerated powers); **Board** acts for it between meetings within **35 delegated powers**; **Director-General** holds chief executive authority and is the **only** person entitled to speak for the Institute publicly.
 - Expulsion: **non-payment → Director-General**; other substantial breach → **General Assembly**, with registered-letter notice and an opportunity to be heard.
 
 ### 4. How a standard gets made (Ch 11, TWP)
+
 - **A Work Item is the atom**: one responsible Technical Group, one named **Rapporteur**, ≥ 4 Full/Associate supporters, one deliverable per WI, and **the WI must be adopted before any final draft is approved**. A WI **shall be stopped after one year without progress**.
 - **Body types**: **EP** (market sector, limited duration), **TC** (technical area, no term limit), **EPP** (external partners, approves its own deliverables, own legal status/budget), **ISG** (fast lane, GR/GS only, **no EC/EFTA-mandated work**), **SDG** (software, **no ETSI Deliverables**).
 - **Approval routes**: **EN** → ENAP (NSOG vote, after Standstill + Public Enquiry) or **SRdAP** (NSBG, SReq-derived); **ES/EG** → **MAP** (all-member vote, **14 → 30 → 60 → 10 days**); **TS/TR** → **Technical Body adoption only**.
 - Technical-group votes: Consensus first, then ≥ 71 % of votes cast — **if that fails, recalculate on Full members' votes alone**; no quorum, no proxy, no splitting.
 
 ### 5–9. IPR, antitrust, conduct, board and finance, drafting
+
 The remaining frameworks are in [references/core-frameworks.md](references/core-frameworks.md):
 
 - **5. The IPR regime is FRAND, not royalty-free (Ch 4)** — disclosure duties, essentiality test, FRAND undertakings, Chairs' Annex C duties.

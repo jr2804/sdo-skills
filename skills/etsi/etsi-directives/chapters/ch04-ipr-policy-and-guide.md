@@ -3,9 +3,11 @@
 Two instruments, one regime: the **ETSI IPR Policy** is *Annex 6 to the Rules of Procedure* (normative, version carried by the RoP of 27 August 2026), while the **Guide on Intellectual Property Rights** (Board #133, 10 June 2021) is the explanatory companion. The Guide states plainly: *"this guide ... does not replace the ETSI IPR Policy which takes precedence in all cases."*
 
 ## Core Idea
+
 The regime is **FRAND, not royalty-free**: members keep their IPRs (including the right to refuse licensing), but when an IPR is ESSENTIAL to a standard the Director-General requests an undertaking to license on fair, reasonable and non-discriminatory terms — and the machinery's real purpose is to surface Essential IPRs **early enough that ETSI is not wasting effort on a deliverable that a late disclosure could block**.
 
 ## Frameworks Introduced
+
 - **Policy objectives (Clause 3)**: create STANDARDS and TECHNICAL SPECIFICATIONS based on solutions best meeting the technical objectives; reward IPR holders (members, their AFFILIATES, and third parties) adequately and fairly; take reasonable measures so that preparation, adoption and application of standards enable wide use.
 - **Disclosure (Clause 4)** — the load-bearing obligation:
   - **4.1**: each MEMBER shall use **reasonable endeavours**, in particular during development of a STANDARD or TECHNICAL SPECIFICATION **where it participates**, to inform ETSI of ESSENTIAL IPRs it becomes aware of.
@@ -46,6 +48,7 @@ The regime is **FRAND, not royalty-free**: members keep their IPRs (including th
 - **Transfer of ownership and disputes (Guide §4.2–4.4)**: Clause 6.1bis applies to transfers; ETSI encourages **non-members, including courts**, to read FRAND undertakings as encumbrances, and encourages prospective transferees to search the IPR database. Disputes should first be resolved bilaterally and amicably, then the members are invited to inform the GA (mediation by other members and/or the Secretariat) — but **once a patent is granted, absent agreement, national courts alone have authority**. NDAs may be used to protect commercial interests during licensing negotiations.
 
 ## Key Concepts
+
 - **FRAND**: fair, reasonable and non-discriminatory licensing — the regime's default, with no preference for royalty-free licensing.
 - **ESSENTIAL**: impossible on technical (not commercial) grounds to implement without infringement.
 - **PATENT FAMILY**: documents sharing at least one priority.
@@ -57,6 +60,7 @@ The regime is **FRAND, not royalty-free**: members keep their IPRs (including th
 - **AS IS software**: contributed software carries no implied warranties and no implied patent licence.
 
 ## Mental Models
+
 - "**FRAND by default, royalty-free is not the point**" — the regime balances access against reward; a GA decision even reaffirmed that the software-copyright changes are not a shift toward royalty-free preference.
 - "**Declare, don't search**" — the obligation is reasonable endeavours to inform, explicitly not a search duty.
 - "**Early knowledge prevents wasted work**" — the entire regime exists so a blocking IPR surfaces before the standard is built around it.
@@ -65,6 +69,7 @@ The regime is **FRAND, not royalty-free**: members keep their IPRs (including th
 - "**Technical, not commercial**" — essentiality is a technical test; licensing terms stay outside ETSI.
 
 ## Anti-patterns
+
 - **Asserting a duty to search for patents**: expressly disclaimed by Clause 4.2 and Guide §2.2.
 - **Discussing licensing terms or royalty rates in a Technical Body**: the Guide states TBs are not the appropriate place — licensing terms are commercial matters outside ETSI, and doing so also engages the antitrust guidelines (Ch 5).
 - **Treating the Guide as authoritative over the Policy**: the Guide defers to the Policy in all cases.
@@ -75,6 +80,7 @@ The regime is **FRAND, not royalty-free**: members keep their IPRs (including th
 - **Expecting the FRAND undertaking to lapse on a change of ownership**: 6.1bis binds successors-in-interest.
 
 ## Reference Tables
+
 | Instrument | Status | Version / source |
 |---|---|---|
 | ETSI IPR Policy | Normative | Annex 6 to the Rules of Procedure |
@@ -101,7 +107,9 @@ The regime is **FRAND, not royalty-free**: members keep their IPRs (including th
 | Confidentiality criteria | all 3 must hold | Policy 10 |
 
 ## Worked Example
+
 **A member discovers, in a TB meeting, that a competitor's patent may be essential.** Walk the regime:
+
 1. **Scope**: check the Work Item's scope statement is properly defined (Guide §2.3.1) — a vague scope defeats the whole disclosure mechanism.
 2. **Disclosure**: the member uses reasonable endeavours to inform ETSI (Policy 4.1); it need not search (4.2), and informing ETSI about one member of a PATENT FAMILY covers the family (4.3).
 3. **Form**: the declaration goes through the IPR Online Database using the Information Statement and Licensing Declaration form (6bis, Guide §2.1.3).
@@ -109,9 +117,11 @@ The regime is **FRAND, not royalty-free**: members keep their IPRs (including th
 5. **DG's action**: the Director-General **immediately requests** the FRAND undertaking (6.1); the undertaking, once given, covers the whole patent family (6.2) and binds successors-in-interest (6.1bis).
 6. **If the owner refuses** — and the standard is not yet published — the GA satisfies itself a viable, unblocked alternative exists (8.1.1); with no alternative, **work ceases** (8.1.2) and the DG's member-owner path (reconsideration → written explanation → Counsellors) runs, with the three-month answer window if the owner stays silent.
 7. **If licences disappear after publication** — the 8.2 ladder culminates in a request to the European Commission, including possible **non-recognition of the standard**.
+
 - Takeaway: the regime is a chain of named duties and clocks, not a single rule — and the only party who can start the chain in time is the Chair at the meeting.
 
 ## Key Takeaways
+
 1. The IPR Policy is normative Annex 6 to the RoP; the Guide explains it and yields to it on conflict.
 2. The regime is FRAND with no royalty-free preference; members keep their IPRs and may refuse to license.
 3. Disclosure is "reasonable endeavours" where you participate — explicitly **no duty to search**, and one family member's disclosure covers the family.
@@ -121,6 +131,7 @@ The regime is **FRAND, not royalty-free**: members keep their IPRs (including th
 7. Late or intentionally delayed disclosure can be sanctioned by the General Assembly as a breach of the Policy.
 
 ## Connects To
+
 - **Ch 3**: Annex 6 lives inside the Rules of Procedure; Clause 13's 71 % figures align with the RoP's voting architecture.
 - **Ch 5**: the antitrust guidelines constrain *how* IPR matters may be discussed — the "don't discuss licensing terms in TBs" rule has its own competition-law rationale.
 - **Ch 11**: the Technical Working Procedures carry the Chair's appointment, meeting and work-item machinery that Annex C's duties plug into.

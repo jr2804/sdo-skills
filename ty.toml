@@ -8,6 +8,10 @@ include = [
     "src",
     "tests",
 ]
+# The skills tree holds vendored skill content and is not type checked.
+exclude = [
+    "skills",
+]
 
 [terminal]
 error-on-warning = true

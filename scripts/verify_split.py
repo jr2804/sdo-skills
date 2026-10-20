@@ -14,16 +14,6 @@ import sys
 from pathlib import Path
 
 
-def substantial_lines(path: Path) -> list[str]:
-    lines: list[str] = []
-    for raw in path.read_text(encoding="utf-8", errors="replace").splitlines():
-        line = raw.strip()
-        if len(line) < 25 or line.startswith("#"):
-            continue
-        lines.append(line)
-    return lines
-
-
 def main(argv: list[str]) -> int:
     if len(argv) < 3:
         print(__doc__)
@@ -45,6 +35,16 @@ def main(argv: list[str]) -> int:
     for line in missing:
         print(f"  MISSING: {line[:160]}")
     return 0 if not missing else 1
+
+
+def substantial_lines(path: Path) -> list[str]:
+    lines: list[str] = []
+    for raw in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        line = raw.strip()
+        if len(line) < 25 or line.startswith("#"):
+            continue
+        lines.append(line)
+    return lines
 
 
 if __name__ == "__main__":

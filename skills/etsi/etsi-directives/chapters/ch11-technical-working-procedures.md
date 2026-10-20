@@ -3,9 +3,11 @@
 **Version adopted by Board #158 (25 June 2026)** — the largest instrument in the Directives. It complements **RoP Articles 6, 7, 11, 13, 14, 15, 17, 18, 20 and 21** and applies to the Technical Organization, Special Committees, ISGs and SDGs.
 
 ## Core Idea
+
 The TWP is where standards actually get made: it defines the **three types of Technical Body**, how Chairs are appointed and dismissed, how **Work Items** (WI and WISR) are created and stopped, how technical bodies **decide** — and, crucially, the two-speed approval architecture: documents that need a **membership vote** (EN via ENAP, ES/EG via MAP) versus documents the **Technical Body simply adopts** (TS, TR).
 
 ## Frameworks Introduced
+
 - **Scope and the retention of final authority (Introduction)**: the TWP complements the named RoP Articles and covers joint technical work with CEN/CENELEC under the **Basic Co-operation Agreement** (Annex P). Three authority reservations matter: the **GA keeps final authority over functions delegated to the Board** (RoP Art. 3), and — separately — over functions delegated to the Director-General for **ISGs** (RoP 8.3.9) and **SDGs** (RoP 8.3.14).
 - **The three Technical Bodies (TWP 1.1)** — the choice of type is a governance decision, not a label:
   - A TB provides the forum for technical discussion, prepares work programmes and deliverables, and is **the primary decision-making centre for all matters within its Terms of Reference**; it may establish Working Groups (deciding their rules) but **retains responsibility**; unresolvable intra-organizational coordination issues may be raised to the **OCG**.
@@ -77,6 +79,7 @@ The TWP is where standards actually get made: it defines the **three types of Te
   - **The 5 modes of co-operation** with CEN/CENELEC are: **Mode 1** Informative relation; **Mode 2** Contributive relation; **Mode 3** Sub-contracting relation; **Mode 4** Collaborative relation; **Mode 5** Integrated relation (the basis for a Joint Technical Body and its leading-ESO rule).
 
 ## Key Concepts
+
 - **Technical Organization**: EPs, TCs and EPPs collectively, plus the wider working structures.
 - **Rapporteur**: one named individual per Work Item, the prime technical contact and owner of maturity milestones.
 - **Decision vs maturity milestones**: formal gates versus the Rapporteur's status indications.
@@ -90,6 +93,7 @@ The TWP is where standards actually get made: it defines the **three types of Te
 - **Remote Consensus tool**: the between-meetings consensus mechanism.
 
 ## Mental Models
+
 - "**Pick the body type by what you are building**" — a market sector with an end date (EP/EPP), a technology area without one (TC), external partners (EPP), a fast industry lane (ISG), or software (SDG).
 - "**The Work Item is the atom**" — one responsible group, one Rapporteur, one deliverable per WI; nothing gets approved before the WI is adopted.
 - "**Consensus, then 71 %, then 71 % of Full members**" — the two-stage threshold is the technical-group vote's distinguishing feature.
@@ -99,6 +103,7 @@ The TWP is where standards actually get made: it defines the **three types of Te
 - "**A ceasing body tidies up before it goes**" — publish or stop the WIs, and find a maintainer for the deliverables.
 
 ## Anti-patterns
+
 - **Approving a final draft before the Work Item is adopted**: expressly prohibited.
 - **Letting a Work Item sit: a year of no progress forces a stop** — the "shall be stopped" rule is automatic, not discretionary.
 - **Proxy-voting or splitting votes in a Technical Group**: neither is permitted, and there is no quorum requirement to fall back on.
@@ -110,6 +115,7 @@ The TWP is where standards actually get made: it defines the **three types of Te
 - **Overlooking user relevance**: the Chair must inform the ETSI User Group when a WI has direct user relevance, and WI proposals carry user/consumer, SME, security/privacy, environmental and labour aspects.
 
 ## Reference Tables
+
 | Body type | Basis | Duration | Creates/adopts WIs | Deliverable approval |
 |---|---|---|---|---|
 | ETSI Project (EP) | market sector requirement | limited | yes | within TWP; may subcontract to TCs |
@@ -140,16 +146,20 @@ The TWP is where standards actually get made: it defines the **three types of Te
 | Chair term | 2 years, up to 3 consecutive, gap of ≥ 1 term after |
 
 ## Worked Example
+
 **From proposal to published ES.** Trace the full chain:
+
 1. **Work Item**: at least **four Full and/or Associate members** support the creation proposal; the WG/TG records the parameters (title, deliverable type, scope, schedule, supporters, Rapporteur, and the user/SME/security/environmental aspects); a **single Rapporteur** is named; the **TG adopts** the WI. If the subject does not fit one TG, it goes to the **OCG** for allocation.
 2. **Drafting**: progress is tracked through **maturity milestones** (early → stable → mature → final) updated by the Rapporteur, and **decision milestones** (WG endorsement, TG endorsement) set by the group.
 3. **TG approval**: the TG approves the final draft under Clause 1.7 — **Consensus first**, else a weighted vote needing **71 % of votes cast**, with the **recalculation on Full members' votes** if that fails; no quorum, no proxy, no splitting.
 4. **MAP**: the TG submits to the Secretariat **within 14 days**; the Secretariat prepares for member submission **within 30 days** on Drafting-Rules compliance; the **membership vote runs 60 days** with unconditional YES/NO/abstention and **mandatory comments on NO**; abstentions and non-votes are excluded.
 5. **Outcome**: on success the Secretariat **publishes within 10 days without modifications other than editorial**, and the NO comments are stored for later revision; on failure the **TB Chair decides** how to proceed and receives the comments.
 6. **Maintenance**: later non-editorial changes repeat the MAP; editorial-only changes are published on the **TB Chair's confirmation**.
+
 - Takeaway: the timeline is fully specified — 14 + 30 + 60 + 10 days plus drafting — and the only step a member can block is the 60-day vote, which requires comments to be useful.
 
 ## Key Takeaways
+
 1. Three Technical Body types with distinct bases: EP (market sector, limited), TC (technical area, unlimited), EPP (external partners, own rules and legal status).
 2. A Work Item is the atom of work: one responsible group, one Rapporteur, one deliverable per WI, four-member support, adoption before any final-draft approval, and **automatic stop after a year of no progress**.
 3. Technical-group decisions are Consensus-first with a two-stage threshold — **71 % of votes cast, then 71 % of Full members' votes** — and no quorum, proxy or vote splitting.
@@ -158,6 +168,7 @@ The TWP is where standards actually get made: it defines the **three types of Te
 6. Annexes carry jurisdiction: normative (A–E, J, L, N, P), informative (H, K, M, Q–U), void (F, I, O).
 
 ## Connects To
+
 - **Ch 3**: the TWP implements RoP Articles 6, 13, 14, 20 and 21 — the ENAP/SRdAP/MAP routes and the SReq clocks are defined there.
 - **Ch 5**: C.3 of the Antitrust Guidelines points at TWP §1.5 (meeting preparation) and §1.9.3 (meeting reports).
 - **Ch 6**: the Chairs' duties in the Codes of Conduct map onto TWP §1.3.7 and the IPR Guide's Annex C.

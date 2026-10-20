@@ -3,9 +3,11 @@
 **Version adopted by the Ordinary Meeting of the General Assembly #82 (28–29 November 2023)** — 19 Articles. The finance rulebook; the budget itself is outlined in **RoP Article 10**, so the two instruments must be read together.
 
 ## Core Idea
+
 The Financial Regulations put the Director-General in charge of ETSI's money under two governing principles: **inclusiveness** (all income and all expenditure in the budget, gross — netting off balances to show only a surplus or deficit is prohibited) and **authorisation** (no expenditure without a budget-backed signed approval). The Finance Committee advises throughout but its role is **merely consultative** unless the GA or Board commits it to more.
 
 ## Frameworks Introduced
+
 - **Responsibility and advice (Art. 1)**: finances are governed by the Statutes, the Rules of Procedure and the Financial Regulations together. The **Director-General is responsible** for the finances; the **Finance Committee assists and advises** the GA, the Board and the DG on budgetary and financing management.
 - **The inclusive budget (Art. 5)**: **all** income and **all** expenditure of ETSI are included in the budget, and **offsetting income against expenditure so as to show balances only is prohibited** — the single exception being banking costs of exchange and transfer, which may be accounted with the operation that caused them.
   - When to use: reading or auditing the budget — every figure must be gross, not net.
@@ -31,6 +33,7 @@ The Financial Regulations put the Director-General in charge of ETSI's money und
 - **The Finance Committee in the Regulations (Art. 2)**: its composition and members' tenure are fixed by the GA (**in order to allow a minimum size**); it determines its own methods of procedure; its functions are **merely consultative unless duly committed** by the GA or Board; members may access ETSI accounting documents **within the limits of their functions and for their exercise only**; the DG may consult it on any finance question, in meetings or by correspondence; convened by the DG, it meets **at least twice a year**, in due time to examine the preliminary draft budget and the financial report; it is also convened **at any time** if the GA or a majority of FC members require it — with the agenda then restricted to the matters causing the meeting; the **DG takes part in FC meetings and provides its secretariat**.
 
 ## Key Concepts
+
 - **Inclusive budget**: gross presentation; netting prohibited.
 - **Budget-backed approval**: expenditure requires a signed DG (or delegate) approval and available resources.
 - **Non-committed funds**: the only money the DG may freely re-allocate between Secretariat-related budget lines.
@@ -40,6 +43,7 @@ The Financial Regulations put the Director-General in charge of ETSI's money und
 - **Credit note**: the mechanism for returning a surplus to members via final contributions.
 
 ## Mental Models
+
 - "**Gross, never net**" — the budget shows all income and all expenditure; offsetting is prohibited.
 - "**No budget line, no signature**" — the authorisation rule makes the budget the gate for every commitment.
 - "**The FC advises; the GA decides; the DG executes**" — the three roles are strictly separated, and the FC is consultative unless expressly committed.
@@ -47,6 +51,7 @@ The Financial Regulations put the Director-General in charge of ETSI's money und
 - "**Security over return**" — treasury policy is explicitly conservative.
 
 ## Anti-patterns
+
 - **Presenting a net budget**: offsetting income against expenditure to show only balances is expressly prohibited (bank charges aside).
 - **Committing expenditure before the year closes on the strength of next year's budget**: commitments may not be incurred after the close of the financial year; committed resources carry over instead.
 - **Treating the Finance Committee as a decision-maker**: its functions are consultative unless the GA or Board commits it.
@@ -55,6 +60,7 @@ The Financial Regulations put the Director-General in charge of ETSI's money und
 - **Budgeting in another currency**: budget and accounts are in euro.
 
 ## Reference Tables
+
 | Article | Subject | Key rule |
 |---|---|---|
 | 1 | Administration | DG responsible; FC advises GA/Board/DG |
@@ -72,15 +78,19 @@ The Financial Regulations put the Director-General in charge of ETSI's money und
 | 17 | External supervision | auditor under French rules |
 
 ## Worked Example
+
 **A year ends with a surplus.** Walk Article 10 with the Chapter 3 overlay:
+
 1. **Closing**: the financial year ends **31 December**; no further expenditure commitments may be incurred (Art. 10.1).
 2. **Consultation**: the DG consults the **Finance Committee** before proposing how to use the excess.
 3. **Options**: the DG proposes to the **Autumn General Assembly** that the excess be used to (i) increase the reserve, (ii) increase a specified expenditure category in the current budget, or (iii) adjust members' final contributions by issuing a **credit note**.
 4. **Approval**: any resulting modification of the current budget is approved in the same way as the budget itself — i.e. by the GA.
 5. **The RoP overlay**: under RoP Art. 10.3.1, a budgetary excess up to **150 k€** goes entirely to the special reserve fund; above that, **10 % of the excess above 150 k€** is added to the reserve. Members not continuing into the next year **do not qualify for a credit note**.
+
 - Takeaway: the Financial Regulations provide the menu, the Rules of Procedure supply the arithmetic — neither instrument alone answers "what happens to the surplus?"
 
 ## Key Takeaways
+
 1. The DG owns ETSI's finances; the Finance Committee advises (consultatively by default) and meets at least twice a year.
 2. The budget is inclusive and gross — offsetting income against expenditure is prohibited.
 3. No expenditure may be committed without a signed DG/delegate approval backed by available budget resources, and none after the financial year closes.
@@ -89,6 +99,7 @@ The Financial Regulations put the Director-General in charge of ETSI's money und
 6. All figures are in euro; three account sets are maintained; an external auditor supervises.
 
 ## Connects To
+
 - **Ch 3**: RoP Article 10 supplies the budget outline, contribution mechanics, penalty and reserve rules that the Financial Regulations reference.
 - **Ch 7**: the Board prepares annual Budget Guidelines with the DG and FC, and decides within the GA's financial framework.
 - **Ch 9**: the FC's Terms of Reference detail its tasks, appointment and confidentiality.
