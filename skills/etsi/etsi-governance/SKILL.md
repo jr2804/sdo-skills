@@ -1,9 +1,13 @@
 ---
-name: etsi-basics
-description: 'ETSI organisation overview, deliverable types, standards development lifecycle, and key roles. Use when the agent needs context about how ETSI works: Technical Committees, deliverable types (TS, ES, EN, HS, TR, EG, SR, GS), approval processes, the standards development lifecycle (Work Item through publication), or ETSI-specific terminology. Sources: ETSI Guide to Writing World Class Standards + ETSI Directives.'
+name: etsi-governance
+description: 'ETSI organisation overview, deliverable types, standards development lifecycle, and key roles. Use when the agent needs context about how ETSI works: Technical Committees, deliverable types (TS, ES, EN, HS, TR, EG, SR, GS), approval processes, the standards development lifecycle (Work Item through publication), or ETSI-specific terminology. For the binding rules (statutes, rules of procedure, IPR, antitrust, technical working procedures) load `etsi-directives`; for meetings, TDocs and work items load `etsi-procedures`. Sources: ETSI Guide to Writing World Class Standards + ETSI Directives.'
 ---
 
-# ETSI Basics
+# ETSI Governance
+
+How ETSI is organised, which deliverable type to pick, and how a deliverable
+moves from work item to publication. The binding rules live in
+`etsi-directives`; the working procedures in `etsi-procedures`.
 
 ## Overview
 
@@ -94,11 +98,13 @@ ______________________________________________________________________
 
 ## References
 
-- [references/etsi-basics.md](references/etsi-basics.md) -- detailed extract (deliverable types, lifecycle, roles, Harmonised Standards)
+- [references/organisation.md](references/organisation.md) -- detailed extract (deliverable types, lifecycle, roles, Harmonised Standards)
 
 ## Cross-references
 
+- `etsi-directives` -- the binding rules (statutes, rules of procedure, IPR/FRAND, antitrust, codes of conduct, technical working procedures, drafting rules)
+- `etsi-procedures` -- meetings, TDocs, contributions, work items, deliverable approval
 - `sdo-drafting` -- ETSI deliverable structure, formatting rules, style names
-- `etsi-spec` -- ETSI specification metadata retrieval
+- `etsi-tools` -- ETSI specification metadata retrieval and portal tooling
 - `sdo-docx` -- formatting rules (delegated)
 - `sdo-project-setup` -- project bootstrap workflow

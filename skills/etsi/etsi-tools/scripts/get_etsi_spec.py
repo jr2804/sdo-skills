@@ -28,11 +28,11 @@ Supports all ETSI document types:
 - PAS (Publicly Available Specification)
 
 Usage:
-    uv run get_etsi_spec.py <spec-number>
-    uv run get_etsi_spec.py 103224
-    uv run get_etsi_spec.py 103 224
-    uv run get_etsi_spec.py "EG 202 396-3"
-    uv run get_etsi_spec.py "TR 103 907"
+    mise x uv -- uv run get_etsi_spec.py <spec-number>
+    mise x uv -- uv run get_etsi_spec.py 103224
+    mise x uv -- uv run get_etsi_spec.py 103 224
+    mise x uv -- uv run get_etsi_spec.py "EG 202 396-3"
+    mise x uv -- uv run get_etsi_spec.py "TR 103 907"
 Example output:
     Spec: ETSI TS 103 224
     Latest version: V1.7.1
@@ -55,15 +55,15 @@ from PyPDF2 import PdfReader
 def main():
     """Main function to retrieve and display ETSI spec metadata."""
     if len(sys.argv) < 2:
-        print("Usage: uv run get_etsi_spec.py <spec-number>")
+        print("Usage: mise x uv -- uv run get_etsi_spec.py <spec-number>")
         print()
         print("Examples:")
-        print("  uv run get_etsi_spec.py 103224")
-        print("  uv run get_etsi_spec.py 103 224")
-        print("  uv run get_etsi_spec.py ETSI TS 103 224")
-        print("  uv run get_etsi_spec.py EG 202 396-3")
-        print("  uv run get_etsi_spec.py TR 103 907")
-        print("  uv run get_etsi_spec.py ES 200 381-1")
+        print("  mise x uv -- uv run get_etsi_spec.py 103224")
+        print("  mise x uv -- uv run get_etsi_spec.py 103 224")
+        print("  mise x uv -- uv run get_etsi_spec.py ETSI TS 103 224")
+        print("  mise x uv -- uv run get_etsi_spec.py EG 202 396-3")
+        print("  mise x uv -- uv run get_etsi_spec.py TR 103 907")
+        print("  mise x uv -- uv run get_etsi_spec.py ES 200 381-1")
         sys.exit(1)
 
     spec_input = sys.argv[1]

@@ -53,96 +53,32 @@ Never cite "the Directives" — **name the instrument and its clause**; numberin
 - **Approval routes**: **EN** → ENAP (NSOG vote, after Standstill + Public Enquiry) or **SRdAP** (NSBG, SReq-derived); **ES/EG** → **MAP** (all-member vote, **14 → 30 → 60 → 10 days**); **TS/TR** → **Technical Body adoption only**.
 - Technical-group votes: Consensus first, then ≥ 71 % of votes cast — **if that fails, recalculate on Full members' votes alone**; no quorum, no proxy, no splitting.
 
-### 5. The IPR regime is FRAND, not royalty-free (Ch 4)
-- The **IPR Policy is RoP Annex 6** (normative); the Guide explains it and yields to it.
-- **Disclosure**: reasonable endeavours to inform ETSI **where you participate** — explicitly **no duty to search**; one PATENT FAMILY member's disclosure covers the family.
-- **ESSENTIAL** is a **technical, not commercial** test: impossible to implement without infringement.
-- The **Director-General immediately requests a FRAND undertaking**; it covers the family and **binds successors-in-interest** (6.1bis); it may be conditioned on reciprocity.
-- **Chairs' duties are normative (Annex C)**: proper **scope statements**; a **Call for IPRs at the start of every meeting** plus milestone reminders; record the call and responses; report Essential IPRs to Legal **immediately**.
-- **Licensing rates and terms are never discussed in Technical Bodies** — the only lawful channel is voluntary, unilateral, public **ex ante** disclosure.
+### 5–9. IPR, antitrust, conduct, board and finance, drafting
+The remaining frameworks are in [references/core-frameworks.md](references/core-frameworks.md):
 
-### 6. Antitrust: a standards meeting is also a competitors' meeting (Ch 5)
-ETSI is a recognized standards body **and an association of undertakings** — no exemption from Articles 101/102 TFEU. **Forbidden topics** in and around meetings: pricing; terms of sale; production levels/capacity; limiting technical development or investment; allocating territories/markets/customers; market shares; bids; denying market access; refusals to deal; ongoing or threatened litigation. **Even the appearance is prohibited**, and apparent restraints **must be reported**. Where the Guidelines and the law conflict, **the law controls**.
-
-### 7. Conduct and the opening ritual (Ch 6)
-**ETSI Values** anchor a listed set of EU/global instruments and the seven standardization principles (coherence, transparency, openness, consensus, voluntary application, independence from special interests, efficiency). Chairs must: **remind delegates of Code + Antitrust + IPR at the start of every meeting**; maintain **strict impartiality independent of their supporting organization**; ensure antitrust compliance; protect minority rights. Board members: loyalty, care, confidentiality, conflict disclosure, **annual written certification**, and no public speaking for ETSI.
-
-### 8. Board, finance and committees (Ch 7–10)
-- **Board**: > half of elected members for quorum; **50 % of votes cast**; **21-day** correspondence votes; **7-day** document cut-off; 3-year mandates; members act **in an individual capacity** and cannot send replacements. **STF funding** carries mandatory conflict disclosure and a leave-the-room rule.
-- **Finance**: inclusive gross budget (no netting); no expenditure without signed DG approval and available resources; **DG may borrow up to 10 %** of the annual budget; all figures in euro.
-- **Committee ToRs**: the FC advises (consultative unless committed); the **GoSR coordinates SReqs but does not accept them**; the **OCG** deconflicts Technical Bodies and is **not** a Coordination Group.
-
-### 9. Drafting deliverables (Ch 13, EDR)
-**The modal verb is the legal effect**: `shall` requirement · `should` recommendation · `may` permission · `can` possibility · `will` out-of-scope behaviour · `is` fact. Deliverables are **English only**, use **mandatory editHelp! skeletons**, keep the IPR and modal-verbs clauses **unmodified**, carry a **transposition table** (ENs), and must **reference rather than reproduce** third-party material.
+- **5. The IPR regime is FRAND, not royalty-free (Ch 4)** — disclosure duties, essentiality test, FRAND undertakings, Chairs' Annex C duties.
+- **6. Antitrust: a standards meeting is also a competitors' meeting (Ch 5)** — forbidden topics, the appearance principle, reporting duty.
+- **7. Conduct and the opening ritual (Ch 6)** — ETSI Values, the seven principles, Chair and Board duties.
+- **8. Board, finance and committees (Ch 7–10)** — quorum and voting, 21-day correspondence votes, inclusive budget, committee ToRs.
+- **9. Drafting deliverables (Ch 13, EDR)** — modal verbs are the legal effect, skeleton mandate, protected clauses, transposition table.
 
 ---
 
-## Chapter Index
+## Chapter and Topic Index
 
-| # | Title | Key Frameworks |
-|---|-------|----------------|
-| [ch01](chapters/ch01-directives-framework.md) | The Directives Framework | 17 instruments, adoption ladder, amendment majorities, precedence |
-| [ch02](chapters/ch02-statutes.md) | Statutes | organs, membership statuses, admission, expulsion, amendment |
-| [ch03](chapters/ch03-rules-of-procedure.md) | Rules of Procedure | GA powers, three voting procedures, quorum/proxy, ENAP, Standstill, SReqs, escalation |
-| [ch04](chapters/ch04-ipr-policy-and-guide.md) | IPR Policy and Guide on IPR | FRAND, disclosure, essentiality, Clause 8 ladder, Chairs' Annex C duties |
-| [ch05](chapters/ch05-antitrust-compliance.md) | Antitrust Compliance Guidelines | Articles 101/102 TFEU, forbidden topics, do's and don'ts |
-| [ch06](chapters/ch06-values-codes-of-conduct.md) | Values and Codes of Conduct | seven principles, delegate conduct, Chair duties, Board ethics |
-| [ch07](chapters/ch07-board-instruments.md) | Board Instruments | Annex 7 composition/election, working procedures, 35 delegated powers, STF conflicts |
-| [ch08](chapters/ch08-financial-regulations.md) | Financial Regulations | inclusive budget, budget cycle, authorisation, borrowing, accounts |
-| [ch09](chapters/ch09-committee-terms-of-reference.md) | Committee ToRs (FC, GoSR, OCG) | consultative FC, GoSR SReq pipeline, OCG deconfliction |
-| [ch10](chapters/ch10-honours-courtesy-titles.md) | Honours | courtesy titles, Fellowships, Retired Friends, use restrictions |
-| [ch11](chapters/ch11-technical-working-procedures.md) | Technical Working Procedures | body types, Work Items, milestones, decision-making, approval routes, ISG/SDG |
-| [ch12](chapters/ch12-information-policy.md) | Information Policy | non-normative access summary, ETSI structure annex |
-| [ch13](chapters/ch13-etsi-drafting-rules.md) | ETSI Drafting Rules | skeleton mandate, modal verbs, structure, protected material, hENs, endorsement |
-
-## Topic Index
-
-- **Admission to membership** → ch02, ch03
-- **Annex 7 (Board rules of operation)** → ch07
-- **Antitrust / competition law (Art. 101/102 TFEU)** → ch05
-- **Appeals / escalation** → ch03, ch11
-- **Board (composition, elections, powers)** → ch02, ch07
-- **Budget / contributions / borrowing** → ch03, ch08
-- **Codes of Conduct** → ch06
-- **Consensus** → ch03
-- **Coordination Groups** → ch11
-- **Copyright / protected material** → ch04, ch13
-- **Courtesy titles / Fellows / Retired Friends** → ch10
-- **Document access rights** → ch12, ch11
-- **Drafting Rules (EDR) / modal verbs** → ch13
-- **ENAP / SRdAP / MAP** → ch03, ch11
-- **Essential IPR / FRAND** → ch04
-- **Finance Committee (FC)** → ch08, ch09
-- **Financial Regulations** → ch08
-- **General Assembly (powers, meetings, documentation)** → ch02, ch03
-- **GoSR / Standardisation Requests** → ch03, ch09
-- **Harmonised standards (hEN)** → ch11, ch13
-- **Information Policy** → ch12
-- **ISG (Industry Specification Group)** → ch11
-- **Membership categories, statuses, Groups** → ch02, ch03
-- **National Delegations / Weighted National Voting** → ch03
-- **NSO / NSB Groups (NSOG/NSBG)** → ch03, ch09
-- **OCG (Operational Coordination Group)** → ch09, ch11
-- **PAS (Publicly Available Specifications)** → ch11
-- **Public Enquiry** → ch03
-- **Rapporteur** → ch11
-- **SDG (Software Development Group)** → ch11
-- **Standstill** → ch03, ch04
-- **Statutes** → ch02
-- **Technical Bodies (EP / TC / EPP)** → ch11
-- **Technical Working Procedures (TWP)** → ch11
-- **Technical Group Chairs (appointment, dismissal)** → ch11, ch06
-- **Trademarks / trade names in deliverables** → ch13
-- **Values (ETSI Values)** → ch06
-- **Version history of the Directives** → ch01
-- **Voting procedures and thresholds** → ch03
-- **Work Items (WI / WISR)** → ch11
+[references/indexes.md](references/indexes.md) holds the full lookup tables: the
+chapter index (13 chapters with their key frameworks) and the topic index
+(~40 topics mapped to chapters, e.g. `standstill` → ch03, `FRAND` → ch04,
+`Work Items` → ch11).
 
 ## Supporting Files
 
+- [references/indexes.md](references/indexes.md) — chapter index and topic→chapter map
+- [references/core-frameworks.md](references/core-frameworks.md) — frameworks 5–9 (IPR, antitrust, conduct, board/finance, drafting)
 - [glossary.md](glossary.md) — all key terms with definitions
 - [patterns.md](patterns.md) — procedures and design patterns
 - [cheatsheet.md](cheatsheet.md) — thresholds, clocks, decision tables, tells
+- [chapters/](chapters/) — one file per chapter of the Directives
 
 ---
 
