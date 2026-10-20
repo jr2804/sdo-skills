@@ -161,8 +161,8 @@ ______________________________________________________________________
 
 ## Cross-references
 
-- `itut-basics` -- ITU-T organization, roles, terminology
-- `itut-recommendations` -- Recommendation structure and approval
+- `itut-reference` -- ITU-T organization, roles, terminology
+- `itut-reference` -- Recommendation structure and approval
 - `sdo-drafting` -- ITU-T contribution .docx template and formatting
-- `itut-patents` -- patent policy, IPR disclosure, licensing declarations
+- `sdo-ipr` -- patent policy, IPR disclosure, licensing declarations
 - `sdo-project-setup` -- project bootstrap workflow

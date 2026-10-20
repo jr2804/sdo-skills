@@ -1,11 +1,4 @@
----
-name: itut-patents
-description: ITU-T patent policy, IPR disclosure, and licensing declarations for standardization contributors. Covers the Common Patent Policy for ITU-T/ITU-R/ISO/IEC (2022), the three licensing options (RF, RAND, refusal), Patent Statement and Licensing Declaration Forms (individual and general), disclosure obligations at meetings and after approval, the ITU Patent Information database, cover sheet notification text, and ITU neutrality principles. Use when the agent needs to understand patent disclosure requirements, fill in declaration forms, add patent notices to Recommendation drafts, or handle SEP-related procedures during ITU-T standards development.
----
-
 # ITU-T Patent Policy and IPR Procedures
-
-## Overview
 
 ITU-T, together with ITU-R, ISO and IEC, operates under a **Common Patent
 Policy** that governs how patented technology is handled in international
@@ -16,7 +9,7 @@ patents and seeks licensing commitments from patent holders.
 to everybody without undue constraints. ITU does not evaluate patent
 essentiality, interfere with negotiations, or settle disputes.
 
-## When this skill applies
+## When this applies
 
 - Writing or reviewing a contribution that may involve patented technology
 - Adding patent notification text to a Recommendation draft
@@ -27,8 +20,8 @@ essentiality, interfere with negotiations, or settle disputes.
 
 ## Three licensing options
 
-When a patent is disclosed in relation to a Recommendation, the patent
-holder selects **one** option on the Declaration Form:
+When a patent is disclosed in relation to a Recommendation, the patent holder
+selects **one** option on the Declaration Form:
 
 | Option | Label | Meaning |
 |--------|-------|---------|
@@ -114,20 +107,11 @@ ITU does **not**:
 3. Check the "had/had not received notice" wording against the TSB
    circular for the specific Recommendation.
 4. Never add licensing conditions beyond the three options on the form.
-5. If you discover a patent after approval, submit the form promptly --
-   the Recommendation may need revision if you select option 3.
+5. If you discover a patent after approval, submit the form promptly -- the
+   Recommendation may need revision if you select option 3.
 
-## Related skills
+## Cross-references
 
-- `itut-contributions`: IPR declarations in the contribution submission
-  process (patent disclosure, copyright, software copyright)
-- `itut-basics`: Working methods, including the IPR declaration question
-  at meetings
-- `itut-recommendations`: Recommendation structure and approval processes
-  (AAP/TAP), where patent notification is part of the cover sheet
-
-## Reference
-
-- `references/patent-policy.md` -- Full distillation of the Common Patent
-  Policy, Guidelines (2022), key definitions, declaration form rules,
-  transfer provisions, and practical checklist
+- `sdo-ipr` -- the shared IPR frame across standards bodies
+- `itut-contributions` -- IPR declarations in the contribution submission process
+- `itut-reference` -- working methods, including the IPR declaration question at meetings
