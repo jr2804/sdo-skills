@@ -1,14 +1,14 @@
 [tasks.lint]
 description = "Run linter (ruff)"
-run = 'ruff check src/ tests/ --fix --unsafe-fixes'
+run = 'ruff check src/ tests/ scripts/ --fix --unsafe-fixes'
 
 [tasks.typecheck]
 description = "Run type checker (ty)"
-run = 'ty check src/ tests/'
+run = 'ty check src/ tests/ scripts/'
 
 [tasks.spell]
 description = "Run spell checker (codespell)"
-run = "codespell src/ tests/"
+run = "codespell src/ tests/ scripts/"
 
 [tasks."lint:skills"]
 description = "Validate skill structure, frontmatter and cross-references"

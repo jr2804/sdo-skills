@@ -112,6 +112,10 @@ _Always-injected_ — keep minimal. Everything else → `.agents/` files.
   regardless of where it is checked out.
 - **Run `mise run lint:skills` after touching `skills/`** and `mise run all`
   before pushing.
+- **No inline imports.** Every import sits at the top of its module, in the
+  test suite as well. `ruff` enforces it (`PLC0415`) and `pyreorder` hoists
+  stragglers. The module order itself is a gate too: `mise run sort` fails when
+  `pyreorder check` would change a file. Run `mise run format` to fix.
 
 ## Child DOX Index
 

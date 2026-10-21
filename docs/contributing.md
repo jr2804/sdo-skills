@@ -33,16 +33,22 @@ mise test          # pytest with coverage
 
 ```bash
 # The single command a contributor should run before opening a PR:
-mise all           # runs test, lint, spell, format, format-md, docs
+mise all           # runs test, lint, lint:skills, sort, spell, format, format-md, docs
 
 # Individual steps (use these while iterating):
 mise lint          # ruff check --fix
+mise lint:skills   # skill structure, frontmatter, references, size budget
+mise sort          # structural order of the modules (pyreorder check)
 mise spell         # codespell
 mise typecheck     # static type check (ty)
 mise format        # ruff format + ruff check --select I + pyreorder run
 mise format-md     # rumdl over Markdown
 mise docs          # build the Zensical documentation
 ```
+
+Imports live at the top of every module, in the tests as well. `ruff` rejects
+inline imports (`PLC0415`) and `mise sort` fails when the module order is
+wrong, so `pyreorder` is the single source of truth for the layout of a file.
 
 ### Pull Requests
 

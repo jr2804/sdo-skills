@@ -122,6 +122,7 @@ mise dev              # install dependencies (uv sync)
 mise lint:skills      # validate skill structure, frontmatter, references, budget
 mise test             # pytest with the 100% coverage gate
 mise lint             # ruff
+mise sort             # check the structural order of the modules (pyreorder)
 mise format           # ruff format, import order, pyreorder
 mise format-md        # rumdl
 mise all              # everything above

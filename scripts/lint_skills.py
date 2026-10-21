@@ -42,9 +42,7 @@ TOOL_CMD_RE = re.compile(
 )
 #: An argument that makes an inline code span look like a real invocation
 #: (placeholder, file name, path or quoted argument) rather than a mention.
-ARG_HINT_RE = re.compile(
-    r"<[^>]+>|\b[\w./\\-]+\.(?:docx|doc|json|md|py|xml|txt|csv|pptx|xlsx|pdf|svg)\b|[\"']"
-)
+ARG_HINT_RE = re.compile(r"<[^>]+>|\b[\w./\\-]+\.(?:docx|doc|json|md|py|xml|txt|csv|pptx|xlsx|pdf|svg)\b|[\"']")
 SHELL_BLOCK_LANGS = {"", "bash", "sh", "shell", "console", "zsh", "fish"}
 ALLOW_TOOLING_MARKER = "lint:allow-tooling"
 
@@ -259,9 +257,8 @@ def iter_tool_invocations(body: str, first_line: int) -> list[tuple[int, str]]:
             block_lang = ""
             continue
         candidates: list[str] = []
-        if in_block and block_lang in SHELL_BLOCK_LANGS:
-            if stripped and not stripped.startswith("#"):
-                candidates.append(stripped)
+        if in_block and block_lang in SHELL_BLOCK_LANGS and stripped and not stripped.startswith("#"):
+            candidates.append(stripped)
         candidates.extend(INLINE_CODE_RE.findall(line))
         for candidate in candidates:
             match = TOOL_CMD_RE.match(candidate.strip())
@@ -345,6 +342,7 @@ def check_evals(eval_path: Path, ctx: Context) -> None:
 def discover(root: Path) -> list[Path]:
     """Return all directories that contain a SKILL.md, sorted by path."""
     return sorted({path.parent for path in root.rglob("SKILL.md")})
+
 
 def build_file_index(skills: list[Path]) -> dict[str, list[str]]:
     """Map a path relative to a skill directory to the skills that provide it."""
