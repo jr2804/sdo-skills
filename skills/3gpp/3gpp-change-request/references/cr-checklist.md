@@ -26,6 +26,24 @@ mirror CRs and editorial updates.
 19. [ ] (U)SIM - ME/UE - Radio Access Network - Core Network checkboxes
 20. [ ] UICC field (change to (U)SIM or ISIM)
 
+## CR Revision Checklist
+
+Applies when a CR is revised and re-issued as a new TDoc. The procedure
+and the worked example are in `references/cr-revision.md`.
+
+01. [ ] Document type on the portal is **CR** (not the deprecated *Draft CR*)
+02. [ ] "Is revision of:" points at the TDoc number of the version being revised
+03. [ ] Cover sheet downloaded from the portal template generator for the new TDoc
+04. [ ] CR number unchanged (the 4-digit number of the version being revised)
+05. [ ] CR revision number incremented (first revision shows `1`)
+06. [ ] New TDoc number in the header
+07. [ ] `revision of <previous-tdoc-nbr>` right-aligned on the second cover line
+08. [ ] Date set to the date the revised version was produced
+09. [ ] "Source to WG" unchanged
+10. [ ] "Source to TSG" reflects the actual state (TSG identity, proposing organization(s), "WG Chairman" or "WG Secretary")
+11. [ ] File name carries the revision suffix `r<revision_number>`
+12. [ ] CR revision history updated, if the field is used
+
 ## Common Pitfalls
 
 1. **Multiple Releases**: One spec may be maintained in multiple Releases
@@ -33,6 +51,8 @@ mirror CRs and editorial updates.
 3. **Editorial Changes**: Use "dot-one" versions, not full CRs
 4. **Wrong Release**: Can't use Release 6 WI code for Release 4 spec
 5. **Out-of-date Specs**: Writing CR to old version that's been updated
+6. **New CR number on a revision**: A revision keeps the CR number of the version it revises
+7. **Missing "revision of" marker**: The portal template does not add it - the marker has to be inserted by hand
 
 ## Best Practices
 
@@ -43,6 +63,7 @@ mirror CRs and editorial updates.
 5. **Mirror CR requirements**: Include mirror CRs for all affected Releases if maintaining parallel versions
 6. **Document revisions**: Use CR revision history field for tracking changes
 7. **Format dates correctly**: Use `yyyy-MM-DD` format
+8. **Start a revision from the portal template**: Let the portal fill the cover sheet, then correct what it leaves out
 
 ## Important CR Concepts
 

@@ -1,9 +1,17 @@
 # CR Format Reference
 
 Numbering, status codes, document structure and databases for 3GPP Change
-Requests.
+Requests. The lifecycle and the submission steps are in
+`references/workflow.md`.
 
 ## CR Number Format
+
+The CR number is the identifier the portal allocates for the change: four
+characters with leading zeros, and no "CR" prefix (`0095`, not `CR0095`).
+It identifies the change to a specification, not a version of it - the
+revision number counts up separately.
+
+The document identifier built on the CR number looks like this:
 
 ```text
 <specnumber_no_dot>*_CR*<4-character_CR_number>*[r*<revision_number>*]
@@ -15,13 +23,17 @@ Requests.
 - `*`: Literal asterisk
 - `<4-character_CR_number>`: 4-digit CR number padded with leading zeros (e.g., `0095`)
 - `[r*<revision_number>*]`: Lowercase 'r' + revision number (only for revised CRs)
-- `<release>`: Release identifier (Rel-4, Rel-5, etc.)
 
 **Examples:**
 
 - Initial: `31.102_0095` - CR 0095 to spec 31.102
 - First revision: `31.102_0095_r1` - Revision 1 of spec 31.102
 - Mirror CR: `31.103_0095` - Mirrored CR to spec 31.103
+
+The portal allocates the CR number, and it **never changes** on a
+revision - only the revision number counts up. The file name presented to
+the TSG follows its own convention, see "File Naming Convention" below
+and `references/cr-revision.md`.
 
 ## CR Status Meanings
 
@@ -84,33 +96,44 @@ CRs are classified by category to indicate their nature:
 18. Body of CR
 19. Other considerations
 
-## CR Revision History
+## CR Revision Number and History
 
-Optional field in CR document to track changes as CR passes through revisions:
+Two fields carry the revision, and they mean different things:
 
-- Revision 1: Initial CR
-- Revision 2: First revision of CR
-- Revision 3: Subsequent revisions
+- **CR revision number** (cover sheet): the original version carries a
+  hyphen (`-`, revision zero). Every revision increments the number, so
+  the first revision shows `1` and the second `2`. The CR number stays
+  the same - see `references/cr-revision.md`.
+- **CR revision history** (optional): records what changed from the
+  original version to revision 1, revision 2, and so on.
 
 ## File Naming Convention
 
-**Word™ files for CRs** follow 3GPP naming:
+At working group level the Word file is named per the 3GPP Working
+Procedures, and the zip file that carries it is named simply as the TDoc
+number.
+
+When the CR is presented to the TSG for approval, the Word file is named:
 
 ```text
-*<specnumber_no_dot>*_CR*<4-character_CR_number>*[r*<revision_number>*]
+<specnumber_no_dot>_CR<4-character_CR_number>[r<revision_number>]_(<release>)_[<WG_tdoc_number>[_<free_text>]].doc[x]
 ```
 
-**Zip™ archive** containing CRs:
+- `<specnumber_no_dot>`: the TS or TR the CR applies to, the dot after the series part omitted (`21900` for TR 21.900)
+- `<4-character_CR_number>`: the CR number, padded with leading zeros to four characters (`0012`)
+- `[r<revision_number>]`: only for a revised CR; a single digit (very rarely two), separated from the CR number by a lower case `r`
+- `(<release>)`: the Release identity in the usual format (`R99`, `Rel-4`, `Rel-5`)
+- `[<WG_tdoc_number>]`: the TDoc identity under which the CR was agreed at working group level
+- `[_<free_text>]`: optional free text, for example an abbreviated title
 
-- Word™ files (CR cover sheet + body + attachments)
-- Zip™ file named according to convention
-- Contains multiple CRs packaged together for a TSG meeting
+`<WG_tdoc_number>` and the underscore in front of it are omitted when the
+CR was not previously presented to the responsible working group - in
+particular when the CR is modified from what the WG agreed.
 
-## CR Lifecycle
+The zip file for the TSG submission follows the 3GPP Working Procedures
+and bears a cover sheet listing the included CRs.
 
-```text
-Draft → WG Agreement → TSG Approval → MCC Incorporation → Published Spec
-```
+Revision procedure and worked example: `references/cr-revision.md`.
 
 ## Work Items
 

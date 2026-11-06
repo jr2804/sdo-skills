@@ -59,6 +59,12 @@ is the TDoc number from the *previous* editing session.
 Use officecli `raw-set` with XPath to patch runs. See `sdo-docx`
 for the safe raw-set patterns.
 
+**A CR cover sheet is a different document.** A CR revision does not patch
+the cover sheet of the previous version. The portal generates a new cover
+sheet from the *Is revision of:* relation, and the only manual part is
+the right-aligned `revision of <tdoc-nbr>` marker on the second cover
+line. That cover sheet uses the style `CRCoverPage`, not `TDoc-Header`.
+
 ### Step 6 -- Sync DOCX properties
 
 After patching, write properties using `set_docx_props.py`:

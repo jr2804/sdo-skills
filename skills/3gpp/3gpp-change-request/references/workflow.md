@@ -5,16 +5,20 @@ Quick reference for CR submission and approval process.
 ## CR Lifecycle
 
 ```text
-Draft → WG Agreement → TSG Approval → MCC Incorporation → Published Spec
+Creation → WG Agreement → TSG Approval → MCC Incorporation → Published Spec
 ```
 
-### 1. Draft CR
+### 1. Create CR
 
 Member organization creates CR document containing:
 
 - **CR Cover Sheet**: Why change is needed, summary of modifications
 - **Attached Spec Sections**: Word "Track Changes" showing affected text
 - **Summary of Changes**: Brief explanation
+
+Create the document on the portal with the document type **CR**. The type
+*Draft CR* is deprecated and its use is strongly discouraged - only
+legacy items still on the portal carry it.
 
 ### 2. Submit to WG
 
@@ -70,18 +74,23 @@ Full category definitions, including the per-Release F and A wording:
 
 ## CR Number Format
 
-```text
-<specnumber_no_dot>_CR<4-digit_number>[r<revision>]
-```
+The CR number is allocated by the portal, padded with leading zeros to
+four characters, and never changes on a revision - only the revision
+number counts up.
 
-**Examples:**
+Full component breakdown, examples, revision suffix rules and the file
+naming convention: `references/cr-format.md`.
 
-- `31102_CR0095` - CR 0095 to spec 31.102
-- `31102_CR0095r1` - Revision 1 of that CR
-- `31103_CR0095` - Mirror CR to spec 31.103
+## Revising a CR
 
-Full component breakdown, revision suffix rules and additional examples:
-`references/cr-format.md`.
+A revision re-issues an existing CR as a new TDoc. The CR number stays,
+the revision number counts up, the date becomes the date the revised
+version was produced, "Source to WG" stays and "Source to TSG" reflects
+the actual state.
+
+Always start from the cover sheet the portal generates for the new TDoc,
+and add the *revision of* marker that the generator leaves out:
+`references/cr-revision.md`.
 
 ## Quick Checklist
 
@@ -108,5 +117,6 @@ Essential fields for CR submission:
 - [SKILL.md](../SKILL.md) - Full CR reference with status codes and detailed fields
 - `references/cr-format.md` - CR number format, status table, categories, document sections, WI codes, databases
 - `references/cr-checklist.md` - Submission checklist, common pitfalls, best practices, mirror CR concepts
+- `references/cr-revision.md` - Revising a CR: portal procedure, cover-sheet marker, file name
 - `3gpp-specifications` - Spec numbering and structure
 - `3gpp-releases` - Release freeze concepts

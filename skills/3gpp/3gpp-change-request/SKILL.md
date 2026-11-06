@@ -1,10 +1,11 @@
 ---
 name: 3gpp-change-request
-description: Change Request procedure, workflow, status tracking, CR database, and step-by-step instructions. Use when working with 3GPP Change Requests to modify specifications, understanding CR lifecycle, or querying CR status.
+description: Change Request procedure, workflow, status tracking, CR database, revision handling, and step-by-step instructions. Use when working with 3GPP Change Requests to modify specifications, understanding CR lifecycle, revising an existing CR, or querying CR status.
   Use when the user asks for the CR number format, a CR cover sheet, the CR
   submission checklist, CR status codes, CR categories (F / A / TEI), mirror
-  CRs, work item codes, the CR databases, or how a CR is drafted, agreed and
-  approved.
+  CRs, work item codes, the CR databases, how a CR is drafted, agreed and
+  approved, or how to revise a CR (CR revision number, "revision of" marker,
+  the portal's "Is revision of:" field and the CR template generator).
 ---
 
 # 3GPP Change Requests
@@ -14,7 +15,9 @@ description: Change Request procedure, workflow, status tracking, CR database, a
 > table, document structure and databases, see
 > [references/cr-format.md](references/cr-format.md); for the checklist, pitfalls
 > and best practices, see
-> [references/cr-checklist.md](references/cr-checklist.md).
+> [references/cr-checklist.md](references/cr-checklist.md); for revising an
+> existing CR, see
+> [references/cr-revision.md](references/cr-revision.md).
 
 ## Overview
 
@@ -59,8 +62,9 @@ Release, all sharing the same Work Item code. Concepts and checklist:
 
 ## Change Request Workflow
 
-1. **Draft CR**
-   Member organization creates CR document
+1. **Create CR**
+   Member organization creates CR document, with the portal document type
+   **CR**
 2. **Submit to WG**
    WG discusses and agrees CR is valid
 3. **WG Presents to TSG**
@@ -75,6 +79,16 @@ Release, all sharing the same Work Item code. Concepts and checklist:
 Detailed steps, status transitions and the quick checklist:
 `references/workflow.md`.
 
+## Revising a CR
+
+A revision re-issues an existing CR: the CR number stays, the revision
+number counts up, and the revised version is a new TDoc. Always start
+from the cover sheet the portal generates for the new TDoc, and add the
+*revision of* marker the generator leaves out.
+
+Procedure, cover-sheet fields, file name and worked example:
+`references/cr-revision.md`.
+
 ## Reference Files
 
 - `references/cr-format.md` - CR number format, components and examples, CR
@@ -82,6 +96,8 @@ Detailed steps, status transitions and the quick checklist:
   convention, work item codes, CR databases, resources
 - `references/cr-checklist.md` - CR submission checklist, common pitfalls, best
   practices, mirror CR and editorial concepts
+- `references/cr-revision.md` - revising a CR: what changes, the portal
+  procedure, the "revision of" marker on the cover sheet, file name
 - `references/workflow.md` - CR lifecycle, six-step submission and approval
   process, status transitions, quick checklist
 

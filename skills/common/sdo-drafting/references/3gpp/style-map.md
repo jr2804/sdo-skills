@@ -34,3 +34,4 @@ Additional 3GPP-specific styles (no abstract equivalent):
 | Style ID | Purpose |
 |----------|---------|
 | `TDoc-Header` | Cover page header paragraphs (TDoc number, date, source, title, agenda item, target) |
+| `CRCoverPage` | Cover page paragraphs of a Change Request (TSG/WG reference, meeting, TDoc number, place and dates) |
