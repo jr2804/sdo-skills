@@ -103,7 +103,8 @@ Two fields carry the revision, and they mean different things:
 - **CR revision number** (cover sheet): the original version carries a
   hyphen (`-`, revision zero). Every revision increments the number, so
   the first revision shows `1` and the second `2`. The CR number stays
-  the same - see `references/cr-revision.md`.
+  the same - a revision is a new version of the same CR, never a second
+  CR for the same change. See `references/cr-revision.md`.
 - **CR revision history** (optional): records what changed from the
   original version to revision 1, revision 2, and so on.
 

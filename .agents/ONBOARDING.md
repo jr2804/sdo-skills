@@ -5,16 +5,18 @@ project structure or tooling changes significantly.
 
 ## Project
 
-Portable agent skills for writing standards contributions and deliverables (ETSI, 3GPP, ITU-T) Full docs at `README.md` or `docs/`.
+Portable agent skills for writing standards contributions and deliverables
+(ETSI, 3GPP, ITU-T). Full docs at `README.md` or `docs/`.
 
 ## Quick start
 
 ```bash
 mise dev        # install dependencies (uv sync --dev)
-mise test       # run pytest with coverage
-mise lint       # ruff + ty + codespell
-mise format     # ruff format + isort + pyreorder
-mise all        # test + lint + format in one pass
+mise test       # pytest with 100 % coverage gate
+mise lint       # ruff over src/, tests/, scripts/
+mise typecheck  # ty check over src/, tests/, scripts/
+mise format     # pyreorder + ruff format + import sort
+mise all        # full gate (see .agents/POLICIES.md → Verification)
 ```
 
 ## Entry points (read these first)
@@ -37,9 +39,13 @@ mise all        # test + lint + format in one pass
 ## Where to dig deeper
 
 - `docs/` — user-facing documentation
+- `.agents/TOOLS.md` — tools, MCP servers, skills, CLIs in use
 - `.agents/HISTORY.md` — past decisions and rationale
 - Source-tree AGENTS.md files — local contracts for each area
 
 ## Available tools
 
-No MCP dev-features enabled. See `.copier-answers.yml` for template answers.
+Development tools, MCP servers, skills, and CLIs are inventoried in the
+state file `.agents/TOOLS.md` — read it before assuming a tool, update it
+when tooling changes. If tooling grows large, detail moves to
+`.agents/tools/<name>.md` (each listed in TOOLS.md).

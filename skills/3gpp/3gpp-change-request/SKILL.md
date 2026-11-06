@@ -81,13 +81,19 @@ Detailed steps, status transitions and the quick checklist:
 
 ## Revising a CR
 
-A revision re-issues an existing CR: the CR number stays, the revision
-number counts up, and the revised version is a new TDoc. Always start
-from the cover sheet the portal generates for the new TDoc, and add the
-*revision of* marker the generator leaves out.
+Three rules: the CR number stays the same, the CR revision number increases,
+and it stays the same CR - a revision is a new version of an existing CR, not
+a new CR.
 
-Procedure, cover-sheet fields, file name and worked example:
-`references/cr-revision.md`.
+Never build the revised cover sheet by hand. Set **Is revision of:** on the
+portal (it fills the CR number, the revision number and the meeting), then
+download the cover sheet from the template generator for the new TDoc - that
+page is the recommended starting point for every revision. The one thing it
+does not cover is the right-aligned `revision of <tdoc-nbr>` marker on the
+second cover line.
+
+Procedure, cover-sheet fields, the marker's DOCX structure, file name and
+worked example: `references/cr-revision.md`.
 
 ## Reference Files
 

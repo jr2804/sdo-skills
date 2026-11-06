@@ -16,9 +16,7 @@ Member organization creates CR document containing:
 - **Attached Spec Sections**: Word "Track Changes" showing affected text
 - **Summary of Changes**: Brief explanation
 
-Create the document on the portal with the document type **CR**. The type
-*Draft CR* is deprecated and its use is strongly discouraged - only
-legacy items still on the portal carry it.
+Create the document on the portal with the document type **CR**.
 
 ### 2. Submit to WG
 
@@ -83,13 +81,15 @@ naming convention: `references/cr-format.md`.
 
 ## Revising a CR
 
-A revision re-issues an existing CR as a new TDoc. The CR number stays,
-the revision number counts up, the date becomes the date the revised
-version was produced, "Source to WG" stays and "Source to TSG" reflects
-the actual state.
+A revision re-issues an existing CR as a new TDoc: the CR number stays, the
+revision number counts up, the date becomes the date the revised version was
+produced, "Source to WG" stays and "Source to TSG" reflects the actual state.
 
-Always start from the cover sheet the portal generates for the new TDoc,
-and add the *revision of* marker that the generator leaves out:
+Set **Is revision of:** on the portal first - it fills the CR number, the
+revision number and the meeting - then download the cover sheet from the
+template generator for the new TDoc, which is the recommended starting point
+for every revision. The only manual addition is the right-aligned
+`revision of <tdoc-nbr>` marker on the second cover line:
 `references/cr-revision.md`.
 
 ## Quick Checklist

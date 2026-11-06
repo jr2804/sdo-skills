@@ -31,9 +31,9 @@ mirror CRs and editorial updates.
 Applies when a CR is revised and re-issued as a new TDoc. The procedure
 and the worked example are in `references/cr-revision.md`.
 
-01. [ ] Document type on the portal is **CR** (not the deprecated *Draft CR*)
+01. [ ] Document type on the portal is **CR**
 02. [ ] "Is revision of:" points at the TDoc number of the version being revised
-03. [ ] Cover sheet downloaded from the portal template generator for the new TDoc
+03. [ ] Cover sheet downloaded from the portal template generator for the new TDoc (the recommended starting point)
 04. [ ] CR number unchanged (the 4-digit number of the version being revised)
 05. [ ] CR revision number incremented (first revision shows `1`)
 06. [ ] New TDoc number in the header
@@ -53,6 +53,7 @@ and the worked example are in `references/cr-revision.md`.
 5. **Out-of-date Specs**: Writing CR to old version that's been updated
 6. **New CR number on a revision**: A revision keeps the CR number of the version it revises
 7. **Missing "revision of" marker**: The portal template does not add it - the marker has to be inserted by hand
+8. **Stale "revision of" marker**: When the cover page is taken over from the predecessor, its marker still names the version *it* revised - point it at the version you are revising
 
 ## Best Practices
 

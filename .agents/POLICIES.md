@@ -46,56 +46,36 @@ Universal defaults. Project-specific standards live in child AGENTS.md.
 - Relevant validation ran (or gaps stated)
 - No unintended side effects or secrets exposed
 
-## DOX authoring (keep AGENTS.md lean)
+## DOX authoring
 
-AGENTS.md and `.agents/` files share limited context. Bloat and duplication
-are the failure mode.
+Tier assignment, reference-don't-restate, content rules and the size budget's
+authoring rationale — see `policies/dox-authoring.md`. Apply it on every DOX
+change; the operational limits stay below (**Size budget**).
 
-### Where a rule lives
+## Implementation Plans & Documentation
 
-A rule goes in the **highest (most general) tier that fully applies**:
+Plan location and naming, the archive-on-completion trigger, history overflow,
+the docs-are-committed rule, and the no-logbook rule — see
+`policies/plans.md`.
 
-- Applies to **all code in the project** → `.agents/POLICIES.md` (default).
-- Meaningful **only inside one subtree** → that subtree's `AGENTS.md`.
-- Just helps navigation → the parent's Child DOX Index, nothing else.
+## State file subdirectories
 
-### Reference, don't restate
+Each state file has a matching optional subdirectory for growth — the file
+stays a lean index and the subdirectory carries the detail:
 
-A rule appears in **exactly one file**. Other files use a **pointer line**:
-`<topic> — see <file>`. Never copy the rule, rationale, or example.
+| State file       | Optional subdirectory  |
+| ---------------- | ---------------------- |
+| `FILES.md`       | `.agents/files/`       |
+| `POLICIES.md`    | `.agents/policies/`    |
+| `TOOLS.md`       | `.agents/tools/`       |
+| `MAINTENANCE.md` | `.agents/maintenance/` |
 
-### Rule first, rationale second, never third
-
-A DOX line is the rule. If a rationale is costly to rediscover, add one
-short clause. No multi-paragraph explanations or code pairs — those belong
-in a skill or `docs/`, linked once.
-
-### Content rules
-
-- **No tree views.** Generate on demand with `rg --files | tree-cli --fromfile`.
-- **No history in AGENTS.md files.** Git log has routine history. Record only
-  decisions costly to rediscover — in `.agents/HISTORY.md` (or
-  `.agents/history/` for overflow archives). See **Implementation Plans**
-  below for archiving completed plans.
-- **No TODO lists.** Use issue trackers or beads.
-
-## Implementation Plans
-
-- Plans, refactoring plans, and design docs go in `.agents/plans/<feature>/`
-  — NOT under version control (gitignored).
-- Name descriptively with phase-number prefixes so file order matches
-  implementation order, e.g. `01-sub-feature.md`, `02-next-sub-feature.md`.
-- NEVER commit plans to git. They are mutable working artifacts.
-- Shipped docs (user-facing guides, API references) go in `docs/` and
-  ARE committed.
-
-## Documentation
-
-- When `.agents/HISTORY.md` grows too large, archive older entries to
-  `.agents/history/`. Reference them from `.agents/HISTORY.md`.
-- Completed plans (`.agents/plans/<feature>/`) may be archived to
-  `.agents/history/<feature>/` for long-term reference.
-- `.agents/history/` IS version-controlled (durable decision records).
+- Only create a subdirectory when its state file approaches its size budget.
+- Every file in a subdirectory MUST be listed in its state file (name + one
+  line of what it covers). A subdirectory file missing from the index is
+  dead content — move it or delete it.
+- `ONBOARDING.md` and `HISTORY.md` have no subdirectories: entry points stay
+  a single file, and history growth goes to `.agents/history/`.
 
 ## Size budget
 
@@ -103,20 +83,26 @@ in a skill or `docs/`, linked once.
 - Subtree `AGENTS.md`: ≤ **250 lines** (loaded cumulatively with parents).
 
 Exceeding the budget signals restating instead of pointing, or hoarding
-rationale. Cut first; split the subtree only as a last resort.
+rationale. Cut first; split into the matching subdirectory only when the
+content is genuinely needed.
 
 ## Verification
 
 ```bash
-mise all        # test + lint + format (composite task)
-mise test       # pytest with coverage gate (100%)
-mise lint       # ruff + ty + codespell
-mise format     # ruff format + isort + pyreorder
-mise format-md  # rumdl over docs/, .agents/, ./ (Markdown only)
+mise all        # test, lint, lint:skills, sort, spell, format, format-md, docs
+mise test       # pytest with 100 % coverage gate
+mise lint       # ruff --fix over src/, tests/, scripts/
+mise typecheck  # ty check src/, tests/, scripts/
+mise sort       # pyreorder structural-order check
+mise spell      # codespell
+mise format     # pyreorder run + ruff format + import sort
+mise format-md  # rumdl fmt over src/, docs/, tests/, repo root (incl. .agents/)
 ```
 
-Pre-commit hooks (`.pre-commit-config.yaml`) run a subset of the above on every
-commit. Run `pre-commit run --all-files` to check the whole tree.
+CI (`.github/workflows/ci.yml`) gates `lint`, `sort`, `spell`, `lint:skills`,
+`test` and `docs`; `typecheck` and `format-md` are local-only — run them before
+pushing Python or Markdown changes. Pre-commit hooks (`.pre-commit-config.yaml`)
+run a subset on every commit; `pre-commit run --all-files` checks the tree.
 
 ## Response format
 
@@ -125,3 +111,9 @@ Answer direct questions directly.
 
 For review/debugging/analysis: findings with references, conclusion,
 approach. Mention caveats.
+
+## Subdirectory
+
+- `policies/dox-authoring.md` — tier assignment, reference-don't-restate,
+  rule-first wording, content rules.
+- `policies/plans.md` — implementation plans, archiving, documentation rules.

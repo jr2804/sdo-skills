@@ -28,6 +28,11 @@ Kept compact — agents hallucinate less when they know where definitions live.
 | Copier answers         | `.copier-answers.yml`                                           | Template version + answers (regenerated)        |
 | Pre-commit config      | `.pre-commit-config.yaml`                                       | Hook list                                       |
 
+## Subdirectory
+
+If this file grows past its size budget, split detail into
+`.agents/files/<name>.md` — every file there MUST be listed above.
+
 ## Naming conventions
 
 - **Repository name** (`project_slug`): kebab-case (`my-project`)

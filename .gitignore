@@ -68,6 +68,14 @@ mcporter.json
 !/.agents/*.md
 !/.agents/history/
 !/.agents/history/**
+!/.agents/files/
+!/.agents/files/**
+!/.agents/policies/
+!/.agents/policies/**
+!/.agents/tools/
+!/.agents/tools/**
+!/.agents/maintenance/
+!/.agents/maintenance/**
 # Implementation plans — mutable working artifacts, never committed
 /.agents/plans/
 

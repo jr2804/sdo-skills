@@ -4,6 +4,16 @@ A revision re-issues an existing CR. It does not start a new CR: the CR
 number stays, the revision number counts up, and the change itself is
 usually the same text the WG already agreed.
 
+Three rules hold for every revision:
+
+1. **The CR number stays the same.** It is the four-digit, zero-padded
+   identifier the portal allocated once (`0009` is the ninth CR to that
+   specification). A revision never gets a new number.
+2. **The CR revision number increases.** `-` (revision zero) for the
+   original, then `1`, `2`, and so on.
+3. **It stays the same CR.** The revision is a new TDoc - a new version of
+   an existing CR, not a second CR for the same change.
+
 Normative source: the 3GPP step-by-step guide, "Change Requests -
 Step-by-step"
 (<https://www.3gpp.org/specifications-technologies/specifications-by-series/change-requests-step-by-step>).
@@ -21,37 +31,98 @@ Step-by-step"
 | Source to TSG | Changed to the actual state: the identity of the TSG debating the matter, the organization(s) proposing the revised version, or text such as "WG Chairman" or "WG Secretary". |
 | CR revision history | Optional. Records what changed from the original version to revision 1, revision 2, and so on. |
 
-The header showing the original meeting and WG document number is
-preserved; the document identity of the new version is marked by placing
-the text "revision of" before the original WG document header.
+The new version keeps the original CR's identity and gets its own TDoc
+number in the header; the only visible trace of the predecessor is the
+"revision of" marker on the second cover line.
 
 ## Portal Procedure
 
+Always drive a revision through the portal - never edit the previous cover
+sheet by hand.
+
 1. Create the new document on the 3GU portal with the document type **CR**.
-   The type *Draft CR* is deprecated and its use is strongly discouraged -
-   only legacy items still on the portal carry it.
 2. Set the **Is revision of:** field to the TDoc number of the version being
-   revised. The portal copies that version's metadata into the new document
-   and keeps the link to its predecessor (the TDoc metadata field is
-   `is_revision_of`, see `3gpp-tdocs`).
-3. Download the cover sheet of the new TDoc from the template generator.
-   Always start from this file - it carries the meeting reference, the
-   document properties and the cover-sheet fields already filled in:
+   revised, for example `S4-261186`. This single field does the work: the
+   portal fills in the CR number, the incremented CR revision number, the
+   meeting reference and the document properties, and keeps the link to the
+   predecessor (the TDoc metadata field is `is_revision_of`, see
+   `3gpp-tdocs`).
+3. Open the template generator for the new TDoc and download the cover
+   sheet. **Always start from this page** - it is the recommended
+   starting point for every revision, because the downloaded file already
+   carries the meeting, the document properties and every cover-sheet field
+   the portal derived from **Is revision of:**:
 
    ```text
    https://portal.3gpp.org/ngppapp/TdocTemplateGenerator.aspx?uid=<tdoc-nbr>
    ```
 
    Example: `https://portal.3gpp.org/ngppapp/TdocTemplateGenerator.aspx?uid=S4-261945`
+   produces `S4-261945.docx` - a bare cover sheet named after the TDoc. Move
+   it to the project's working file name
+   (`S4-261945 - <title>.docx`) before editing, and keep the generated file
+   until the document is uploaded, so the manual change stays reviewable.
 4. Add the one thing the generator does not cover: the *revision of* marker
    on the second line of the cover page (next section).
-5. Add the CR body, then upload the document to the portal.
+5. Bring the CR body across from the version being revised. The generator
+   returns the cover sheet plus an empty body skeleton (`==============First
+   change==============` placeholders), so the tracked changes and the
+   figures still have to come from the predecessor - start from the
+   predecessor file and replace only its cover page, or copy the body in.
+   The revised TDoc should then differ from its predecessor on the cover
+   page alone.
+6. Upload the document to the portal.
 
 Because the portal fills the cover sheet from the version named in **Is
 revision of:**, the CR number comes back unchanged and the revision number
-is already incremented.
+is already incremented - do not type either of them by hand.
 
-## The One Manual Gap: the "revision of" Marker
+### What the Generator Fills
+
+The downloaded cover sheet is a `DOCPROPERTY`-driven document: every field
+reads a custom property of the same name, so the visible values follow the
+properties and not the text. For `S4-261945` (CR 0009, revision 2) that is:
+
+| Property | Value | Note |
+|---|---|---|
+| `Spec#` | `26.260` | target spec |
+| `Version` | `19.1.0` | current version of the spec |
+| `Cr#` | `0009` | inherited from the version being revised |
+| `Revision` | `2` | incremented by the portal |
+| `Tdoc#` | `S4-261945` | the new TDoc |
+| `TSG/WGRef`, `MtgSeq` | `SA4`, `138` | from the meeting |
+| `Location`, `StartDate`, `EndDate` | `Calgary, Canada`, `16th Nov 2026`, `20th Nov 2026` | cover line 2; the country is already part of `Location` |
+| `Country`, `MtgTitle` | `<Country>`, empty | generator leaves these unfilled - nothing uses them in the downloaded cover sheet |
+| `SourceIfWg`, `SourceIfTsg` | `HEAD acoustics GmbH`, empty | source fields |
+| `RelatedWis`, `Release`, `Cat`, `ResDate` | `ATIAS_Ph3-MED`, `Rel-20`, `B`, `2026-11-06` | copied or set at creation |
+| `CrTitle` | `CR on Updated test methods for TS 26.260` | CR title |
+
+Editing a document property is therefore the safe way to correct a field:
+the cover sheet re-renders from the properties. Text typed over a field's
+*result* is lost the next time Word refreshes the fields. Fix values the
+portal owns at the portal (re-open the TDoc there), or in Word under
+**File → Info → Properties → Advanced Properties → Custom**.
+
+Two traps when editing the properties programmatically:
+
+- **Never run `set_docx_props.py` on a generated CR cover sheet.** That
+  script (see `sdo-project-setup`) *rebuilds* `docProps/custom.xml` from
+  `PLAN.md` front matter and drops every property it does not map, so the
+  cover sheet's `Cr#`, `Revision`, `Tdoc#`, `Spec#`, `Version`, `Cat`,
+  `Release` and `RelatedWis` fields lose their source and Word renders them
+  as field errors.
+- **Never `raw-set` `/docProps/custom.xml`.** Unlike `/document`, that part
+  is not patched in place: the call replaces the whole part and leaves an
+  invalid stub. Rewrite the zip entry instead - read
+  `docProps/custom.xml`, replace the `<vt:lpwstr>` value inside the
+  `<op:property name="...">` element, write the archive back - then check
+  the result with `mise x github:iOfficeAI/OfficeCLI -- officecli validate
+  <file>.docx`.
+
+The fields keep their cached result until Word refreshes them, so a wrong
+property can look right in a text dump and wrong on screen after F9.
+
+## The One Gap in the Generated Cover Sheet: the "revision of" Marker
 
 The generated cover sheet has two header lines:
 
@@ -72,6 +143,11 @@ The marker is a tab, then the text `revision of` (with a trailing space) and
 the TDoc number of the version being revised - lowercase, no colon. It is
 right-aligned through a right tab stop at 9639 twips, the same stop that
 right-aligns the TDoc number on line 1.
+
+The predecessor already carries such a marker, and it points one step
+further back: `S4-261186`, the revision 1, says `revision of S4-260953`.
+Take the formatting from that paragraph and the number from the version
+you are revising - not the number you find there.
 
 ### DOCX Structure
 
@@ -96,9 +172,13 @@ character formatting as the place and date text (bold, 12 pt):
 <w:r><w:rPr><w:b/><w:noProof/><w:sz w:val="24"/></w:rPr><w:t>S4-261186</w:t></w:r>
 ```
 
-The place, the country and the dates are `DOCPROPERTY` fields. Keep them
-intact - copy the original paragraph, add the tab stop and the marker
-runs, and replace the paragraph as a whole. Patch it with `officecli
+The place, the country and the dates are `DOCPROPERTY` fields
+(`Location`, `Country`, `StartDate`, `EndDate`). Depending on the generator
+version they appear as `<w:fldSimple>` elements or as
+begin/separate/end `w:fldChar` runs, and `Location` may already carry the
+country (`Calgary, Canada`) instead of splitting it out. Keep whatever form
+is present intact - copy the original paragraph, add the tab stop and the
+marker runs, and replace the paragraph as a whole. Patch it with `officecli
 raw-set`, targeting the second `CRCoverPage` paragraph, and use a real
 tab run (`<w:tab/>`), never spaces. See `sdo-docx` for the raw-set
 patterns and the safe-edit rules.
@@ -108,6 +188,21 @@ mise x github:iOfficeAI/OfficeCLI -- officecli raw-set "<file>.docx" /document \
   --xpath '(//w:p[w:pPr/w:pStyle/@w:val="CRCoverPage"])[2]' \
   --action replace --xml '<w:p>...</w:p>'
 ```
+
+A recipe that is known to work: extract the second `CRCoverPage` paragraph
+with `mise x github:iOfficeAI/OfficeCLI -- officecli raw <file> /document`,
+insert `<w:tabs><w:tab w:val="right" w:pos="9639" /></w:tabs>` right after
+its `<w:pStyle w:val="CRCoverPage" />`, append the two marker runs before
+the closing `</w:p>`, and feed the result to `raw-set --action replace`.
+The body of the paragraph - the `DOCPROPERTY` fields - is carried over
+unchanged, so the fields keep working. Afterwards the second line reads:
+
+```text
+Calgary, Canada, 16th Nov 2026 - 20th Nov 2026	revision of S4-261186
+```
+
+(the gap before `revision of` is the `<w:tab/>`, rendered at the new right
+tab stop).
 
 ## File Name
 
