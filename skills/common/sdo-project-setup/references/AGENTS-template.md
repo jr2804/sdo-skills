@@ -7,7 +7,11 @@ and template.
 ## Project Scope
 
 **[EDIT]** Draft a `<SDO>` contribution titled `"[TITLE]"` for meeting
-`[MEETING]`, agenda item `[AGENDA_ITEM]`, target `[TARGET_TYPE]`.
+`[MEETING]`, agenda item `[AGENDA_ITEM]`, target `[TARGET_TYPE]`, target
+length `[LENGTH]` (e.g. "~3 pages including annexes").
+
+**Objective [EDIT]:** one sentence stating what the reader should conclude,
+decide or agree to after reading the document.
 
 Add 1-2 sentences describing the technical motivation and scope.
 

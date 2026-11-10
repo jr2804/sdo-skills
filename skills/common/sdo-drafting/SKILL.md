@@ -14,17 +14,23 @@ rule lives in `references/<sdo>/`.
    - ETSI deliverables: TS, ES, EN, TR, EG, SR, GS, GR, hEN.
    - 3GPP: TDoc (meeting submission), CR (change request), TS/TR (specification).
    - ITU-T: contribution (C- or TD-series), Liaison Statement, Recommendation.
-2. **Start from the right template** (see Assets). Never edit a template in
+2. **Confirm objective and target length before drafting.** Restate in one
+   sentence what the document is meant to achieve (what should the reader
+   conclude, decide or agree to?) and confirm the target length or depth
+   with the user. If neither is recorded in the project (`AGENTS.md` /
+   `PLAN.md`), ask -- do not guess the depth of a submission. Keep the
+   outline proportional to the agreed length.
+3. **Start from the right template** (see Assets). Never edit a template in
    place -- copy it into the project (`ref/`) and work on the copy. Never add,
    rename or override template styles.
-3. **Read the per-SDO reference** for structure, style names and numbering
+4. **Read the per-SDO reference** for structure, style names and numbering
    before writing content.
-4. **Delegate formatting and editing** to `sdo-docx` (styles, headings,
+5. **Delegate formatting and editing** to `sdo-docx` (styles, headings,
    notes, enumerations, tables, figures, equations, citations; officecli
    operations, field codes, bookmarks, tracked changes).
-5. **Delegate prose** to `sdo-writing` (mechanical conventions and prose
+6. **Delegate prose** to `sdo-writing` (mechanical conventions and prose
    quality).
-6. **Delegate project scaffolding** to `sdo-project-setup` (project layout,
+7. **Delegate project scaffolding** to `sdo-project-setup` (project layout,
    `AGENTS.md`, `PLAN.md`, document properties).
 
 ## Assets
