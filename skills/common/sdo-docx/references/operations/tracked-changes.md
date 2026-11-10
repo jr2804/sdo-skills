@@ -2,20 +2,22 @@
 
 Correct XML structures for revision marks in .docx documents. These must be
 applied via `officecli raw-set` -- high-level commands cannot produce them.
+Edits inside other authors' revisions, fields, equations, author renaming and
+verification in Word: `references/operations/tracked-changes-advanced.md`.
 
-## Critical rule: paragraph-level vs. run-level
+## Critical rule: paragraph mark and runs are marked separately
 
-| Scope | Marker placement | Content element |
-|-------|-----------------|-----------------|
-| Entire paragraph inserted | `<w:ins>` in `<w:pPr>/<w:rPr>` | `<w:t>` (normal text) |
-| Run inserted within existing paragraph | `<w:ins>` wrapping `<w:r>` | `<w:t>` (normal text) |
-| Entire paragraph deleted | `<w:del>` in `<w:pPr>/<w:rPr>` | `<w:delText>` |
-| Run deleted within existing paragraph | `<w:del>` wrapping `<w:r>` | `<w:delText>` |
+| Scope | Paragraph mark (`<w:pPr>/<w:rPr>`) | Content runs |
+|-------|-------------------------------------|--------------|
+| Entire paragraph inserted | `<w:ins .../>` | wrapped in `<w:ins>`, text in `<w:t>` |
+| Run inserted within existing paragraph | -- | wrapped in `<w:ins>`, text in `<w:t>` |
+| Entire paragraph deleted | `<w:del .../>` | wrapped in `<w:del>`, text in `<w:delText>` |
+| Run deleted within existing paragraph | -- | wrapped in `<w:del>`, text in `<w:delText>` |
 
-**Never wrap entire paragraph content with `<w:ins>` or `<w:del>` at the
-run-sibling level.** The OOXML spec requires revision markers on paragraph
-properties, not as paragraph children. Wrong structure silently produces
-no visible tracked changes.
+**A marker on the paragraph mark covers only the paragraph mark.** Its runs
+need their own `<w:ins>`/`<w:del>` wrapper; otherwise Word shows the text as
+unchanged and only the pilcrow as revised. Inside `<w:pPr>`, `<w:rPr>` comes
+after `<w:pStyle>` (schema order).
 
 ______________________________________________________________________
 
@@ -24,25 +26,27 @@ ______________________________________________________________________
 ```xml
 <w:p>
   <w:pPr>
+    <w:pStyle w:val="NO"/>
     <w:rPr>
       <w:ins w:id="1" w:author="Author Name" w:date="2026-05-22T10:00:00Z"/>
     </w:rPr>
-    <w:pStyle w:val="Note"/>
   </w:pPr>
-  <w:r>
-    <w:t xml:space="preserve">NOTE: New note text added to the document.</w:t>
-  </w:r>
+  <w:ins w:id="2" w:author="Author Name" w:date="2026-05-22T10:00:00Z">
+    <w:r>
+      <w:t xml:space="preserve">NOTE: New note text added to the document.</w:t>
+    </w:r>
+  </w:ins>
 </w:p>
 ```
 
 **Key points:**
 
-- `<w:ins>` goes inside `<w:pPr>/<w:rPr>` for full-paragraph insertions
+- `<w:ins/>` inside `<w:pPr>/<w:rPr>` marks the new paragraph mark; the
+  `<w:ins>` around the runs marks the text
 - Content uses normal `<w:t>` (not `<w:delText>`)
 - `w:id` must be unique across all tracked changes in the document
-- Before this paragraph, also inject the paragraph mark deletion marker
-  in the preceding paragraph's `<w:pPr>/<w:rPr>` so Word shows the
-  boundary correctly
+- Leave the preceding paragraph untouched: a deletion marker on its
+  paragraph mark would merge it with the new paragraph on accept
 
 ______________________________________________________________________
 
@@ -55,15 +59,19 @@ ______________________________________________________________________
       <w:del w:id="2" w:author="Author Name" w:date="2026-05-22T10:00:00Z"/>
     </w:rPr>
   </w:pPr>
-  <w:r>
-    <w:delText xml:space="preserve">Old paragraph text that is being removed.</w:delText>
-  </w:r>
+  <w:del w:id="3" w:author="Author Name" w:date="2026-05-22T10:00:00Z">
+    <w:r>
+      <w:delText xml:space="preserve">Old paragraph text that is being removed.</w:delText>
+    </w:r>
+  </w:del>
 </w:p>
 ```
 
 **Key points:**
 
-- `<w:del>` goes inside `<w:pPr>/<w:rPr>` for full-paragraph deletions
+- `<w:del/>` inside `<w:pPr>/<w:rPr>` deletes the paragraph mark (the
+  paragraph merges with the next one on accept); the `<w:del>` around the
+  runs deletes the text
 - Content MUST use `<w:delText>` (not `<w:t>`) -- otherwise text appears
   as still present with only the deletion marker
 - `xml:space="preserve"` is critical on `<w:delText>` to preserve leading/
@@ -159,14 +167,16 @@ of the preceding paragraph's runs, combine patterns:
 <!-- New fully inserted paragraph -->
 <w:p>
   <w:pPr>
+    <w:pStyle w:val="Normal"/>
     <w:rPr>
       <w:ins w:id="6" w:author="Author Name" w:date="2026-05-22T10:00:00Z"/>
     </w:rPr>
-    <w:pStyle w:val="Normal"/>
   </w:pPr>
-  <w:r>
-    <w:t>New paragraph with revision mark visible.</w:t>
-  </w:r>
+  <w:ins w:id="7" w:author="Author Name" w:date="2026-05-22T10:00:00Z">
+    <w:r>
+      <w:t>New paragraph with revision mark visible.</w:t>
+    </w:r>
+  </w:ins>
 </w:p>
 ```
 
@@ -196,10 +206,11 @@ ______________________________________________________________________
 
 | Wrong | Why it fails |
 |-------|-------------|
-| `<w:p><w:ins w:id="1">...<w:r>...</w:r></w:ins></w:p>` | `<w:ins>` as direct child of `<w:p>` -- marker invisible. Must be in `<w:pPr>/<w:rPr>`. |
+| New paragraph marked only in `<w:pPr>/<w:rPr>`, runs not wrapped | Only the pilcrow is shown as inserted; the text looks unchanged. Wrap the runs in `<w:ins>` too. |
+| `<w:pPr><w:rPr>...</w:rPr><w:pStyle .../></w:pPr>` | Schema order violated: `<w:pStyle>` comes first, `<w:rPr>` near the end. |
 | `<w:del><w:r><w:t>text</w:t></w:r></w:del>` | Run-level deletion with `<w:t>` instead of `<w:delText>` -- text not shown as deleted. |
 | `xml:space` missing on `<w:delText>` | Leading/trailing spaces in deleted text are stripped. |
-| Paragraph has `<w:ins>` in `<w:rPr>` but preceding paragraph does NOT have a paragraph-mark deletion marker | Word may show a spurious empty deleted paragraph. Inject `<w:del>` in preceding paragraph's `<w:rPr>` too. |
+| Deletion marker on the preceding paragraph mark when inserting a paragraph | Accepting merges the preceding paragraph into the new one. Mark only the new paragraph. |
 | Reusing `w:id` values | Revision markers collide; some changes may not render correctly. |
 
 ______________________________________________________________________
@@ -211,6 +222,11 @@ When existing text inside `<w:ins w:author="X">` needs to be modified
 a new `<w:ins>` wrapper**. Instead, replace the run span in-place. The
 new runs automatically inherit the surrounding `<w:ins>` context,
 preserving the original author and date without any extra markup.
+
+Use this only when the change belongs to author X (fixing X's own,
+unreviewed draft). When the change must stay visible under another author,
+split X's insertion around a new `<w:ins>` instead -- see
+`references/operations/tracked-changes-advanced.md`.
 
 **Before (hardcoded reference inside existing ins):**
 

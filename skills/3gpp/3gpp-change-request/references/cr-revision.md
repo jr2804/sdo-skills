@@ -97,6 +97,15 @@ properties and not the text. For `S4-261945` (CR 0009, revision 2) that is:
 | `RelatedWis`, `Release`, `Cat`, `ResDate` | `ATIAS_Ph3-MED`, `Rel-20`, `B`, `2026-11-06` | copied or set at creation |
 | `CrTitle` | `CR on Updated test methods for TS 26.260` | CR title |
 
+When the meeting data is carried into the predecessor file instead (its
+cover page kept), check the form of cover line 2 there first. An older cover
+page may render `Location` and `Country` as two fields
+(`Montreal, Canada, ...`); copying the generator's `Location` value
+`Calgary, Canada` into it then shows `Calgary, Canada, Canada`. Split the value
+in that case: `Location` = `Calgary`, `Country` = `Canada`. Update the cached
+field results along with the properties, so the text is right before Word
+refreshes the fields.
+
 Editing a document property is therefore the safe way to correct a field:
 the cover sheet re-renders from the properties. Text typed over a field's
 *result* is lost the next time Word refreshes the fields. Fix values the
@@ -255,6 +264,8 @@ generator for `S4-261945` already carries `0009` and revision `2`; only the
   cover-sheet fields
 - `references/workflow.md` - lifecycle and submission steps
 - `references/cr-checklist.md` - submission and revision checklists
+- `references/cr-revision-marks.md` - authorship of the revision marks in the
+  CR body
 - `3gpp-tdocs` - TDoc numbers and portal metadata fields
 - `3gpp-portal-authentication` - portal login and metadata access
 - `sdo-drafting` - template, front matter and the TDoc revision workflow

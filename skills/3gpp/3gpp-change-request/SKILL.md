@@ -5,7 +5,8 @@ description: Change Request procedure, workflow, status tracking, CR database, r
   submission checklist, CR status codes, CR categories (F / A / TEI), mirror
   CRs, work item codes, the CR databases, how a CR is drafted, agreed and
   approved, or how to revise a CR (CR revision number, "revision of" marker,
-  the portal's "Is revision of:" field and the CR template generator).
+  the portal's "Is revision of:" field and the CR template generator), or who
+  revision marks in a CR are attributed to (agreed state, drafted changes).
 ---
 
 # 3GPP Change Requests
@@ -104,6 +105,9 @@ worked example: `references/cr-revision.md`.
   practices, mirror CR and editorial concepts
 - `references/cr-revision.md` - revising a CR: what changes, the portal
   procedure, the "revision of" marker on the cover sheet, file name
+- `references/cr-revision-marks.md` - authorship of revision marks (agreed
+  state under the meeting name), review of drafted changes, maintenance CR
+  versus new work
 - `references/workflow.md` - CR lifecycle, six-step submission and approval
   process, status transitions, quick checklist
 
