@@ -7,96 +7,85 @@ Portable agent skills for writing standards contributions and deliverables (ETSI
 ### Core Contract
 
 - AGENTS.md files are binding work contracts for their subtrees.
-- Work products, source materials, instructions, records, assets, and durable docs
-  must stay understandable from the nearest applicable AGENTS.md plus every parent
-  AGENTS.md above it.
-- Do not duplicate/repeat rules declared elsewhere in the DOX tree (parent, child,
-  sibling, or `.agents/`). See **DOX authoring** in `.agents/POLICIES.md`.
+- Work products, source materials, records, assets, and durable docs must stay
+  understandable from the nearest applicable AGENTS.md plus every parent above
+  it. Root is the DOX rail (project-wide instructions, global preferences,
+  durable workflow rules, top-level Child DOX Index); children own domain
+  rules and their own index; the closer a doc is to the work, the more specific
+  and practical it must be.
+- Do not duplicate or restate rules declared elsewhere in the DOX tree (parent,
+  child, sibling, or `.agents/`) — reference the canonical home instead. See
+  **DOX authoring** in `.agents/POLICIES.md`.
+- If docs conflict, the closer doc controls local work details, but no child
+  doc may weaken DOX.
 
 ### Read Before Editing
 
+Do not rely on memory — re-read the applicable DOX chain in the current
+session before editing.
+
 1. Read the root AGENTS.md.
 2. Identify every file or folder you expect to touch.
-3. Walk from the repository root to each target path.
-4. Read every AGENTS.md found along each route.
-5. If a parent AGENTS.md lists a child AGENTS.md whose scope contains the path,
-   read that child and continue from there.
-6. Use the nearest AGENTS.md as the local contract and parent docs for repo-wide rules.
-7. If docs conflict, the closer doc controls local work details, but no child doc may
-   weaken DOX.
-
-Do not rely on memory. Re-read the applicable DOX chain in the current session before editing.
+3. Walk from the repository root to each target path and read every AGENTS.md
+   found on each route.
+4. If a parent AGENTS.md lists a child whose scope contains the path, read
+   that child and continue from there.
+5. Use the nearest AGENTS.md as the local contract; parent docs supply
+   repo-wide rules.
 
 ### Update After Editing
 
-Every meaningful change requires a DOX pass before the task is done.
-
-Update the closest owning AGENTS.md when a change affects:
+Every meaningful change requires a DOX pass before the task is done. Update the
+closest owning AGENTS.md when a change affects:
 
 - purpose, scope, ownership, or responsibilities
 - durable structure, contracts, workflows, or operating rules
-- required inputs, outputs, permissions, constraints, side effects, or artifacts
-- user preferences about behavior, communication, process, organization, or quality
+- required inputs, outputs, permissions, constraints, side effects, or
+  artifacts
+- user preferences about behavior, communication, process, organization, or
+  quality
 - AGENTS.md creation, deletion, move, rename, or index contents
 
-Update parent docs when parent-level structure, ownership, workflow, or child index
-changes. Update child docs when parent changes alter local rules. Remove stale or
-contradictory text immediately. Small edits that do not change behavior or contracts
-may leave docs unchanged, but the DOX pass still must happen.
-
-### Hierarchy
-
-- Root AGENTS.md is the DOX rail: project-wide instructions, global preferences,
-  durable workflow rules, and the top-level Child DOX Index.
-- Child AGENTS.md files own domain-specific instructions and their own Child DOX Index.
-- Each parent explains what its direct children cover and what stays owned by the parent.
-- The closer a doc is to the work, the more specific and practical it must be.
+Also update parents when parent-level structure, ownership, workflow, or child
+index changes, and children when parent changes alter local rules. Remove
+stale or contradictory text immediately. Small edits that change no behavior or
+contract may leave docs unchanged, but the DOX pass still must happen.
 
 ### Child Doc Shape
 
-Create a child AGENTS.md when a folder becomes a durable boundary with its own purpose,
-rules, responsibilities, workflow, materials, or quality standards.
+Create a child AGENTS.md when a folder becomes a durable boundary with its own
+purpose, rules, responsibilities, workflow, materials, or quality standards.
 
-- Work Guidance must reflect the current standards of the project or user instructions;
-  if there are no specific standards or instructions yet, leave it empty.
-- Verification must reflect an existing check; if no verification framework exists yet,
-  leave it empty and update it when one exists.
+- Work Guidance must reflect the current standards of the project or user
+  instructions; if there are no specific standards or instructions yet, leave
+  it empty.
+- Verification must reflect an existing check; if no verification framework
+  exists yet, leave it empty and update it when one exists.
 
-Default section order:
-
-1. Purpose
-2. Ownership
-3. Local Contracts
-4. Work Guidance
-5. Verification
-6. Child DOX Index
+Default section order: Purpose, Ownership, Local Contracts, Work Guidance,
+Verification, Child DOX Index.
 
 ### Style
-
-Authoring rules live in **DOX authoring** (`.agents/POLICIES.md`) — tier assignment,
-reference-don't-restate, rule-first rationale, size budget. Apply them on every DOX
-change. Summary:
 
 - A rule lives in the **highest tier that fully applies**; when unsure,
   `.agents/POLICIES.md`.
 - Reference, don't restate — one canonical home, pointer lines everywhere else.
-- Keep docs concise, current, and operational. Document stable contracts, not diary
-  entries.
+- Keep docs concise, current, and operational. Document stable contracts, not
+  diary entries.
 
 ### Closeout
 
 1. Re-check changed paths against the DOX chain.
-2. Update nearest owning docs and any affected parents or children.
-3. Refresh every affected Child DOX Index.
-4. Remove stale or contradictory text.
-5. Run existing verification when relevant.
-6. Report any docs intentionally left unchanged and why.
-7. Delete anything a tool appended after the ⛔ No Patching block.
+2. Refresh every affected Child DOX Index and remove stale or contradictory
+   text.
+3. Run existing verification when relevant.
+4. Report any docs intentionally left unchanged and why.
+5. Delete anything a tool appended after the ⛔ No Patching block.
 
 ### User Preferences
 
-When the user requests a durable behavior change, record it here or in the relevant
-child AGENTS.md.
+When the user requests a durable behavior change, record it here or in the
+relevant child AGENTS.md.
 
 ## State files — `.agents/`, demand-loaded, not always injected
 
@@ -138,32 +127,44 @@ _Always-injected_ — keep minimal. Everything else → `.agents/` files.
   `skills/common/sdo-*`; SDO-specific rules in `skills/<sdo>/<sdo>-*`. A concrete
   skill may name the generic skill it specialises; it must not restate it.
 - **Skill IDs are kebab-case directory names** (`sdo-drafting`,
-  `sdo-docx`) and are globally unique across layers. Renaming an ID is
-  a breaking change — update every consumer profile in the same commit.
+  `sdo-docx`) and are globally unique across layers. Renaming an ID is a
+  breaking change — update every consumer profile in the same commit.
 - **Progressive disclosure, not bigger skills.** Keep `SKILL.md` under 8 KiB;
   push detail into `references/`, payload files into `assets/`, generators into
   `scripts/`. `mise run lint:skills` enforces the budget.
+- **Keep `evals/routing.json` consistent with the tree.** `mise run lint:skills`
+  fails when a case names a skill that does not exist and warns when a skill of
+  the tree is reached by no case — update the cases whenever a `description`
+  changes or skills are merged, moved, or renamed.
 - **Vendored layers are filtered, never hand-trimmed.** Consumers select layers
   through their config `skills.sources` path list; the same skill directory works
   regardless of where it is checked out.
-- **Run `mise run lint:skills` after touching `skills/`** and `mise run all`
-  before pushing.
 - **No inline imports.** Every import sits at the top of its module, in the
   test suite as well. `ruff` enforces it (`PLC0415`) and `pyreorder` hoists
   stragglers. The module order itself is a gate too: `mise run sort` fails when
   `pyreorder check` would change a file. Run `mise run format` to fix.
+- **Focused pytest runs need `--no-cov`.** The 100 % coverage gate baked into
+  `pyproject.toml` `addopts` fails any partial run (`Coverage failure: total of
+  0 is less than fail-under=100`) even when every selected test passes — use
+  `uv run pytest tests/test_package.py --no-cov` (add `-k <name>` to narrow
+  further) and `mise run test` for the real gate.
+- **The version comes from git tags** (`uv-dynamic-versioning`, fallback
+  `0.0.0`); there is no static version to bump. Pushing a `v*` tag triggers
+  `.github/workflows/release.yml` (`uv build` + GitHub release with generated
+  notes).
+- **Run `mise run lint:skills` after touching `skills/`, and `mise run all`
+  before pushing.** `mise run all` includes `format` (it may rewrite files) but
+  not `typecheck` — run `mise run typecheck` yourself on Python changes.
 
 ## Child DOX Index
 
-Start lean. Add child AGENTS.md entries incrementally when boundaries become durable.
+One child doc exists today; add entries incrementally when boundaries become
+durable.
 
-Top-level boundaries in this project:
-
-- `skills/` (the skill tree: `common/`, `etsi/`, `3gpp/`, `itut/` — see `skills/AGENTS.md`)
-- `src/sdo_skills/` (primary package code)
-- `tests/` (test suite)
-- `docs/` (documentation)
-- `.config/mise/` (task/tooling configuration)
+- `skills/AGENTS.md` — the skill tree (`common/`, `etsi/`, `3gpp/`, `itut/`):
+  skill anatomy, layer placement, tool invocation, size budget
+- `src/sdo_skills/`, `tests/`, `docs/`, `.config/mise/` — top-level areas with
+  no child doc; root rules and `.agents/` state files cover them
 
 ## ⛔ No Patching
 
@@ -172,5 +173,4 @@ Tools must not insert, append, or patch text into this file.
 Everything after this section — whatever the author — is invalid. This section
 is the end of the file; delete appended content on sight. If it carries a
 legitimate rule, move it to its owning state file, subtree AGENTS.md, or the
-`Project rules` section above — then delete it (INSTALL.md — Check for tool
-patches).
+`Project rules` section above — then delete it.
