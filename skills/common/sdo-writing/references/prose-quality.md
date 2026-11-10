@@ -1,6 +1,6 @@
 # Prose quality rules
 
-Full text of the 14 core rules and the review checks that go with them.
+Full text of the 16 core rules and the review checks that go with them.
 SKILL.md lists the rules in short form; this file carries the detail.
 
 ## Core rules
@@ -10,7 +10,7 @@ Rules grouped by concern for incremental application:
 - **Content Integrity** (1, 3, 4): anchor to context, be specific, verify facts
 - **Style & Voice** (5, 6, 7, 8): plain words, coherent reference, no performance, calibrated stance
 - **Structure** (2, 9, 11, 12, 13): fit format, show before generalizing, develop thought, choose shape, avoid catalog prose
-- **Revision** (10, 14): watch regularity, re-read and cut
+- **Revision** (10, 14, 15, 16): watch regularity, re-read and cut, fit the length budget, state each point once
 
 ### 1. Anchor to the actual context before drafting
 
@@ -90,6 +90,13 @@ contributing body has asked for a position. In those cases, state the
 recommendation clearly with supporting evidence. Otherwise, remain neutral --
 do not manufacture a view where none is required.
 
+Meeting documents that carry a position (contributions, discussion and
+decision TDocs) exist to move the meeting: state the source's position and
+requested outcome up front, not buried in a late clause, and give it an
+explicit element per SDO convention (proposal, way forward, questions for
+discussion). A delegate skimming the paper must find what is being asked of
+them without reconstructing it.
+
 ### 9. Show concrete things before generalizing
 
 Usually the order should be:
@@ -140,6 +147,21 @@ Re-read as a first-time reader. Cut anything that is auditioning. Cut
 sentences whose only job is to announce the next sentence. Collapse
 paragraphs that restate each other. Most edits should make the text shorter.
 
+### 15. Treat brevity as a domain constraint
+
+Meeting documents are read by delegations under time pressure and discussed
+in a scheduled agenda slot measured in minutes. Comprehensiveness does not
+buy influence; it defers the paper. Fit the agreed target length: cut
+content before relaxing the budget, and cut a point entirely rather than
+compressing it into vagueness.
+
+### 16. State each point exactly once
+
+A statement lives in one place. When a later section needs it again,
+cross-reference it instead of repeating it. Repetition is not emphasis:
+across revisions the copies drift apart, and delegates who notice the drift
+argue about the wording instead of the content.
+
 ______________________________________________________________________
 
 ## Required checks
@@ -161,8 +183,9 @@ pieces, run all checks.
 06. **Repeated-frame check.** If a central metaphor, contrast, or wording
     family appears throughout the piece, decide whether it is a useful
     motif or a too-neat scaffold.
-07. **Stance and voice.** Standards documents aim at neutrality: did you
-    keep it neutral? If a view is called for, is it backed by evidence?
+07. **Stance and voice.** Specification text stays neutral: did you keep it
+    neutral? For a document that carries a position, is the requested
+    outcome stated up front and backed by evidence?
 08. **Developed thought.** For any piece >4 paragraphs, identify one place
     where the prose pauses, doubles back, or notices a concrete detail off
     the main line.
@@ -171,6 +194,9 @@ pieces, run all checks.
     paragraphs map one-to-one with named topics, restructure.
 10. **Over-correction.** Did you add fake-human moves -- typos, slang,
     forced asides -- just to break a pattern?
+11. **Length and single-statement fit.** Against the agreed target length,
+    is the draft within budget? Does each point appear in exactly one
+    place, recalled by cross-reference rather than repetition?
 
 These are tripwires, not goals. Use them to catch genericity, visible
 regularity, and modular structure, not to manufacture variation.

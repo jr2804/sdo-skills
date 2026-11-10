@@ -68,13 +68,15 @@ Full text and the review checks: `references/prose-quality.md`.
 | 5 | Plain words | Repeat the ordinary word; prefer `latency dropped` over `a reduction in latency was observed`. |
 | 6 | Cohere by reference | Use pronouns and continued reference; signpost openers must earn their place. |
 | 7 | Do not perform | No keynote cadence, mission statements, applause-line endings or ceremonial wrap-ups. |
-| 8 | Calibrate stance | Standards text aims at neutrality; state a recommendation only when the document asks for one and evidence supports it. |
+| 8 | Calibrate stance | Specification text stays neutral; meeting documents that carry a position state the source's requested outcome up front, backed by evidence. |
 | 9 | Show before generalizing | Observation first, then where it appeared, then the constraint, then the failure, then the meaning. |
 | 10 | Watch regularity | Three or more repetitions of the same rhetorical move means rewrite at least one. |
 | 11 | Let the thought develop | Long pieces should not read as pre-solved; a concrete example beats an artificial aside. |
 | 12 | Choose structure consciously | Task pages and procedures favour predictable structure; contributions and reports favour a through-line. |
 | 13 | No catalog prose | If paragraphs are names and labels, or each maps to one topic, restructure around one change and its consequences. |
 | 14 | Revise by cutting | Re-read as a first-time reader; cut anything that is auditioning. Most edits shorten the text. |
+| 15 | Treat brevity as a domain constraint | Meeting documents are read under time pressure and discussed in minutes. Fit the agreed target length; cut content before relaxing the budget. |
+| 16 | State each point exactly once | A statement lives in one place; recall by cross-reference. Repeated wording drifts across revisions. |
 
 ## Mechanical quick reference
 
@@ -99,8 +101,8 @@ SDO-agnostic; the per-SDO drafting skill wins on spelling variant.
 
 ## Cross-references
 
-- `references/prose-quality.md` -- the 14 core rules in full, the ten review
-  checks, and the before/after correction table
+- `references/prose-quality.md` -- the 16 core rules in full, the eleven
+  review checks, and the before/after correction table
 - `references/mechanical-conventions.md` -- the 11-section ITU ELSG extract:
   written style, spelling, hyphens, punctuation, adjectives, numbers, proper
   names, capitalization, abbreviations, layout, non-discriminatory language
