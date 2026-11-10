@@ -22,6 +22,9 @@
   -- not around the square brackets.
 - Cross-reference in body text with `{REF ref_<short_name>}`. Never use
   hard-coded plain-text reference numbers.
+- The content of `<citation text>` is SDO-specific -- see the per-SDO
+  drafting skill (`sdo-drafting`, `references/<sdo>/`) for the citation
+  text pattern.
 - See `sdo-docx` for officecli field-code and bookmark injection.
 
 ## Ordering and completeness
